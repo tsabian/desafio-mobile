@@ -3,21 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		184BB26B08A149AA9FA4E95E /* Pods_MoviewareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 540250B9153E435E221AD172 /* Pods_MoviewareTests.framework */; };
-		2851CBA342F729C4E4B443E6 /* Pods_Movieware_MoviewareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C8295AB10AC5615BB1743C /* Pods_Movieware_MoviewareUITests.framework */; };
-		6EE914E988EDC91AF1A70A53 /* Pods_Movieware.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6696208F4243C4884796CDB /* Pods_Movieware.framework */; };
+		B692E3576FFC0FAD330F7E2A /* Pods_TmdbMovieware.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE350C0BC3610D4E86B84ADD /* Pods_TmdbMovieware.framework */; };
 		F1200CED25AAA0BA002A5F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200CEC25AAA0BA002A5F9D /* AppDelegate.swift */; };
 		F1200CEF25AAA0BA002A5F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200CEE25AAA0BA002A5F9D /* SceneDelegate.swift */; };
-		F1200CF125AAA0BA002A5F9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200CF025AAA0BA002A5F9D /* ViewController.swift */; };
-		F1200CF425AAA0BA002A5F9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1200CF225AAA0BA002A5F9D /* Main.storyboard */; };
 		F1200CF625AAA0BB002A5F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1200CF525AAA0BB002A5F9D /* Assets.xcassets */; };
-		F1200CF925AAA0BB002A5F9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1200CF725AAA0BB002A5F9D /* LaunchScreen.storyboard */; };
+		F1200CF925AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1200CF725AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard */; };
 		F1200D0425AAA0BC002A5F9D /* MoviewareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200D0325AAA0BC002A5F9D /* MoviewareTests.swift */; };
 		F1200D0F25AAA0BC002A5F9D /* MoviewareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200D0E25AAA0BC002A5F9D /* MoviewareUITests.swift */; };
+		F1462E6525AAEA5C004808A7 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1462E6425AAEA5C004808A7 /* CoordinatorProtocol.swift */; };
+		F1462E7425AAEB59004808A7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1462E7325AAEB59004808A7 /* MainCoordinator.swift */; };
+		F1F74AD525AAEFBB002D3843 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F74AD425AAEFBB002D3843 /* HomeViewModel.swift */; };
+		F1F74AE425AAF001002D3843 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F74AE225AAF001002D3843 /* HomeViewController.swift */; };
+		F1F74AE525AAF001002D3843 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F74AE325AAF001002D3843 /* HomeViewController.xib */; };
+		F1F74AEA25AAF01A002D3843 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F74AE925AAF01A002D3843 /* HomeViewModelProtocol.swift */; };
+		FF41DF456220B7D64FAC5C2D /* Pods_TmdbMovieware_MoviewareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D001B1D147509CED0614C3 /* Pods_TmdbMovieware_MoviewareUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,21 +42,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16C8295AB10AC5615BB1743C /* Pods_Movieware_MoviewareUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movieware_MoviewareUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CEE7CCF76FB01CC56873877 /* Pods-Movieware-MoviewareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movieware-MoviewareUITests.debug.xcconfig"; path = "Target Support Files/Pods-Movieware-MoviewareUITests/Pods-Movieware-MoviewareUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3225AD6A9E735235E71FC2F3 /* Pods-MoviewareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewareTests.debug.xcconfig"; path = "Target Support Files/Pods-MoviewareTests/Pods-MoviewareTests.debug.xcconfig"; sourceTree = "<group>"; };
-		339C374C140F08887B0A6185 /* Pods-Movieware.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movieware.debug.xcconfig"; path = "Target Support Files/Pods-Movieware/Pods-Movieware.debug.xcconfig"; sourceTree = "<group>"; };
+		2D553AA304F9478D8420A823 /* Pods-TmdbMovieware.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware.dev.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware/Pods-TmdbMovieware.dev.xcconfig"; sourceTree = "<group>"; };
+		3DFD2F58732BF5F3E09F1D0C /* Pods-MoviewareTests.hml.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewareTests.hml.xcconfig"; path = "Target Support Files/Pods-MoviewareTests/Pods-MoviewareTests.hml.xcconfig"; sourceTree = "<group>"; };
+		4B9A230963B957826E0877CD /* Pods-MoviewareTests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewareTests.dev.xcconfig"; path = "Target Support Files/Pods-MoviewareTests/Pods-MoviewareTests.dev.xcconfig"; sourceTree = "<group>"; };
+		5205615C2FB22F32A6B0B552 /* Pods-TmdbMovieware.hml.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware.hml.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware/Pods-TmdbMovieware.hml.xcconfig"; sourceTree = "<group>"; };
 		540250B9153E435E221AD172 /* Pods_MoviewareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviewareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7202DF024A5EB2FF7806ABC5 /* Pods-Movieware.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movieware.release.xcconfig"; path = "Target Support Files/Pods-Movieware/Pods-Movieware.release.xcconfig"; sourceTree = "<group>"; };
-		83DA48581C479928A835F580 /* Pods-Movieware-MoviewareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movieware-MoviewareUITests.release.xcconfig"; path = "Target Support Files/Pods-Movieware-MoviewareUITests/Pods-Movieware-MoviewareUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D6696208F4243C4884796CDB /* Pods_Movieware.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movieware.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1200CE925AAA0BA002A5F9D /* Movieware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movieware.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63D001B1D147509CED0614C3 /* Pods_TmdbMovieware_MoviewareUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TmdbMovieware_MoviewareUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67C868CF80531660098E06C7 /* Pods-TmdbMovieware-MoviewareUITests.hml.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware-MoviewareUITests.hml.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware-MoviewareUITests/Pods-TmdbMovieware-MoviewareUITests.hml.xcconfig"; sourceTree = "<group>"; };
+		8F91B3613EA6600C2B56D6BD /* Pods-TmdbMovieware-MoviewareUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware-MoviewareUITests.dev.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware-MoviewareUITests/Pods-TmdbMovieware-MoviewareUITests.dev.xcconfig"; sourceTree = "<group>"; };
+		93FEB315BF2513ECCCAB6FC2 /* Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware-MoviewareUITests/Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig"; sourceTree = "<group>"; };
+		AE350C0BC3610D4E86B84ADD /* Pods_TmdbMovieware.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TmdbMovieware.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8DE56139C6F9DB62B2CA596 /* Pods-TmdbMovieware.prd.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware.prd.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware/Pods-TmdbMovieware.prd.xcconfig"; sourceTree = "<group>"; };
+		F1200CE925AAA0BA002A5F9D /* TmdbMovieware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TmdbMovieware.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1200CEC25AAA0BA002A5F9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1200CEE25AAA0BA002A5F9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F1200CF025AAA0BA002A5F9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F1200CF325AAA0BA002A5F9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1200CF525AAA0BB002A5F9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F1200CF825AAA0BB002A5F9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F1200CF825AAA0BB002A5F9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TmdbMoviewareLaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1200CFA25AAA0BB002A5F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1200CFF25AAA0BC002A5F9D /* MoviewareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviewareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1200D0325AAA0BC002A5F9D /* MoviewareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewareTests.swift; sourceTree = "<group>"; };
@@ -60,7 +65,16 @@
 		F1200D0A25AAA0BC002A5F9D /* MoviewareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviewareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1200D0E25AAA0BC002A5F9D /* MoviewareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewareUITests.swift; sourceTree = "<group>"; };
 		F1200D1025AAA0BC002A5F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA8509FEABB170DC324CBEA4 /* Pods-MoviewareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewareTests.release.xcconfig"; path = "Target Support Files/Pods-MoviewareTests/Pods-MoviewareTests.release.xcconfig"; sourceTree = "<group>"; };
+		F1462E6425AAEA5C004808A7 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		F1462E7325AAEB59004808A7 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F198FEE825AAC21A00327990 /* TmdbMovieware-dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "TmdbMovieware-dev.xcconfig"; sourceTree = "<group>"; };
+		F198FEE925AAC22C00327990 /* TmdbMovieware-hml.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "TmdbMovieware-hml.xcconfig"; sourceTree = "<group>"; };
+		F198FEEA25AAC23C00327990 /* TmdbMovieware-prd.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "TmdbMovieware-prd.xcconfig"; sourceTree = "<group>"; };
+		F1F74AD425AAEFBB002D3843 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F1F74AE225AAF001002D3843 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F1F74AE325AAF001002D3843 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		F1F74AE925AAF01A002D3843 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		FA059EA132200E39E8FFE01A /* Pods-MoviewareTests.prd.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewareTests.prd.xcconfig"; path = "Target Support Files/Pods-MoviewareTests/Pods-MoviewareTests.prd.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EE914E988EDC91AF1A70A53 /* Pods_Movieware.framework in Frameworks */,
+				B692E3576FFC0FAD330F7E2A /* Pods_TmdbMovieware.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2851CBA342F729C4E4B443E6 /* Pods_Movieware_MoviewareUITests.framework in Frameworks */,
+				FF41DF456220B7D64FAC5C2D /* Pods_TmdbMovieware_MoviewareUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +108,9 @@
 		B731525D670213D38091A831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D6696208F4243C4884796CDB /* Pods_Movieware.framework */,
-				16C8295AB10AC5615BB1743C /* Pods_Movieware_MoviewareUITests.framework */,
 				540250B9153E435E221AD172 /* Pods_MoviewareTests.framework */,
+				AE350C0BC3610D4E86B84ADD /* Pods_TmdbMovieware.framework */,
+				63D001B1D147509CED0614C3 /* Pods_TmdbMovieware_MoviewareUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -104,51 +118,53 @@
 		B81DDC9CE161539ECA12E3DD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				339C374C140F08887B0A6185 /* Pods-Movieware.debug.xcconfig */,
-				7202DF024A5EB2FF7806ABC5 /* Pods-Movieware.release.xcconfig */,
-				2CEE7CCF76FB01CC56873877 /* Pods-Movieware-MoviewareUITests.debug.xcconfig */,
-				83DA48581C479928A835F580 /* Pods-Movieware-MoviewareUITests.release.xcconfig */,
-				3225AD6A9E735235E71FC2F3 /* Pods-MoviewareTests.debug.xcconfig */,
-				FA8509FEABB170DC324CBEA4 /* Pods-MoviewareTests.release.xcconfig */,
+				4B9A230963B957826E0877CD /* Pods-MoviewareTests.dev.xcconfig */,
+				3DFD2F58732BF5F3E09F1D0C /* Pods-MoviewareTests.hml.xcconfig */,
+				FA059EA132200E39E8FFE01A /* Pods-MoviewareTests.prd.xcconfig */,
+				2D553AA304F9478D8420A823 /* Pods-TmdbMovieware.dev.xcconfig */,
+				5205615C2FB22F32A6B0B552 /* Pods-TmdbMovieware.hml.xcconfig */,
+				B8DE56139C6F9DB62B2CA596 /* Pods-TmdbMovieware.prd.xcconfig */,
+				8F91B3613EA6600C2B56D6BD /* Pods-TmdbMovieware-MoviewareUITests.dev.xcconfig */,
+				67C868CF80531660098E06C7 /* Pods-TmdbMovieware-MoviewareUITests.hml.xcconfig */,
+				93FEB315BF2513ECCCAB6FC2 /* Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		F1200CE025AAA0BA002A5F9D = {
 			isa = PBXGroup;
 			children = (
-				F1200CEB25AAA0BA002A5F9D /* Movieware */,
+				F1200CEB25AAA0BA002A5F9D /* Shared */,
 				F1200D0225AAA0BC002A5F9D /* MoviewareTests */,
 				F1200D0D25AAA0BC002A5F9D /* MoviewareUITests */,
 				F1200CEA25AAA0BA002A5F9D /* Products */,
 				B81DDC9CE161539ECA12E3DD /* Pods */,
 				B731525D670213D38091A831 /* Frameworks */,
+				F198FEE325AAA56200327990 /* TmdbMovieware */,
 			);
 			sourceTree = "<group>";
 		};
 		F1200CEA25AAA0BA002A5F9D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1200CE925AAA0BA002A5F9D /* Movieware.app */,
+				F1200CE925AAA0BA002A5F9D /* TmdbMovieware.app */,
 				F1200CFF25AAA0BC002A5F9D /* MoviewareTests.xctest */,
 				F1200D0A25AAA0BC002A5F9D /* MoviewareUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F1200CEB25AAA0BA002A5F9D /* Movieware */ = {
+		F1200CEB25AAA0BA002A5F9D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				F1200CEC25AAA0BA002A5F9D /* AppDelegate.swift */,
 				F1200CEE25AAA0BA002A5F9D /* SceneDelegate.swift */,
-				F1200CF025AAA0BA002A5F9D /* ViewController.swift */,
-				F1200CF225AAA0BA002A5F9D /* Main.storyboard */,
-				F1200CF525AAA0BB002A5F9D /* Assets.xcassets */,
-				F1200CF725AAA0BB002A5F9D /* LaunchScreen.storyboard */,
-				F1200CFA25AAA0BB002A5F9D /* Info.plist */,
+				F1200CEC25AAA0BA002A5F9D /* AppDelegate.swift */,
+				F1462E6225AAEA21004808A7 /* Coordinators */,
+				F1462E6325AAEA34004808A7 /* Models */,
+				F198FEE625AAC1E100327990 /* Modules */,
+				F198FEE425AAA5C700327990 /* SupportingFiles */,
 			);
-			path = Movieware;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		F1200D0225AAA0BC002A5F9D /* MoviewareTests */ = {
@@ -169,25 +185,90 @@
 			path = MoviewareUITests;
 			sourceTree = "<group>";
 		};
+		F1462E6225AAEA21004808A7 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				F1462E6425AAEA5C004808A7 /* CoordinatorProtocol.swift */,
+				F1462E7325AAEB59004808A7 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		F1462E6325AAEA34004808A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F198FEE325AAA56200327990 /* TmdbMovieware */ = {
+			isa = PBXGroup;
+			children = (
+				F1200CF725AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard */,
+				F198FEE725AAC1FC00327990 /* Config */,
+			);
+			path = TmdbMovieware;
+			sourceTree = "<group>";
+		};
+		F198FEE425AAA5C700327990 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F1200CF525AAA0BB002A5F9D /* Assets.xcassets */,
+				F1200CFA25AAA0BB002A5F9D /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F198FEE625AAC1E100327990 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F198FEEB25AAC25100327990 /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F198FEE725AAC1FC00327990 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F198FEE825AAC21A00327990 /* TmdbMovieware-dev.xcconfig */,
+				F198FEE925AAC22C00327990 /* TmdbMovieware-hml.xcconfig */,
+				F198FEEA25AAC23C00327990 /* TmdbMovieware-prd.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		F198FEEB25AAC25100327990 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F1F74AD425AAEFBB002D3843 /* HomeViewModel.swift */,
+				F1F74AE925AAF01A002D3843 /* HomeViewModelProtocol.swift */,
+				F1F74AE225AAF001002D3843 /* HomeViewController.swift */,
+				F1F74AE325AAF001002D3843 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1200CE825AAA0BA002A5F9D /* Movieware */ = {
+		F1200CE825AAA0BA002A5F9D /* TmdbMovieware */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1200D1325AAA0BC002A5F9D /* Build configuration list for PBXNativeTarget "Movieware" */;
+			buildConfigurationList = F1200D1325AAA0BC002A5F9D /* Build configuration list for PBXNativeTarget "TmdbMovieware" */;
 			buildPhases = (
 				21C078F719BD807D1D5BBBA6 /* [CP] Check Pods Manifest.lock */,
 				F1200CE525AAA0BA002A5F9D /* Sources */,
 				F1200CE625AAA0BA002A5F9D /* Frameworks */,
 				F1200CE725AAA0BA002A5F9D /* Resources */,
+				E6429B1BF6647C27620EFA41 /* [CP] Embed Pods Frameworks */,
+				F1828D2E25AADFDA0083D8C0 /* [SwiftLint] Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Movieware;
+			name = TmdbMovieware;
 			productName = Movieware;
-			productReference = F1200CE925AAA0BA002A5F9D /* Movieware.app */;
+			productReference = F1200CE925AAA0BA002A5F9D /* TmdbMovieware.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F1200CFE25AAA0BC002A5F9D /* MoviewareTests */ = {
@@ -217,6 +298,7 @@
 				F1200D0625AAA0BC002A5F9D /* Sources */,
 				F1200D0725AAA0BC002A5F9D /* Frameworks */,
 				F1200D0825AAA0BC002A5F9D /* Resources */,
+				5E69FB9510631CFAE4380C70 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,7 +345,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1200CE825AAA0BA002A5F9D /* Movieware */,
+				F1200CE825AAA0BA002A5F9D /* TmdbMovieware */,
 				F1200CFE25AAA0BC002A5F9D /* MoviewareTests */,
 				F1200D0925AAA0BC002A5F9D /* MoviewareUITests */,
 			);
@@ -275,9 +357,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1200CF925AAA0BB002A5F9D /* LaunchScreen.storyboard in Resources */,
+				F1200CF925AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard in Resources */,
 				F1200CF625AAA0BB002A5F9D /* Assets.xcassets in Resources */,
-				F1200CF425AAA0BA002A5F9D /* Main.storyboard in Resources */,
+				F1F74AE525AAF001002D3843 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,11 +417,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Movieware-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TmdbMovieware-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E69FB9510631CFAE4380C70 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TmdbMovieware-MoviewareUITests/Pods-TmdbMovieware-MoviewareUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TmdbMovieware-MoviewareUITests/Pods-TmdbMovieware-MoviewareUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TmdbMovieware-MoviewareUITests/Pods-TmdbMovieware-MoviewareUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6E08B2A16F7E9C64265F1DEA /* [CP] Check Pods Manifest.lock */ = {
@@ -357,12 +456,47 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Movieware-MoviewareUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TmdbMovieware-MoviewareUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E6429B1BF6647C27620EFA41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TmdbMovieware/Pods-TmdbMovieware-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TmdbMovieware/Pods-TmdbMovieware-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TmdbMovieware/Pods-TmdbMovieware-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1828D2E25AADFDA0083D8C0 /* [SwiftLint] Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[SwiftLint] Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -371,9 +505,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1200CF125AAA0BA002A5F9D /* ViewController.swift in Sources */,
+				F1F74AD525AAEFBB002D3843 /* HomeViewModel.swift in Sources */,
 				F1200CED25AAA0BA002A5F9D /* AppDelegate.swift in Sources */,
+				F1462E6525AAEA5C004808A7 /* CoordinatorProtocol.swift in Sources */,
+				F1F74AEA25AAF01A002D3843 /* HomeViewModelProtocol.swift in Sources */,
+				F1462E7425AAEB59004808A7 /* MainCoordinator.swift in Sources */,
 				F1200CEF25AAA0BA002A5F9D /* SceneDelegate.swift in Sources */,
+				F1F74AE425AAF001002D3843 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,39 +536,32 @@
 /* Begin PBXTargetDependency section */
 		F1200D0125AAA0BC002A5F9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1200CE825AAA0BA002A5F9D /* Movieware */;
+			target = F1200CE825AAA0BA002A5F9D /* TmdbMovieware */;
 			targetProxy = F1200D0025AAA0BC002A5F9D /* PBXContainerItemProxy */;
 		};
 		F1200D0C25AAA0BC002A5F9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1200CE825AAA0BA002A5F9D /* Movieware */;
+			target = F1200CE825AAA0BA002A5F9D /* TmdbMovieware */;
 			targetProxy = F1200D0B25AAA0BC002A5F9D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F1200CF225AAA0BA002A5F9D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F1200CF325AAA0BA002A5F9D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F1200CF725AAA0BB002A5F9D /* LaunchScreen.storyboard */ = {
+		F1200CF725AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F1200CF825AAA0BB002A5F9D /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = TmdbMoviewareLaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F1200D1125AAA0BC002A5F9D /* Debug */ = {
+		F1200D1125AAA0BC002A5F9D /* dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -487,11 +618,12 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = dev;
 		};
-		F1200D1225AAA0BC002A5F9D /* Release */ = {
+		F1200D1225AAA0BC002A5F9D /* prd */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -542,55 +674,57 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = prd;
 		};
-		F1200D1425AAA0BC002A5F9D /* Debug */ = {
+		F1200D1425AAA0BC002A5F9D /* dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 339C374C140F08887B0A6185 /* Pods-Movieware.debug.xcconfig */;
+			baseConfigurationReference = F198FEE825AAC21A00327990 /* TmdbMovieware-dev.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z6MUH3V2QB;
-				INFOPLIST_FILE = Movieware/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Shared/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.bitxlabs.movieware;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = dev;
 		};
-		F1200D1525AAA0BC002A5F9D /* Release */ = {
+		F1200D1525AAA0BC002A5F9D /* prd */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7202DF024A5EB2FF7806ABC5 /* Pods-Movieware.release.xcconfig */;
+			baseConfigurationReference = F198FEEA25AAC23C00327990 /* TmdbMovieware-prd.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z6MUH3V2QB;
-				INFOPLIST_FILE = Movieware/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Shared/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.bitxlabs.movieware;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = prd;
 		};
-		F1200D1725AAA0BC002A5F9D /* Debug */ = {
+		F1200D1725AAA0BC002A5F9D /* dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3225AD6A9E735235E71FC2F3 /* Pods-MoviewareTests.debug.xcconfig */;
+			baseConfigurationReference = 4B9A230963B957826E0877CD /* Pods-MoviewareTests.dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z6MUH3V2QB;
@@ -607,13 +741,13 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movieware.app/Movieware";
 			};
-			name = Debug;
+			name = dev;
 		};
-		F1200D1825AAA0BC002A5F9D /* Release */ = {
+		F1200D1825AAA0BC002A5F9D /* prd */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA8509FEABB170DC324CBEA4 /* Pods-MoviewareTests.release.xcconfig */;
+			baseConfigurationReference = FA059EA132200E39E8FFE01A /* Pods-MoviewareTests.prd.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z6MUH3V2QB;
@@ -630,13 +764,13 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movieware.app/Movieware";
 			};
-			name = Release;
+			name = prd;
 		};
-		F1200D1A25AAA0BC002A5F9D /* Debug */ = {
+		F1200D1A25AAA0BC002A5F9D /* dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CEE7CCF76FB01CC56873877 /* Pods-Movieware-MoviewareUITests.debug.xcconfig */;
+			baseConfigurationReference = 8F91B3613EA6600C2B56D6BD /* Pods-TmdbMovieware-MoviewareUITests.dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z6MUH3V2QB;
 				INFOPLIST_FILE = MoviewareUITests/Info.plist;
@@ -651,13 +785,13 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Movieware;
 			};
-			name = Debug;
+			name = dev;
 		};
-		F1200D1B25AAA0BC002A5F9D /* Release */ = {
+		F1200D1B25AAA0BC002A5F9D /* prd */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83DA48581C479928A835F580 /* Pods-Movieware-MoviewareUITests.release.xcconfig */;
+			baseConfigurationReference = 93FEB315BF2513ECCCAB6FC2 /* Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z6MUH3V2QB;
 				INFOPLIST_FILE = MoviewareUITests/Info.plist;
@@ -672,7 +806,135 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Movieware;
 			};
-			name = Release;
+			name = prd;
+		};
+		F198FEF325AAC33500327990 /* hml */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = hml;
+		};
+		F198FEF425AAC33500327990 /* hml */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F198FEE925AAC22C00327990 /* TmdbMovieware-hml.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6MUH3V2QB;
+				INFOPLIST_FILE = "$(SRCROOT)/Shared/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = hml;
+		};
+		F198FEF525AAC33500327990 /* hml */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DFD2F58732BF5F3E09F1D0C /* Pods-MoviewareTests.hml.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6MUH3V2QB;
+				INFOPLIST_FILE = MoviewareTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.bitxlabs.movieware.MoviewareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movieware.app/Movieware";
+			};
+			name = hml;
+		};
+		F198FEF625AAC33500327990 /* hml */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67C868CF80531660098E06C7 /* Pods-TmdbMovieware-MoviewareUITests.hml.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6MUH3V2QB;
+				INFOPLIST_FILE = MoviewareUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.bitxlabs.movieware.MoviewareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Movieware;
+			};
+			name = hml;
 		};
 /* End XCBuildConfiguration section */
 
@@ -680,38 +942,42 @@
 		F1200CE425AAA0BA002A5F9D /* Build configuration list for PBXProject "Movieware" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1200D1125AAA0BC002A5F9D /* Debug */,
-				F1200D1225AAA0BC002A5F9D /* Release */,
+				F1200D1125AAA0BC002A5F9D /* dev */,
+				F198FEF325AAC33500327990 /* hml */,
+				F1200D1225AAA0BC002A5F9D /* prd */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = prd;
 		};
-		F1200D1325AAA0BC002A5F9D /* Build configuration list for PBXNativeTarget "Movieware" */ = {
+		F1200D1325AAA0BC002A5F9D /* Build configuration list for PBXNativeTarget "TmdbMovieware" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1200D1425AAA0BC002A5F9D /* Debug */,
-				F1200D1525AAA0BC002A5F9D /* Release */,
+				F1200D1425AAA0BC002A5F9D /* dev */,
+				F198FEF425AAC33500327990 /* hml */,
+				F1200D1525AAA0BC002A5F9D /* prd */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = prd;
 		};
 		F1200D1625AAA0BC002A5F9D /* Build configuration list for PBXNativeTarget "MoviewareTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1200D1725AAA0BC002A5F9D /* Debug */,
-				F1200D1825AAA0BC002A5F9D /* Release */,
+				F1200D1725AAA0BC002A5F9D /* dev */,
+				F198FEF525AAC33500327990 /* hml */,
+				F1200D1825AAA0BC002A5F9D /* prd */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = prd;
 		};
 		F1200D1925AAA0BC002A5F9D /* Build configuration list for PBXNativeTarget "MoviewareUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1200D1A25AAA0BC002A5F9D /* Debug */,
-				F1200D1B25AAA0BC002A5F9D /* Release */,
+				F1200D1A25AAA0BC002A5F9D /* dev */,
+				F198FEF625AAC33500327990 /* hml */,
+				F1200D1B25AAA0BC002A5F9D /* prd */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = prd;
 		};
 /* End XCConfigurationList section */
 	};

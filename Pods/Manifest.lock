@@ -1,3 +1,28 @@
-PODFILE CHECKSUM: 4bc042c2f9d5a714cd6d35520c2816a0dcc83bac
+PODS:
+  - Alamofire (5.4.0)
+  - atlantis-proxyman (1.4.3)
+  - FLEX (4.2.2)
+  - SwiftLint (0.42.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - atlantis-proxyman (~> 1.4.3)
+  - FLEX
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - atlantis-proxyman
+    - FLEX
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  atlantis-proxyman: e6d4cbe672fb4b886a75cca066cb1a6c44ad56b1
+  FLEX: dbd68ae9c67fcc872c79c9e5a728f38243dfaa78
+  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
+
+PODFILE CHECKSUM: 2a87d8172c63b1dae237ffb5959c5f5a6178aa77
 
 COCOAPODS: 1.10.0

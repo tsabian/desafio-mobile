@@ -1,0 +1,19 @@
+//
+//  prd.xcconfig
+//  Movieware
+//
+//  Created by Tiago Oliveira on 10/01/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-MoviewareTests/Pods-MoviewareTests.prd.xcconfig"
+
+HOST_URL                            = https:/()$/api.themoviedb.org/3
+API_KEY                             = 37794183c114c51c1346adb19671a804
+
+APP_NAME                            = TMDB Moviware
+APP_BUNDLE_ID                       = br.com.bitxlabs.movieware.tmdbmovieware
+APP_LAUNCH_SCREEN                   = TmdbMoviewareLaunchScreen
+BUILD_NUMBER                        = 1
