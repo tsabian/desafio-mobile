@@ -1,0 +1,4245 @@
+{
+	"info": {
+		"_postman_id": "1c49ce55-04e7-40f8-aa82-caea314da969",
+		"name": "API3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "/account/{account_id}/favorite/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/account/{{account_id}}/favorite/movies?api_key={{api_key}}&language={{language}}&session_id={{session_id}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"account",
+								"{{account_id}}",
+								"favorite",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								},
+								{
+									"key": "session_id",
+									"value": "{{session_id}}"
+								},
+								{
+									"key": "sort_by",
+									"value": null,
+									"description": "Allowed Values: created_at.asc, created_at.desc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get the list of your favorite movies."
+					},
+					"response": []
+				},
+				{
+					"name": "/account/{account_id}/rated/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/account/{{account_id}}/rated/movies?api_key={{api_key}}&language={{language}}&session_id={{session_id}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"account",
+								"{{account_id}}",
+								"rated",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								},
+								{
+									"key": "session_id",
+									"value": "{{session_id}}"
+								},
+								{
+									"key": "sort_by",
+									"value": null,
+									"description": "Allowed Values: created_at.asc, created_at.desc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get a list of all the movies you have rated."
+					},
+					"response": []
+				},
+				{
+					"name": "/account/{account_id}/watchlist/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/account/{{account_id}}/watchlist/movies?api_key={{api_key}}&session_id={{session_id}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"account",
+								"{{account_id}}",
+								"watchlist",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "session_id",
+									"value": "{{session_id}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								},
+								{
+									"key": "sort_by",
+									"value": "created_at.desc",
+									"description": "Allowed Values: created_at.asc, created_at.desc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get a list of all the movies you have added to your watchlist.\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "/account/{account_id}/favorite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Processed successfully\", () => {",
+									"    const result = pm.response.json();",
+									"    pm.expect(result.status_message).to.eq(\"Success.\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"media_type\": \"movie\",\n    \"media_id\": {{movie_id}},\n    \"favorite\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{imdbURL}}/account/{{account_id}}/favorite?api_key={{api_key}}&session_id={{session_id}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"account",
+								"{{account_id}}",
+								"favorite"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "session_id",
+									"value": "{{session_id}}"
+								}
+							]
+						},
+						"description": "This method allows you to mark a movie or TV show as a favorite item."
+					},
+					"response": [
+						{
+							"name": "400 - Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{imdbURL}}/account/{{account_id}}/favorite?api_key={{api_key}}&session_id={{session_id}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"account",
+										"{{account_id}}",
+										"favorite"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "session_id",
+											"value": "{{session_id}}"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "111"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 23:38:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "cache-control",
+									"value": "public, max-age=0"
+								},
+								{
+									"key": "last-modified",
+									"value": "Sat, 09 Jan 2021 23:38:25 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 fb0e71e586369a585a71bf96f3ce2856.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "N8S3iaIvvyc2dIHAxG8b4XPWbB2X0Pp43OcvaM5hdjHSeUhU33c6gQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"status_code\": 5,\n    \"status_message\": \"Invalid parameters: Your request parameters are incorrect.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/account/{account_id}/watchlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Processed successfully\", () => {",
+									"    const result = pm.response.json();",
+									"    pm.expect(result.status_message).to.eq(\"Success.\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"media_type\": \"movie\",\n    \"media_id\": {{movie_id}},\n    \"watchlist\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{imdbURL}}/account/{{account_id}}/watchlist?api_key={{api_key}}&session_id={{session_id}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"account",
+								"{{account_id}}",
+								"watchlist"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "session_id",
+									"value": "{{session_id}}"
+								}
+							]
+						},
+						"description": "Add a movie or TV show to your watchlist."
+					},
+					"response": []
+				},
+				{
+					"name": "/account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    ",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    const result = pm.response.json();",
+									"    if (result) {",
+									"",
+									"        pm.expect(result, \"Id chould not be null or empty\").to.have.property(\"id\");",
+									"        pm.expect(result, \"include_adult chould not be null or empty\").to.have.property(\"include_adult\");",
+									"        pm.expect(result, \"iso_3166_1 chould not be null or empty\").to.have.property(\"iso_3166_1\");",
+									"",
+									"        pm.environment.set(\"account_id\", result.id);",
+									"        pm.environment.set(\"account_include_adult\", result.include_adult);",
+									"        pm.environment.set(\"region\", result.iso_3166_1);",
+									"",
+									"    }",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/account?api_key={{api_key}}&session_id={{session_id}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"account"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "session_id",
+									"value": "{{session_id}}"
+								}
+							]
+						},
+						"description": "Get your account details."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/account?api_key={{api_key}}&session_id={{session_id}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"account"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "session_id",
+											"value": "{{session_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "195"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 23:28:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a7b3755b9092c9205e0bd8705757b41e\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Sat, 09 Jan 2021 23:28:32 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 fb8b139e9fbca049551cc54f2dd63574.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "ug2VkSgS816WGxfLYAyEOMSHt42HmMsFnrI5abB62B-VbLcUn2Ky0A=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"avatar\": {\n        \"gravatar\": {\n            \"hash\": \"713240000bd555428dcaccc1fcd17b4f\"\n        },\n        \"tmdb\": {\n            \"avatar_path\": null\n        }\n    },\n    \"id\": 8877758,\n    \"iso_639_1\": \"en\",\n    \"iso_3166_1\": \"BR\",\n    \"name\": \"\",\n    \"include_adult\": true,\n    \"username\": \"tsabian\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "/authentication/guest_session/new",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    ",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    if (pm.response.code == 200) {",
+									"",
+									"        var result = pm.response.json();",
+									"        if (result.success) {",
+									"            pm.environment.set(\"guest_session_id\", result.guest_session_id);",
+									"        }",
+									"    }",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/authentication/guest_session/new?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"authentication",
+								"guest_session",
+								"new"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/authentication/guest_session/new?api_key={{api_key}}1",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"guest_session",
+										"new"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 18:20:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bebd7c0999a5119fdc6f35574da787ed\""
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Sat, 09 Jan 2021 18:20:42 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 c7b903a344ef1d9cbce9926c4b40749e.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "CPrQwHhW2qym37AXQSYGSv_iqqGttciN4y6ohHL6Q6emwn_L_w-4KA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"guest_session_id\": \"2146341da0d3e11a51b0923f8a035481\",\n    \"expires_at\": \"2021-01-10 18:20:42 UTC\"\n}"
+						},
+						{
+							"name": "401 - Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/authentication/guest_session/new?api_key={{api_key}}1",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"guest_session",
+										"new"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}1"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 18:21:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=300"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 c7b903a344ef1d9cbce9926c4b40749e.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "goat7Qv1DoSLyX3IO4mDegQR-7MkCcspzIEgOsQS5l7szeofiwFbXQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 7,\n    \"status_message\": \"Invalid API key: You must be granted a valid key.\",\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "/authentication/token/new",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    if (pm.response.code == 200) {",
+									"        const result = pm.response.json();",
+									"        if (result.success) {",
+									"            pm.environment.set(\"request_token\", result.request_token);",
+									"            requestAccess();",
+									"        }",
+									"    }",
+									"});",
+									"",
+									"function requestAccess() {",
+									"    const request_token = pm.environment.get(\"request_token\")",
+									"    const requestURL = `https://www.themoviedb.org/authenticate/${request_token}?redirect_to=http://mymovies.app/approved`;",
+									"    // console.log(requestURL);",
+									"    pm.sendRequest(requestURL, (err, response) => {",
+									"        if (err) {",
+									"            return;",
+									"        }",
+									"        if (response) {",
+									"            pm.visualizer.set(response.text());",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/authentication/token/new?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"authentication",
+								"token",
+								"new"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Create a temporary request token that can be used to validate a TMDb user login. More details about how this works can be found ."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/authentication/token/new?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"token",
+										"new"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "114"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 19:01:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0"
+								},
+								{
+									"key": "authentication-callback",
+									"value": "http://www.themoviedb.org/authenticate/358fda3350f9d9f6250668cc2cb0f23fccc7157d"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c66b9eb0e3ed11f6812af3be5ba967d3\""
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Sat, 09 Jan 2021 19:01:05 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 a184ee60e643307149317a7091a59b04.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU3-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "tHHsI8R6I_YoQWcZTbyn4asM2_vLhYE8Fe3Cf9lPK1_G2uUGFjgrCA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"expires_at\": \"2021-01-09 20:01:05 UTC\",\n    \"request_token\": \"358fda3350f9d9f6250668cc2cb0f23fccc7157d\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/authentication/session/new",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    if (pm.response.code == 200) {",
+									"        const result = pm.response.json();",
+									"        if (result.success) { ",
+									"            pm.environment.set(\"session_id\", result.session_id);",
+									"        }",
+									"    }",
+									"});",
+									" if (pm.response.code == 401) {",
+									"        const request_token = pm.environment.get(\"request_token\");",
+									"        const requestURL = `https://www.themoviedb.org/authenticate/${request_token}?redirect_to=http://mymovies.app/approved`;",
+									"        console.log(`chould be aprove on link ${requestURL}`);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"request_token\": \"{{request_token}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{imdbURL}}/authentication/session/new?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"authentication",
+								"session",
+								"new"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "You can use this method to create a fully valid session ID once a user has validated the request token. More information about how this works can be found ."
+					},
+					"response": [
+						{
+							"name": "401 - Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"request_token\": \"{{request_token}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{imdbURL}}/authentication/session/new?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"session",
+										"new"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 19:06:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "cache-control",
+									"value": "public, max-age=0"
+								},
+								{
+									"key": "last-modified",
+									"value": "Sat, 09 Jan 2021 19:06:10 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 a184ee60e643307149317a7091a59b04.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU3-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "y-Rg4lbYzSVYTja-4xlDzrXJb6WJf-btwh_CjCUg2OBCGb5kDZly4Q=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"failure\": true,\n    \"status_code\": 17,\n    \"status_message\": \"Session denied.\"\n}"
+						},
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"request_token\": \"{{request_token}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{imdbURL}}/authentication/session/new?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"session",
+										"new"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 19:29:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "cache-control",
+									"value": "public, max-age=0"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"11db37974001b6c8085485d3381d9053\""
+								},
+								{
+									"key": "last-modified",
+									"value": "Sat, 09 Jan 2021 19:29:13 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f0c1e077419cdb0ce2c159407ed3cbf1.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU3-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "ajiqFkCZuWzKw-d5g-XWPwNDOqCuDE2i7TAg5qujwXZE2uBlFC5KQw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"session_id\": \"fd458e051a04ec6994d56c1e25bbdd51c032f026\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/authentication/token/validate_with_login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    if (pm.response.code == 200) {",
+									"        const result = pm.response.json();",
+									"        if (result.success) {",
+									"            pm.environment.set(\"request_token\", result.request_token);",
+									"        }",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"tsabian\",\n    \"password\": \"S3@sson28\",\n    \"request_token\": \"{{request_token}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{imdbURL}}/authentication/token/validate_with_login?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"authentication",
+								"token",
+								"validate_with_login"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "This method allows an application to validate a request token by entering a username and password.\n\nNot all applications have access to a web view so this can be used as a substitute.\n\nPlease note, the preferred method of validating a request token is to have a user authenticate the request via the TMDb website. You can read about that method .\n\nIf you decide to use this method please use HTTPS."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"tsabian\",\n    \"password\": \"S3@sson28\",\n    \"request_token\": \"{{request_token}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{imdbURL}}/authentication/token/validate_with_login?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"token",
+										"validate_with_login"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "114"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 20:14:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "cache-control",
+									"value": "public, max-age=0"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"801a85a5addf5eca4ac19df57c7ecb0a\""
+								},
+								{
+									"key": "last-modified",
+									"value": "Sat, 09 Jan 2021 20:14:07 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 938c261722fd293e9d30811560cf3cd6.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU3-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "6FevsXjOkkLygepOs62Rxpz1B1EE3YzIbvNDLgQB3vFgqwgg1aqC4w=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"expires_at\": \"2021-01-09 21:13:59 UTC\",\n    \"request_token\": \"c122593544579662cbbe9d70d913e1fa4a1f6031\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/authentication/session/convert/4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    if (pm.response.code == 200) {",
+									"        const result = pm.response.json();",
+									"        if (result.success) {",
+									"            pm.environment.set(\"session_id\", result.session_id);",
+									"        }",
+									"    } else if (pm.response.code == 401) {",
+									"        return false;",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"access_token\": \"{{access_token}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{imdbURL}}/authentication/session/convert/4?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"authentication",
+								"session",
+								"convert",
+								"4"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Use this method to create a v3 session ID if you already have a valid v4 access token. The v4 token needs to be authenticated by the user. Your standard \"read token\" will not validate to create a session ID."
+					},
+					"response": [
+						{
+							"name": "401 - Unauthorized - code 36",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"access_token\": \"{{access_token}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{imdbURL}}/authentication/session/convert/4?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"session",
+										"convert",
+										"4"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 20:18:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "last-modified",
+									"value": "Sat, 09 Jan 2021 20:18:13 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 938c261722fd293e9d30811560cf3cd6.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU3-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "4YJpeiL7OfJauIP69TFn-4D3vhshdIKB0tQ79GsLKUas_E-WJRTaEw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"failure\": true,\n    \"status_code\": 36,\n    \"status_message\": \"This token hasn't been granted write permission by the user.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/authentication/session",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"session_id\": \"{{session_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{imdbURL}}/authentication/session?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"authentication",
+								"session"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "If you would like to delete (or \"logout\") from a session, call this method with a valid session ID."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"session_id\": \"{{session_id}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{imdbURL}}/authentication/session?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"session"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "16"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 20:21:04 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"c955e57777ec0d73639dca6748560d00\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "last-modified",
+									"value": "Sat, 09 Jan 2021 20:21:04 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 938c261722fd293e9d30811560cf3cd6.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU3-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "RrfUqMJJDdBsvMkOTavRTaFnW6L4xE42tDybHDEqO-wp_BM5uTdqHQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true\n}"
+						},
+						{
+							"name": "200 - ok - code: 6",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"session_id\": \"{{session_id}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{imdbURL}}/authentication/session?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"authentication",
+										"session"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 20:21:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"9f40ab78f45db9d743cac81ee7552189\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "last-modified",
+									"value": "Sat, 09 Jan 2021 20:21:30 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 938c261722fd293e9d30811560cf3cd6.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU3-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "ZbGC4lD-QI3UrXO95_VRp0tmUDMleHXeQP2PmLNFLDkzbPbs70yQiA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"status_code\": 6,\n    \"status_message\": \"Invalid id: The pre-requisite id is invalid or not found.\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 5000ms\", () => {",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+							"});",
+							"",
+							"pm.test(\"Processes successfully\", () => {",
+							"    const result = pm.response.json();",
+							"    pm.expect(result.success).to.eq(true);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Certifications",
+			"item": [
+				{
+					"name": "/certification/movie/list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/certification/movie/list?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"certification",
+								"movie",
+								"list"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Get an up to date list of the officially supported movie certifications on TMDb."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/certification/movie/list?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"certification",
+										"movie",
+										"list"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 23:56:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f2d61787564ab87b9162deb4a20e1ce2\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Sat, 09 Jan 2021 23:56:02 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 fb0e71e586369a585a71bf96f3ce2856.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Y3-4KakPt5UFAsBQEQH0V9JIfrFu6CJ6GPPgUFaLmL2y5hUzZTv1WA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"certifications\": {\n        \"CA\": [\n            {\n                \"certification\": \"G\",\n                \"meaning\": \"All ages.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"PG\",\n                \"meaning\": \"Parental guidance advised. There is no age restriction but some material may not be suitable for all children.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"A\",\n                \"meaning\": \"Admittance restricted to people 18 years of age or older. Sole purpose of the film is the portrayal of sexually explicit activity and/or explicit violence.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"18A\",\n                \"meaning\": \"Persons under 18 years of age must be accompanied by an adult. In the Maritimes & Manitoba, children under the age of 14 are prohibited from viewing the film.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"14A\",\n                \"meaning\": \"Persons under 14 years of age must be accompanied by an adult.\",\n                \"order\": 3\n            }\n        ],\n        \"NL\": [\n            {\n                \"certification\": \"AL\",\n                \"meaning\": \"All ages.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"6\",\n                \"meaning\": \"Potentially harmful to children under 6 years.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"9\",\n                \"meaning\": \"Potentially harmful to children under 9 years.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"16\",\n                \"meaning\": \"Potentially harmful to children under 16 years; broadcasting is not allowed before 10:00 pm.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"12\",\n                \"meaning\": \"Potentially harmful to children under 12 years; broadcasting is not allowed before 8:00 pm.\",\n                \"order\": 4\n            }\n        ],\n        \"GB\": [\n            {\n                \"certification\": \"U\",\n                \"meaning\": \"All ages admitted, there is nothing unsuitable for children.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"12\",\n                \"meaning\": \"Home media only since 2002. 12A-rated films are usually given a 12 certificate for the VHS/DVD version unless extra material has been added that requires a higher rating. Nobody younger than 12 can rent or buy a 12-rated VHS, DVD, Blu-ray Disc, UMD or game. The content guidelines are identical to those used for the 12A certificate.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"15\",\n                \"meaning\": \"Only those over 15 years are admitted. Nobody younger than 15 can rent or buy a 15-rated VHS, DVD, Blu-ray Disc, UMD or game, or watch a film in the cinema with this rating. Films under this category can contain adult themes, hard drugs, frequent strong language and limited use of very strong language, strong violence and strong sex references, and nudity without graphic detail. Sexual activity may be portrayed but without any strong detail. Sexual violence may be shown if discreet and justified by context.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"12A\",\n                \"meaning\": \"Films under this category are considered to be unsuitable for very young people. Those aged under 12 years are only admitted if accompanied by an adult, aged at least 18 years, at all times during the motion picture. However, it is generally not recommended that children under 12 years should watch the film. Films under this category can contain mature themes, discrimination, soft drugs, moderate swear words, infrequent strong language and moderate violence, sex references and nudity. Sexual activity may be briefly and discreetly portrayed. Sexual violence may be implied or briefly indicated.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"PG\",\n                \"meaning\": \"All ages admitted, but certain scenes may be unsuitable for young children. May contain mild language and sex/drugs references. May contain moderate violence if justified by context (e.g. fantasy).\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"18\",\n                \"meaning\": \"Only adults are admitted. Nobody younger than 18 can rent or buy an 18-rated VHS, DVD, Blu-ray Disc, UMD or game, or watch a film in the cinema with this rating. Films under this category do not have limitation on the bad language that is used. Hard drugs are generally allowed, and explicit sex references along with detailed sexual activity are also allowed. Scenes of strong real sex may be permitted if justified by the context. Very strong, gory, and/or sadistic violence is usually permitted. Strong sexual violence is permitted unless it is eroticised or excessively graphic.\",\n                \"order\": 6\n            },\n            {\n                \"certification\": \"R18\",\n                \"meaning\": \"Can only be shown at licensed adult cinemas or sold at licensed sex shops, and only to adults, those aged 18 or over. Films under this category are always hard-core pornography, defined as material intended for sexual stimulation and containing clear images of real sexual activity, strong fetish material, explicit animated images, or sight of certain acts such as triple simultaneous penetration and snowballing. There remains a range of material that is often cut from the R18 rating: strong images of injury in BDSM or spanking works, urolagnia, scenes suggesting incest even if staged, references to underage sex or childhood sexual development and aggressive behaviour such as hair-pulling or spitting on a performer are not permitted. More cuts are demanded in this category than any other category.\",\n                \"order\": 7\n            }\n        ],\n        \"AU\": [\n            {\n                \"certification\": \"M\",\n                \"meaning\": \"Recommended for mature audiences. There are no age restrictions. The content is moderate in impact.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"X18+\",\n                \"meaning\": \"Restricted to 18 years and over. Films with this rating have pornographic content. Films classified as X18+ are banned from being sold or rented in all Australian states and are only legally available in the Australian Capital Territory and the Northern Territory. However, importing X18+ material from the two territories to any of the Australian states is legal.The content is sexually explicit in impact.\",\n                \"order\": 7\n            },\n            {\n                \"certification\": \"RC\",\n                \"meaning\": \"Refused Classification. Banned from sale or hire in Australia; also generally applies to importation (if inspected by and suspicious to Customs). Private Internet viewing is unenforced and attempts to legally censor such online material has resulted in controversy. Films are rated RC if their content exceeds the guidelines. The content is very high in impact.\",\n                \"order\": 8\n            },\n            {\n                \"certification\": \"G\",\n                \"meaning\": \"General. The content is very mild in impact.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"R18+\",\n                \"meaning\": \"Restricted to 18 years and over. Adults only. The content is high in impact.\",\n                \"order\": 6\n            },\n            {\n                \"certification\": \"E\",\n                \"meaning\": \"Exempt from classification. Films that are exempt from classification must not contain contentious material (i.e. material that would ordinarily be rated M or higher).\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"MA15+\",\n                \"meaning\": \"Mature Accompanied. Unsuitable for children younger than 15. Children younger than 15 years must be accompanied by a parent or guardian. The content is strong in impact.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"PG\",\n                \"meaning\": \"Parental guidance recommended. There are no age restrictions. The content is mild in impact.\",\n                \"order\": 3\n            }\n        ],\n        \"FR\": [\n            {\n                \"certification\": \"10\",\n                \"meaning\": \"(Déconseillé aux moins de 10 ans) unsuitable for children younger than 10 (this rating is only used for TV); equivalent in theatres : \\\"avertissement\\\" (warning), some scenes may be disturbing to young children and sensitive people; equivalent on video : \\\"accord parental\\\" (parental guidance).\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"12\",\n                \"meaning\": \"(Interdit aux moins de 12 ans) unsuitable for children younger than 12 or forbidden in cinemas for under 12.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"18\",\n                \"meaning\": \"(Interdit aux mineurs) unsuitable for children younger than 18 or forbidden in cinemas for under 18.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"16\",\n                \"meaning\": \"(Interdit aux moins de 16 ans) unsuitable for children younger than 16 or forbidden in cinemas for under 16.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"U\",\n                \"meaning\": \"(Tous publics) valid for all audiences.\",\n                \"order\": 1\n            }\n        ],\n        \"NZ\": [\n            {\n                \"certification\": \"18\",\n                \"meaning\": \"Restricted to persons 18 years of age and over.\",\n                \"order\": 7\n            },\n            {\n                \"certification\": \"M\",\n                \"meaning\": \"Suitable for (but not restricted to) mature audiences 16 years and up.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"R\",\n                \"meaning\": \"Restricted to a particular class of persons, or for particular purposes, or both.\",\n                \"order\": 8\n            },\n            {\n                \"certification\": \"15\",\n                \"meaning\": \"Restricted to persons 15 years of age and over.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"PG\",\n                \"meaning\": \"Parental guidance recommended for younger viewers.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"G\",\n                \"meaning\": \"Suitable for general audiences.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"13\",\n                \"meaning\": \"Restricted to persons 13 years of age and over.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"16\",\n                \"meaning\": \"Restricted to persons 16 years of age and over.\",\n                \"order\": 6\n            }\n        ],\n        \"BR\": [\n            {\n                \"certification\": \"14\",\n                \"meaning\": \"Not recommended for minors under fourteen. More violent material, stronger sex references and/or nudity.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"16\",\n                \"meaning\": \"Not recommended for minors under sixteen. Scenes featuring production, trafficking and/or use of illegal drugs, hyper-realistic sex, sexual violence, abortion, torture, mutilation, suicide, trivialization of violence and death penalty.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"L\",\n                \"meaning\": \"General Audiences. Do not expose children to potentially harmful content.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"12\",\n                \"meaning\": \"Not recommended for minors under twelve. Scenes can include physical aggression, use of legal drugs and sexual innuendo.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"10\",\n                \"meaning\": \"Not recommended for minors under ten. Violent content or inappropriate language to children, even if of a less intensity.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"18\",\n                \"meaning\": \"Not recommended for minors under eighteen. Scenes featuring explicit sex, incest, pedophilia, praising of the use of illegal drugs and violence of a strong imagery impact.\",\n                \"order\": 6\n            }\n        ],\n        \"PT\": [\n            {\n                \"certification\": \"M/18\",\n                \"meaning\": \"Passed for viewers aged 18 and older.\",\n                \"order\": 7\n            },\n            {\n                \"certification\": \"M/6\",\n                \"meaning\": \"Passed for viewers aged 6 and older.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"Públicos\",\n                \"meaning\": \"For all the public (especially designed for children under 3 years of age).\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"M/3\",\n                \"meaning\": \"Passed for viewers aged 3 and older.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"M/12\",\n                \"meaning\": \"Passed for viewers aged 12 and older.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"M/16\",\n                \"meaning\": \"Passed for viewers aged 16 and older.\",\n                \"order\": 6\n            },\n            {\n                \"certification\": \"P\",\n                \"meaning\": \"Special rating supplementary to the M/18 age rating denoting pornography.\",\n                \"order\": 8\n            },\n            {\n                \"certification\": \"M/14\",\n                \"meaning\": \"Passed for viewers aged 14 and older.\",\n                \"order\": 5\n            }\n        ],\n        \"NO\": [\n            {\n                \"certification\": \"6\",\n                \"meaning\": \"6 years (no restriction for children accompanied by an adult).\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"9\",\n                \"meaning\": \"9 years (children down to 6 years accompanied by an adult).\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"18\",\n                \"meaning\": \" 18 years (absolute lower limit).\",\n                \"order\": 6\n            },\n            {\n                \"certification\": \"15\",\n                \"meaning\": \"15 years (young down to 12 years accompanied by an adult).\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"12\",\n                \"meaning\": \"12 years (children down to 9 years accompanied by an adult).\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"A\",\n                \"meaning\": \"Suitable for all.\",\n                \"order\": 1\n            }\n        ],\n        \"RU\": [\n            {\n                \"certification\": \"6+\",\n                \"meaning\": \"(For children above 6) – Unsuitable for children under 6.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"0+\",\n                \"meaning\": \"All ages are admitted.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"16+\",\n                \"meaning\": \"(For children above 16) – Unsuitable for children under 16.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"18+\",\n                \"meaning\": \"(Prohibited for children) – Prohibited for children under 18.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"12+\",\n                \"meaning\": \"(For children above 12) – Unsuitable for children under 12.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            }\n        ],\n        \"IT\": [\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"VM14\",\n                \"meaning\": \"No admittance for children under 14.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"T\",\n                \"meaning\": \"All ages admitted.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"VM18\",\n                \"meaning\": \"No admittance for children under 18.\",\n                \"order\": 3\n            }\n        ],\n        \"DE\": [\n            {\n                \"certification\": \"12\",\n                \"meaning\": \"Children 12 or older admitted, children between 6 and 11 only when accompanied by parent or a legal guardian.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"18\",\n                \"meaning\": \"No youth admitted, only adults.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"0\",\n                \"meaning\": \"No age restriction.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"6\",\n                \"meaning\": \"No children younger than 6 years admitted.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"16\",\n                \"meaning\": \"Children 16 or older admitted, nobody under this age admitted.\",\n                \"order\": 4\n            }\n        ],\n        \"CA-QC\": [\n            {\n                \"certification\": \"G\",\n                \"meaning\": \"General Rating – May be viewed, rented or purchased by persons of all ages. If a film carrying a \\\"G\\\" rating might offend the sensibilities of a child under 8 years of age, \\\"Not suitable for young children\\\" is appended to the classification.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"18+\",\n                \"meaning\": \"18 years and over – May be viewed, rented or purchased only by adults 18 years of age or over. If a film contains real and explicit sexual activity \\\"Explicit sexuality\\\" is appended to the classification, and in the retail video industry storeowners are required to place the film in a room reserved for adults.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"16+\",\n                \"meaning\": \"16 years and over – May be viewed, rented or purchased only by children 16 years of age or over.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"13+\",\n                \"meaning\": \"13 years and over – May be viewed, rented or purchased only by children 13 years of age or over. Children under 13 may be admitted only if accompanied by an adult.\",\n                \"order\": 2\n            }\n        ],\n        \"DK\": [\n            {\n                \"certification\": \"11\",\n                \"meaning\": \"For ages 11 and up.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"7\",\n                \"meaning\": \"Not recommended for children under 7.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"A\",\n                \"meaning\": \"Suitable for a general audience.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"15\",\n                \"meaning\": \"For ages 15 and up.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"F\",\n                \"meaning\": \"Exempt from classification.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            }\n        ],\n        \"US\": [\n            {\n                \"certification\": \"PG-13\",\n                \"meaning\": \"Some material may be inappropriate for children under 13. Films given this rating may contain sexual content, brief or partial nudity, some strong language and innuendo, humor, mature themes, political themes, terror and/or intense action violence. However, bloodshed is rarely present. This is the minimum rating at which drug content is present.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"R\",\n                \"meaning\": \"Under 17 requires accompanying parent or adult guardian 21 or older. The parent/guardian is required to stay with the child under 17 through the entire movie, even if the parent gives the child/teenager permission to see the film alone. These films may contain strong profanity, graphic sexuality, nudity, strong violence, horror, gore, and strong drug use. A movie rated R for profanity often has more severe or frequent language than the PG-13 rating would permit. An R-rated movie may have more blood, gore, drug use, nudity, or graphic sexuality than a PG-13 movie would admit.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"G\",\n                \"meaning\": \"All ages admitted. There is no content that would be objectionable to most parents. This is one of only two ratings dating back to 1968 that still exists today.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"PG\",\n                \"meaning\": \"Some material may not be suitable for children under 10. These films may contain some mild language, crude/suggestive humor, scary moments and/or violence. No drug content is present. There are a few exceptions to this rule. A few racial insults may also be heard.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"NC-17\",\n                \"meaning\": \"These films contain excessive graphic violence, intense or explicit sex, depraved, abhorrent behavior, explicit drug abuse, strong language, explicit nudity, or any other elements which, at present, most parents would consider too strong and therefore off-limits for viewing by their children and teens. NC-17 does not necessarily mean obscene or pornographic in the oft-accepted or legal meaning of those words.\",\n                \"order\": 5\n            }\n        ],\n        \"FI\": [\n            {\n                \"certification\": \"K-16\",\n                \"meaning\": \"Over 16 years.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"K-12\",\n                \"meaning\": \"Over 12 years.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"K-7\",\n                \"meaning\": \"Over 7 years.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"S\",\n                \"meaning\": \"For all ages.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"K-18\",\n                \"meaning\": \"Adults only.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"KK\",\n                \"meaning\": \"Banned from commercial distribution.\",\n                \"order\": 6\n            }\n        ],\n        \"ES\": [\n            {\n                \"certification\": \"12\",\n                \"meaning\": \"Not recommended for audiences under 12.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"7\",\n                \"meaning\": \"Not recommended for audiences under 7.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"X\",\n                \"meaning\": \"Prohibited for audiences under 18.\",\n                \"order\": 6\n            },\n            {\n                \"certification\": \"16\",\n                \"meaning\": \"Not recommended for audiences under 16.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"APTA\",\n                \"meaning\": \"General admission.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"18\",\n                \"meaning\": \"Not recommended for audiences under 18.\",\n                \"order\": 5\n            }\n        ],\n        \"LT\": [\n            {\n                \"certification\": \"N-7\",\n                \"meaning\": \"Movies for viewers from 7 years old. Younger than 7 years of age, viewers of this index have been featured only together with accompanying adult persons.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"V\",\n                \"meaning\": \"Movies for the audience of all ages.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"N-13\",\n                \"meaning\": \"Movies for viewers from 13 years of age. The viewers from 7 to 13 years of age are allowed to enter this index only together with accompanying adult persons.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"N-16\",\n                \"meaning\": \"Movies for viewers from 16 years of age.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"N-18\",\n                \"meaning\": \"Movies for viewers from 18 years of age.\",\n                \"order\": 5\n            }\n        ],\n        \"PH\": [\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"PG\",\n                \"meaning\": \"Viewers below 13 years old must be accompanied by a parent or supervising adult.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"X\",\n                \"meaning\": \"“X-rated” films are not suitable for public exhibition.\",\n                \"order\": 6\n            },\n            {\n                \"certification\": \"R-18\",\n                \"meaning\": \"Only viewers who are 18 years old and above can be admitted.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"R-16\",\n                \"meaning\": \"Only viewers who are 16 years old and above can be admitted.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"G\",\n                \"meaning\": \"Viewers of all ages are admitted.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"R-13\",\n                \"meaning\": \"Only viewers who are 13 years old and above can be admitted.\",\n                \"order\": 3\n            }\n        ],\n        \"MY\": [\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"18SG\",\n                \"meaning\": \"(Seram, Ganas: \\\"Graphic Violence and Horror/Terror\\\") - Film may contain strong violence, gore or horror/terror people may find objectionable.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"18PA\",\n                \"meaning\": \"(Politik, Agama: \\\"Strong Religious or Political Elements\\\") - Film may contain elements which include religious, social or political aspects people may find objectionable. Rarely used.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"18PL\",\n                \"meaning\": \"(Pelbagai: \\\"Various\\\") - Film may contain strong violence, gore, horror/terror, sex scenes, nudity, sexual dialogues/references, religious, social or political aspects people may find objectionable. The majority of the 18+ movies use this rating. For example, a film with sex scenes and strong violence will be classified as 18PL, despite scenes of sex and nudity being strictly censored off by the LPF.\",\n                \"order\": 6\n            },\n            {\n                \"certification\": \"U\",\n                \"meaning\": \"(Umum: \\\"General Audiences\\\") - For general audiences. (Used by the majority of films screened in Malaysia until 2008 but it continues only for television, notably for RTM.)\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"P13\",\n                \"meaning\": \"(Penjaga 13 : \\\"Parental Guidance 13\\\") - Children under 13 not admitted unless accompanied by an adult. (Introduced in 2006, this became the official Malaysian motion picture rating system in 2008. The \\\"PG-13\\\" rating was revised to \\\"P13\\\" from April 2012 onwards to emphasize the use of Malay language instead of English.) Passionate kissing scenes are not allowed under a P13 rating.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"18SX\",\n                \"meaning\": \"(Seks: \\\"Sexual Content\\\") - Film may contain sex scenes, nudity or sexual dialogue/references people may find objectionable (despite scenes of sex and nudity being strictly censored off by the LPF.)\",\n                \"order\": 4\n            }\n        ],\n        \"SE\": [\n            {\n                \"certification\": \"11\",\n                \"meaning\": \"Children over the age of 7, who are accompanied by an adult, are admitted to films that have been passed for children from the age of 11.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"15\",\n                \"meaning\": \"Children over the age of 7, who are accompanied by an adult, are admitted to films that have been passed for children from the age of 11. Updated on March 1, 2017.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"7\",\n                \"meaning\": \"Children under the age of 7, who are accompanied by an adult (a person aged 18 or over), are admitted to films that have been passed for children from the age of 7.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"Btl\",\n                \"meaning\": \"All ages.\",\n                \"order\": 1\n            }\n        ],\n        \"HU\": [\n            {\n                \"certification\": \"6\",\n                \"meaning\": \"Not recommended below age of 6.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"16\",\n                \"meaning\": \"Not recommended below age of 16.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"KN\",\n                \"meaning\": \"Without age restriction.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"18\",\n                \"meaning\": \"Not recommended below age of 18.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"NR\",\n                \"meaning\": \"No rating information.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"12\",\n                \"meaning\": \"Not recommended below age of 12.\",\n                \"order\": 3\n            },\n            {\n                \"certification\": \"X\",\n                \"meaning\": \"Restricted below 18, for adults only.\",\n                \"order\": 6\n            }\n        ],\n        \"IN\": [\n            {\n                \"certification\": \"UA\",\n                \"meaning\": \"All ages admitted, but it is advised that children below 12 be accompanied by a parent as the theme or content may be considered intense or inappropriate for young children. Films under this category may contain mature themes, sexual references, mild sex scenes, violence with brief gory images and/or infrequent use of crude language.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"U\",\n                \"meaning\": \"Unrestricted Public Exhibition throughout India, suitable for all age groups. Films under this category should not upset children over 4. Such films may contain educational, social or family-oriented themes. Films under this category may also contain fantasy violence and/or mild bad language.\",\n                \"order\": 0\n            },\n            {\n                \"certification\": \"A\",\n                \"meaning\": \"Restricted to adult audiences (18 years or over). Nobody below the age of 18 may buy/rent an A-rated DVD, VHS, UMD or watch a film in the cinema with this rating. Films under this category may contain adult/disturbing themes, frequent crude language, brutal violence with blood and gore, strong sex scenes and/or scenes of drug abuse which is considered unsuitable for minors.\",\n                \"order\": 2\n            }\n        ],\n        \"BG\": [\n            {\n                \"certification\": \"A\",\n                \"meaning\": \"Recommended for children.\",\n                \"order\": 1\n            },\n            {\n                \"certification\": \"B\",\n                \"meaning\": \"Without age restrictions.\",\n                \"order\": 2\n            },\n            {\n                \"certification\": \"X\",\n                \"meaning\": \"Prohibited for persons under 18.\",\n                \"order\": 5\n            },\n            {\n                \"certification\": \"D\",\n                \"meaning\": \"Prohibited for persons under 16.\",\n                \"order\": 4\n            },\n            {\n                \"certification\": \"C\",\n                \"meaning\": \"Not recommended for children under 12.\",\n                \"order\": 3\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Change",
+			"item": [
+				{
+					"name": "/movie/changes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/changes?api_key={{api_key}}&end_date=2021-01-08&start_date=2021-01-06&page=1",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"changes"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "end_date",
+									"value": "2021-01-08"
+								},
+								{
+									"key": "start_date",
+									"value": "2021-01-06"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Get a list of all of the movie ids that have been changed in the past 24 hours.\n\nYou can query it for up to 14 days worth of changed IDs at a time with the start_date and end_date query parameters. 100 items are returned per page."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "/company/{company_id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/company/{{company_id}}?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"company",
+								"{{company_id}}"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Get a companies details by id."
+					},
+					"response": []
+				},
+				{
+					"name": "/company/{company_id}/alternative_names",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/company/{{company_id}}/alternative_names?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"company",
+								"{{company_id}}",
+								"alternative_names"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Get the alternative names of a company."
+					},
+					"response": []
+				},
+				{
+					"name": "/company/{company_id}/images",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/company/{{company_id}}/images?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"company",
+								"{{company_id}}",
+								"images"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Get a companies logos by id.\n\nThere are two image formats that are supported for companies, PNG's and SVG's. You can see which type the original file is by looking at the file_type field. We prefer SVG's as they are resolution independent and as such, the width and height are only there to reflect the original asset that was uploaded. An SVG can be scaled properly beyond those dimensions if you call them as a PNG.\n\nFor more information about how SVG's and PNG's can be used, take a read through ."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/company/{{company_id}}/images?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"company",
+										"{{company_id}}",
+										"images"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Jan 2021 00:11:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=21600"
+								},
+								{
+									"key": "x-memc",
+									"value": "MISS, STORE"
+								},
+								{
+									"key": "x-memc-key",
+									"value": "3a257f4f13931f6f24c242f64c35cfa220fc5dfe"
+								},
+								{
+									"key": "x-memc-age",
+									"value": "0"
+								},
+								{
+									"key": "x-memc-expires",
+									"value": "21600"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"724f3f94bb16d1f8f83200e1fb0be9ab\""
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Sun, 10 Jan 2021 00:11:09 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 fb0e71e586369a585a71bf96f3ce2856.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "HRnjoEs8Bplnd-b8ZQvs2JMk5BSF1f2DnRk7HcYrQ9J2H4qYKa9c-g=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 420,\n    \"logos\": [\n        {\n            \"aspect_ratio\": 4.666666666666667,\n            \"file_path\": \"/hUzeosd33nzE5MCNsZxCGEKTXaQ.png\",\n            \"height\": 18,\n            \"id\": \"5aa13baf0e0a2644e7007db8\",\n            \"file_type\": \".svg\",\n            \"vote_average\": 5.384,\n            \"vote_count\": 2,\n            \"width\": 84\n        },\n        {\n            \"aspect_ratio\": 2,\n            \"file_path\": \"/9GnwrYtRXtrYg7r3fMfyBO5Zncl.png\",\n            \"height\": 252,\n            \"id\": \"5cce4de9c3a36840cfd997dc\",\n            \"file_type\": \".png\",\n            \"vote_average\": 5.312,\n            \"vote_count\": 1,\n            \"width\": 504\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Genres",
+			"item": [
+				{
+					"name": "/genre/movie/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/genre/movie/list?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"genre",
+								"movie",
+								"list"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						},
+						"description": "Get the list of official genres for movies."
+					},
+					"response": []
+				},
+				{
+					"name": "/genre/tv/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/genre/tv/list?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"genre",
+								"tv",
+								"list"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Session",
+					"item": [
+						{
+							"name": "/movie/{movie_id}/account_states",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/movie/{{movie_id}}/account_states?api_key={{api_key}}&session_id={{session_id}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"movie",
+										"{{movie_id}}",
+										"account_states"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "guest_session_id",
+											"value": "{{guest_session_id}}",
+											"disabled": true
+										},
+										{
+											"key": "session_id",
+											"value": "{{session_id}}"
+										}
+									]
+								},
+								"description": "Grab the following account states for a session:\n\nMovie rating\nIf it belongs to your watchlist\nIf it belongs to your favourite list"
+							},
+							"response": []
+						},
+						{
+							"name": "/movie/{movie_id}/rating",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Processes successfully\", () => {",
+											"    const result = pm.response.json();",
+											"    pm.expect(result.success).to.eq(true);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"value\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{imdbURL}}/movie/{{movie_id}}/rating?api_key={{api_key}}&session_id={{session_id}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"movie",
+										"{{movie_id}}",
+										"rating"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "guest_session_id",
+											"value": "{{guest_session_id}}",
+											"disabled": true
+										},
+										{
+											"key": "session_id",
+											"value": "{{session_id}}"
+										}
+									]
+								},
+								"description": "Rate a movie.\n\nA valid session or guest session ID is required. You can read more about how this works ."
+							},
+							"response": [
+								{
+									"name": "200 - ok - code: 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"value\": 5\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{imdbURL}}/movie/{{movie_id}}/rating?api_key={{api_key}}&session_id={{session_id}}",
+											"host": [
+												"{{imdbURL}}"
+											],
+											"path": [
+												"movie",
+												"{{movie_id}}",
+												"rating"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												},
+												{
+													"key": "guest_session_id",
+													"value": "{{guest_session_id}}",
+													"disabled": true
+												},
+												{
+													"key": "session_id",
+													"value": "{{session_id}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 09 Jan 2021 22:52:21 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "openresty"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+										},
+										{
+											"key": "cache-control",
+											"value": "public, max-age=0"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"4543905c5703940a323f39bb4fdcba82\""
+										},
+										{
+											"key": "last-modified",
+											"value": "Sat, 09 Jan 2021 22:52:21 GMT"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 8f313251b8a1f09afb3b2ae5c4dfa91b.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "GRU50-C1"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "9XOhoHFA9SXa9u0q0zPLDWdNXMbzTolqSm54BqCu6-wj4ZsbZKfTPg=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"status_code\": 1,\n    \"status_message\": \"Success.\"\n}"
+								},
+								{
+									"name": "200 - ok - code: 12",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"value\": 5\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{imdbURL}}/movie/{{movie_id}}/rating?api_key={{api_key}}&session_id={{session_id}}",
+											"host": [
+												"{{imdbURL}}"
+											],
+											"path": [
+												"movie",
+												"{{movie_id}}",
+												"rating"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												},
+												{
+													"key": "guest_session_id",
+													"value": "{{guest_session_id}}",
+													"disabled": true
+												},
+												{
+													"key": "session_id",
+													"value": "{{session_id}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "94"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 09 Jan 2021 22:53:11 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "openresty"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+										},
+										{
+											"key": "cache-control",
+											"value": "public, max-age=0"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"04302547257ccb7e68844cdd59055002\""
+										},
+										{
+											"key": "last-modified",
+											"value": "Sat, 09 Jan 2021 22:53:11 GMT"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 8f313251b8a1f09afb3b2ae5c4dfa91b.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "GRU50-C1"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "C0WGDZ4atjNNnyxfy34N1R8lJiky8jtCOQ780CutgVtIfEZl2YyhXA=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"status_code\": 12,\n    \"status_message\": \"The item/record was updated successfully.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/movie/{movie_id}/rating",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Processes successfully\", () => {",
+											"    const result = pm.response.json();",
+											"    pm.expect(result.success).to.eq(true);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/movie/{{movie_id}}/rating?api_key={{api_key}}&session_id={{session_id}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"movie",
+										"{{movie_id}}",
+										"rating"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "guest_session_id",
+											"value": "{{guest_session_id}}",
+											"disabled": true
+										},
+										{
+											"key": "session_id",
+											"value": "{{session_id}}"
+										}
+									]
+								},
+								"description": "Remove your rating for a movie.\n\nA valid session or guest session ID is required. You can read more about how this works ."
+							},
+							"response": [
+								{
+									"name": "200 - ok",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{imdbURL}}/movie/{{movie_id}}/rating?api_key={{api_key}}&session_id={{session_id}}",
+											"host": [
+												"{{imdbURL}}"
+											],
+											"path": [
+												"movie",
+												"{{movie_id}}",
+												"rating"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												},
+												{
+													"key": "guest_session_id",
+													"value": "{{guest_session_id}}",
+													"disabled": true
+												},
+												{
+													"key": "session_id",
+													"value": "{{session_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "94"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 09 Jan 2021 22:52:02 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "openresty"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+										},
+										{
+											"key": "cache-control",
+											"value": "public, max-age=0"
+										},
+										{
+											"key": "etag",
+											"value": "W/\"0566f98871ddfd7f6ade28aaefb5167d\""
+										},
+										{
+											"key": "last-modified",
+											"value": "Sat, 09 Jan 2021 22:52:02 GMT"
+										},
+										{
+											"key": "X-Cache",
+											"value": "Miss from cloudfront"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 8f313251b8a1f09afb3b2ae5c4dfa91b.cloudfront.net (CloudFront)"
+										},
+										{
+											"key": "X-Amz-Cf-Pop",
+											"value": "GRU50-C1"
+										},
+										{
+											"key": "X-Amz-Cf-Id",
+											"value": "NhVYRqLwAs9DqbiYXtY-ClIYX5IPRV9KfB0can6-CMQOsKQhXfMe3A=="
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"status_code\": 13,\n    \"status_message\": \"The item/record was deleted successfully.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/movie/upcoming",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/upcoming?api_key={{api_key}}&language={{language}}&region={{region}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"upcoming"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								},
+								{
+									"key": "region",
+									"value": "{{region}}"
+								}
+							]
+						},
+						"description": "Get a list of upcoming movies in theatres. This is a release type query that looks for all movies that have a release type of 2 or 3 within the specified date range.\n\nYou can optionally specify a region prameter which will narrow the search to only look for theatrical release dates within the specified country."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/movie/upcoming?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"movie",
+										"upcoming"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "language",
+											"value": "pt-BR",
+											"disabled": true
+										},
+										{
+											"key": "region",
+											"value": "BR",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 20:46:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 a585b9be40c1e1c4534abab289a047d2.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "vTguM2zZigle6zxZdeQYVS6jkBS-uIv3whzY5ZChjyDnCqV1yHQXMw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"dates\": {\n        \"maximum\": \"2021-02-01\",\n        \"minimum\": \"2021-01-15\"\n    },\n    \"page\": 1,\n    \"results\": [\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/srYya1ZlI97Au4jUYAktDe3avyA.jpg\",\n            \"genre_ids\": [\n                14,\n                28,\n                12\n            ],\n            \"id\": 464052,\n            \"original_language\": \"en\",\n            \"original_title\": \"Wonder Woman 1984\",\n            \"overview\": \"Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah.\",\n            \"popularity\": 3751.291,\n            \"poster_path\": \"/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg\",\n            \"release_date\": \"2020-12-16\",\n            \"title\": \"Wonder Woman 1984\",\n            \"video\": false,\n            \"vote_average\": 7.2,\n            \"vote_count\": 2322\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg\",\n            \"genre_ids\": [\n                16,\n                35,\n                18,\n                10402,\n                14\n            ],\n            \"id\": 508442,\n            \"original_language\": \"en\",\n            \"original_title\": \"Soul\",\n            \"overview\": \"Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.\",\n            \"popularity\": 3142.992,\n            \"poster_path\": \"/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg\",\n            \"release_date\": \"2020-12-25\",\n            \"title\": \"Soul\",\n            \"video\": false,\n            \"vote_average\": 8.4,\n            \"vote_count\": 3002\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/cjaOSjsjV6cl3uXdJqimktT880L.jpg\",\n            \"genre_ids\": [\n                12,\n                14,\n                10751,\n                16\n            ],\n            \"id\": 529203,\n            \"original_language\": \"en\",\n            \"original_title\": \"The Croods: A New Age\",\n            \"overview\": \"Searching for a safer habitat, the prehistoric Crood family discovers an idyllic, walled-in paradise that meets all of its needs. Unfortunately, they must also learn to live with the Bettermans -- a family that's a couple of steps above the Croods on the evolutionary ladder. As tensions between the new neighbors start to rise, a new threat soon propels both clans on an epic adventure that forces them to embrace their differences, draw strength from one another, and survive together.\",\n            \"popularity\": 1202.465,\n            \"poster_path\": \"/tK1zy5BsCt1J4OzoDicXmr0UTFH.jpg\",\n            \"release_date\": \"2020-11-25\",\n            \"title\": \"The Croods: A New Age\",\n            \"video\": false,\n            \"vote_average\": 7.8,\n            \"vote_count\": 1009\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/aQUM5qfBBdWQQk3mwKp6OLwv8mS.jpg\",\n            \"genre_ids\": [\n                16,\n                28,\n                18,\n                878\n            ],\n            \"id\": 283566,\n            \"original_language\": \"ja\",\n            \"original_title\": \"シン・エヴァンゲリオン劇場版:||\",\n            \"overview\": \"The fourth and final film in the Rebuild of Evangelion series.\",\n            \"popularity\": 628.703,\n            \"poster_path\": \"/q034rbTWteRNA8sMSc2YjegmiUx.jpg\",\n            \"release_date\": \"2021-01-23\",\n            \"title\": \"Evangelion: 3.0+1.0 Thrice Upon a Time\",\n            \"video\": false,\n            \"vote_average\": 0,\n            \"vote_count\": 0\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/eShw0LB5CkoEfYtpUcXPD85oz5Q.jpg\",\n            \"genre_ids\": [\n                27,\n                53,\n                35,\n                14\n            ],\n            \"id\": 551804,\n            \"original_language\": \"en\",\n            \"original_title\": \"Freaky\",\n            \"overview\": \"A mystical, ancient dagger causes a notorious serial killer to magically switch bodies with a 17-year-old girl.\",\n            \"popularity\": 299.394,\n            \"poster_path\": \"/8xC6QSyxrpm0D5A6iyHNemEWBVe.jpg\",\n            \"release_date\": \"2020-11-12\",\n            \"title\": \"Freaky\",\n            \"video\": false,\n            \"vote_average\": 6.9,\n            \"vote_count\": 297\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg\",\n            \"genre_ids\": [\n                14,\n                10751,\n                12,\n                35,\n                27\n            ],\n            \"id\": 531219,\n            \"original_language\": \"en\",\n            \"original_title\": \"Roald Dahl's The Witches\",\n            \"overview\": \"In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered.\",\n            \"popularity\": 284.546,\n            \"poster_path\": \"/b1C0FuXp4wiPmHLVKq4kwtDMgK6.jpg\",\n            \"release_date\": \"2020-10-25\",\n            \"title\": \"Roald Dahl's The Witches\",\n            \"video\": false,\n            \"vote_average\": 6.8,\n            \"vote_count\": 1090\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/e1zdlboXWPtOgY5TgeEEhYhJ098.jpg\",\n            \"genre_ids\": [\n                27,\n                53\n            ],\n            \"id\": 728791,\n            \"original_language\": \"en\",\n            \"original_title\": \"Playhouse\",\n            \"overview\": \"Reckless Jack Travis is an irreverent horror writer notorious for scaring audiences. But as he obsesses over creating a new theatre show set in a haunted Scottish castle, demonic disturbances from deep within the walls begin to prey on his troubled daughter. When the alarming supernatural forces start to close in on him too, Jack is forced to reckon with the terrifying consequences of creating such a dark and macabre play. But will he realise the danger of unearthing a historic curse and stop writing before he damns himself, his personal sanity and those he loves forever?\",\n            \"popularity\": 204.599,\n            \"poster_path\": \"/cF4tZH8VQ6Lic3bi4WKwWDJODQf.jpg\",\n            \"release_date\": \"2021-01-28\",\n            \"title\": \"Playhouse\",\n            \"video\": false,\n            \"vote_average\": 0,\n            \"vote_count\": 0\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/gkvOmVXdukAwpG8LjTaHo2l2cWU.jpg\",\n            \"genre_ids\": [\n                27,\n                9648\n            ],\n            \"id\": 571384,\n            \"original_language\": \"en\",\n            \"original_title\": \"Come Play\",\n            \"overview\": \"A lonely young boy feels different from everyone else. Desperate for a friend, he seeks solace and refuge in his ever-present cell phone and tablet. When a mysterious creature uses the boy’s devices against him to break into our world, his parents must fight to save their son from the monster beyond the screen.\",\n            \"popularity\": 197.971,\n            \"poster_path\": \"/e98dJUitAoKLwmzjQ0Yxp1VQrnU.jpg\",\n            \"release_date\": \"2020-10-28\",\n            \"title\": \"Come Play\",\n            \"video\": false,\n            \"vote_average\": 6.2,\n            \"vote_count\": 175\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/mBbA77FyzhU0Tz9tmbKG8heGmh3.jpg\",\n            \"genre_ids\": [\n                878,\n                18,\n                27\n            ],\n            \"id\": 594718,\n            \"original_language\": \"ru\",\n            \"original_title\": \"Sputnik\",\n            \"overview\": \"At the height of the Cold War, a Soviet spacecraft crash lands after a mission gone awry, leaving the commander as its only survivor. After a renowned Russian psychologist is brought in to evaluate the commander’s mental state, it becomes clear that something dangerous may have come back to Earth with him…\",\n            \"popularity\": 154.015,\n            \"poster_path\": \"/eAUzmhP54bE1vPXaY7FbuZREJlR.jpg\",\n            \"release_date\": \"2020-09-08\",\n            \"title\": \"Sputnik\",\n            \"video\": false,\n            \"vote_average\": 6.4,\n            \"vote_count\": 117\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/tsGSTBl5H8DBLnHc24Teny0Ppc5.jpg\",\n            \"genre_ids\": [\n                14,\n                27\n            ],\n            \"id\": 524216,\n            \"original_language\": \"en\",\n            \"original_title\": \"The Mortuary Collection\",\n            \"overview\": \"In the phantasmagorical town of Raven's End, a misguided young girl takes refuge in a decrepit old mortuary. The eccentric undertaker chronicles the strange history of the town through a series of twisted tales, each more terrifying than the last, but the young girl's world is unhinged when she discovers that the final story... is her own.\",\n            \"popularity\": 149.239,\n            \"poster_path\": \"/5WXeYnezavNI6hXH74aQYv6yFzj.jpg\",\n            \"release_date\": \"2020-10-08\",\n            \"title\": \"The Mortuary Collection\",\n            \"video\": false,\n            \"vote_average\": 6.6,\n            \"vote_count\": 80\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/z8TvnEVRenMSTemxYZwLGqFofgF.jpg\",\n            \"genre_ids\": [\n                14,\n                28,\n                12\n            ],\n            \"id\": 458576,\n            \"original_language\": \"en\",\n            \"original_title\": \"Monster Hunter\",\n            \"overview\": \"A portal transports Lt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home.\",\n            \"popularity\": 145.822,\n            \"poster_path\": \"/zO9R7Z6DRDgRO9QVz4lAJg3L15o.jpg\",\n            \"release_date\": \"2020-12-03\",\n            \"title\": \"Monster Hunter\",\n            \"video\": false,\n            \"vote_average\": 5.9,\n            \"vote_count\": 45\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/cSpwQ1BekQ6SL8JpUDmfsCBxJDz.jpg\",\n            \"genre_ids\": [\n                18,\n                53,\n                80\n            ],\n            \"id\": 596161,\n            \"original_language\": \"en\",\n            \"original_title\": \"Let Him Go\",\n            \"overview\": \"Following the loss of their son, a retired sheriff and his wife leave their Montana ranch to rescue their young grandson from the clutches of a dangerous family living off the grid in the Dakotas.\",\n            \"popularity\": 111.272,\n            \"poster_path\": \"/EsLZoT8oHhQlGd1QpdbnvnwTzO.jpg\",\n            \"release_date\": \"2020-11-05\",\n            \"title\": \"Let Him Go\",\n            \"video\": false,\n            \"vote_average\": 7.2,\n            \"vote_count\": 107\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/AdqOBPw4PdtzOcfEuQuZ8MNeTKb.jpg\",\n            \"genre_ids\": [\n                14,\n                10751,\n                12,\n                18\n            ],\n            \"id\": 413518,\n            \"original_language\": \"it\",\n            \"original_title\": \"Pinocchio\",\n            \"overview\": \"In this live-action adaptation of the beloved fairytale, old woodcarver Geppetto fashions a wooden puppet, Pinocchio, who magically comes to life. Pinocchio longs for adventure and is easily led astray, encountering magical beasts, fantastical spectacles, while making friends and foes along his journey. However, his dream is to become a real boy, which can only come true if he finally changes his ways.\",\n            \"popularity\": 107.778,\n            \"poster_path\": \"/lzqJcPaZA9G8C6eS4Hch475Ng3A.jpg\",\n            \"release_date\": \"2019-12-19\",\n            \"title\": \"Pinocchio\",\n            \"video\": false,\n            \"vote_average\": 6.7,\n            \"vote_count\": 849\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/nz8xWrTKZzA5A7FgxaM4kfAoO1W.jpg\",\n            \"genre_ids\": [\n                28,\n                878\n            ],\n            \"id\": 651571,\n            \"original_language\": \"en\",\n            \"original_title\": \"Breach\",\n            \"overview\": \"A hardened mechanic must stay awake and maintain an interstellar ark fleeing the dying planet Earth with a few thousand lucky souls on board... the last of humanity. Unfortunately, humans are not the only passengers. A shapeshifting alien creature has taken residence, its only goal is to kill as many people as possible. The crew must think quickly to stop this menace before it destroys mankind.\",\n            \"popularity\": 93.974,\n            \"poster_path\": \"/13B6onhL6FzSN2KaNeQeMML05pS.jpg\",\n            \"release_date\": \"2020-12-17\",\n            \"title\": \"Breach\",\n            \"video\": false,\n            \"vote_average\": 4.7,\n            \"vote_count\": 29\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/5TbtcmRySXPAEXBzwhiOYYDQmgv.jpg\",\n            \"genre_ids\": [\n                27,\n                9648\n            ],\n            \"id\": 723072,\n            \"original_language\": \"en\",\n            \"original_title\": \"Host\",\n            \"overview\": \"Six friends hire a medium to hold a séance via Zoom during lockdown — but they get far more than they bargained for as things quickly go wrong. When an evil spirit starts invading their homes, they begin to realize they might not survive the night.\",\n            \"popularity\": 77.83,\n            \"poster_path\": \"/h7dZpJDORYs5c56dydbrLFkEXpE.jpg\",\n            \"release_date\": \"2020-12-04\",\n            \"title\": \"Host\",\n            \"video\": false,\n            \"vote_average\": 7,\n            \"vote_count\": 49\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/kJZI5tPWTVJrgmBCYMq8rkFP7Sk.jpg\",\n            \"genre_ids\": [\n                53,\n                27\n            ],\n            \"id\": 720395,\n            \"original_language\": \"en\",\n            \"original_title\": \"Let It Snow\",\n            \"overview\": \"Separated from her fiance after sneaking onto a restricted slope, Mia, a free riding snowboarder, must survive not only against nature, but the masked snowmobile rider in black who's out for her blood.\",\n            \"popularity\": 66.937,\n            \"poster_path\": \"/rAeQaySpt5iSdK8eWOpBnSB8mGQ.jpg\",\n            \"release_date\": \"2021-01-28\",\n            \"title\": \"Let It Snow\",\n            \"video\": false,\n            \"vote_average\": 0,\n            \"vote_count\": 0\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/7bjFGAK9aEiMQ9nUhanoNDsnV8h.jpg\",\n            \"genre_ids\": [\n                53,\n                80,\n                18\n            ],\n            \"id\": 582014,\n            \"original_language\": \"en\",\n            \"original_title\": \"Promising Young Woman\",\n            \"overview\": \"A young woman haunted by a tragedy in her past takes revenge on the predatory men unlucky enough to cross her path.\",\n            \"popularity\": 58.609,\n            \"poster_path\": \"/cjzU4g6SlScnP4MdkleyI25KGlR.jpg\",\n            \"release_date\": \"2020-12-13\",\n            \"title\": \"Promising Young Woman\",\n            \"video\": false,\n            \"vote_average\": 7.4,\n            \"vote_count\": 41\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/ugoims6PfRgcAcIgTRoK2uvjhOu.jpg\",\n            \"genre_ids\": [\n                18,\n                37\n            ],\n            \"id\": 581032,\n            \"original_language\": \"en\",\n            \"original_title\": \"News of the World\",\n            \"overview\": \"A Texan traveling across the wild West bringing the news of the world to local townspeople, agrees to help rescue a young girl who was kidnapped.\",\n            \"popularity\": 48.932,\n            \"poster_path\": \"/fYQCgVRsQTEfUrP7cW5iAFVYOlh.jpg\",\n            \"release_date\": \"2020-12-25\",\n            \"title\": \"News of the World\",\n            \"video\": false,\n            \"vote_average\": 8.8,\n            \"vote_count\": 6\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/mTW5ssHIgGvGzAaOJmyxmuHd62j.jpg\",\n            \"genre_ids\": [\n                12\n            ],\n            \"id\": 766208,\n            \"original_language\": \"en\",\n            \"original_title\": \"Jumanji: Level One\",\n            \"overview\": \"Set in 1869, two children receive a mysterious game after their father goes missing in the jungles of Africa. They unravel both the secret of their father’s disappearance and the origin of Jumanji.  See how it all began.\",\n            \"popularity\": 46.361,\n            \"poster_path\": \"/mI7sIBqIsCsTjLvuiVVTfvW3FLU.jpg\",\n            \"release_date\": \"2021-01-20\",\n            \"title\": \"Jumanji: Level One\",\n            \"video\": false,\n            \"vote_average\": 7.7,\n            \"vote_count\": 6\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/fxYazFVeOCHpHwuqGuiqcCTw162.jpg\",\n            \"genre_ids\": [\n                14,\n                16,\n                10751\n            ],\n            \"id\": 8392,\n            \"original_language\": \"ja\",\n            \"original_title\": \"となりのトトロ\",\n            \"overview\": \"Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.\",\n            \"popularity\": 44.512,\n            \"poster_path\": \"/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg\",\n            \"release_date\": \"1988-04-16\",\n            \"title\": \"My Neighbor Totoro\",\n            \"video\": false,\n            \"vote_average\": 8.1,\n            \"vote_count\": 5098\n        }\n    ],\n    \"total_pages\": 9,\n    \"total_results\": 164\n}"
+						}
+					]
+				},
+				{
+					"name": "/movie/popular",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/popular?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"popular"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "region",
+									"value": "{{region}}",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						},
+						"description": "Get a list of the current popular movies on TMDb. This list updates daily."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/movie/popular?api_key={{api_key}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"movie",
+										"popular"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "language",
+											"value": "pt-BR",
+											"disabled": true
+										},
+										{
+											"key": "region",
+											"value": "BR",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 20:49:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=21600"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 a585b9be40c1e1c4534abab289a047d2.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "6G266E1y2ydZdSjOPAxf-BRSaDR-81QJpOtI12uKGucBQWXOoD6eRA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": 1,\n    \"results\": [\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/srYya1ZlI97Au4jUYAktDe3avyA.jpg\",\n            \"genre_ids\": [\n                14,\n                28,\n                12\n            ],\n            \"id\": 464052,\n            \"original_language\": \"en\",\n            \"original_title\": \"Wonder Woman 1984\",\n            \"overview\": \"Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah.\",\n            \"popularity\": 3751.291,\n            \"poster_path\": \"/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg\",\n            \"release_date\": \"2020-12-16\",\n            \"title\": \"Wonder Woman 1984\",\n            \"video\": false,\n            \"vote_average\": 7.2,\n            \"vote_count\": 2322\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg\",\n            \"genre_ids\": [\n                16,\n                35,\n                18,\n                10402,\n                14\n            ],\n            \"id\": 508442,\n            \"original_language\": \"en\",\n            \"original_title\": \"Soul\",\n            \"overview\": \"Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.\",\n            \"popularity\": 3142.992,\n            \"poster_path\": \"/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg\",\n            \"release_date\": \"2020-12-25\",\n            \"title\": \"Soul\",\n            \"video\": false,\n            \"vote_average\": 8.4,\n            \"vote_count\": 3002\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/ibwOX4xUndc6E90MYfglghWvO5Z.jpg\",\n            \"genre_ids\": [\n                878,\n                12\n            ],\n            \"id\": 517096,\n            \"original_language\": \"ru\",\n            \"original_title\": \"Вратарь Галактики\",\n            \"overview\": \"Cosmoball is a mesmerizing intergalactic game of future played between humans and aliens at the giant extraterrestrial ship hovering in the sky over Earth. A young man with enormous power of an unknown nature joins the team of hot-headed superheroes in exchange for a cure for his mother’s deadly illness. The Four from Earth will fight not only to defend the honor of their home planet in the spectacular game, but to face the unprecedented threat to the Galaxy and embrace their own destiny.\",\n            \"popularity\": 2473.835,\n            \"poster_path\": \"/eDJYDXRoWoUzxjd52gtz5ODTSU1.jpg\",\n            \"release_date\": \"2020-08-27\",\n            \"title\": \"Cosmoball\",\n            \"video\": false,\n            \"vote_average\": 4.5,\n            \"vote_count\": 31\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/yR27bZPIkNhpGEIP3jKV2EifTgo.jpg\",\n            \"genre_ids\": [\n                16,\n                10751\n            ],\n            \"id\": 755812,\n            \"original_language\": \"fr\",\n            \"original_title\": \"Miraculous World: New York, United HeroeZ\",\n            \"overview\": \"During a school field trip, Ladybug and Cat Noir meet the American superheroes, whom they have to save from an akumatised super-villain. They discover that Miraculous exist in the United States too.\",\n            \"popularity\": 2239.857,\n            \"poster_path\": \"/kIHgjAkuzvKBnmdstpBOo4AfZah.jpg\",\n            \"release_date\": \"2020-10-10\",\n            \"title\": \"Miraculous World: New York, United HeroeZ\",\n            \"video\": false,\n            \"vote_average\": 8.6,\n            \"vote_count\": 239\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/9pHxv7TX0jOKNgnGMDP6RJ2m1GL.jpg\",\n            \"genre_ids\": [\n                28,\n                53\n            ],\n            \"id\": 737568,\n            \"original_language\": \"en\",\n            \"original_title\": \"The Doorman\",\n            \"overview\": \"A former Marine turned doorman at a luxury New York City high-rise must outsmart and battle a group of art thieves and their ruthless leader — while struggling to protect her sister's family. As the thieves become increasingly desperate and violent, the doorman calls upon her deadly fighting skills to end the showdown.\",\n            \"popularity\": 2126.663,\n            \"poster_path\": \"/pklyUbh4k1DbHdnsOMASyw7C6NH.jpg\",\n            \"release_date\": \"2020-10-01\",\n            \"title\": \"The Doorman\",\n            \"video\": false,\n            \"vote_average\": 6.1,\n            \"vote_count\": 99\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/fX8e94MEWSuTJExndVYxKsmA4Hw.jpg\",\n            \"genre_ids\": [\n                28,\n                12,\n                80\n            ],\n            \"id\": 604822,\n            \"original_language\": \"zh\",\n            \"original_title\": \"急先锋\",\n            \"overview\": \"Covert security company Vanguard is the last hope of survival for an accountant after he is targeted by the world's deadliest mercenary organization.\",\n            \"popularity\": 2092.204,\n            \"poster_path\": \"/vYvppZMvXYheYTWVd8Rnn9nsmNp.jpg\",\n            \"release_date\": \"2020-09-30\",\n            \"title\": \"Vanguard\",\n            \"video\": false,\n            \"vote_average\": 7.4,\n            \"vote_count\": 116\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/dueiWzWc81UAgnbDAyH4Gjqnh4n.jpg\",\n            \"genre_ids\": [\n                18,\n                878\n            ],\n            \"id\": 614911,\n            \"original_language\": \"en\",\n            \"original_title\": \"The Midnight Sky\",\n            \"overview\": \"A lone scientist in the Arctic races to contact a crew of astronauts returning home to a mysterious global catastrophe.\",\n            \"popularity\": 1818.883,\n            \"poster_path\": \"/51JxCk77ZCqLzbLkrDl9Qho6KUh.jpg\",\n            \"release_date\": \"2020-12-10\",\n            \"title\": \"The Midnight Sky\",\n            \"video\": false,\n            \"vote_average\": 5.9,\n            \"vote_count\": 808\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/UgNke0mMQhQdnX2hEu4cN83M0a.jpg\",\n            \"genre_ids\": [\n                28,\n                14,\n                10751\n            ],\n            \"id\": 615677,\n            \"original_language\": \"en\",\n            \"original_title\": \"We Can Be Heroes\",\n            \"overview\": \"When alien invaders capture Earth's superheroes, their kids must learn to work together to save their parents - and the planet.\",\n            \"popularity\": 1667.094,\n            \"poster_path\": \"/1S21HpcKY6uQ9UAw68aICmrJaq6.jpg\",\n            \"release_date\": \"2020-12-25\",\n            \"title\": \"We Can Be Heroes\",\n            \"video\": false,\n            \"vote_average\": 6.2,\n            \"vote_count\": 190\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/z15NpieRw7jL7bKoICwLO5j7FgZ.jpg\",\n            \"genre_ids\": [\n                878\n            ],\n            \"id\": 733317,\n            \"original_language\": \"en\",\n            \"original_title\": \"Monsters of Man\",\n            \"overview\": \"A robotics company vying to win a lucrative military contract team up with a corrupt CIA agent to conduct an illegal live field test. They deploy four weaponized prototype robots into a suspected drug manufacturing camp in the Golden Triangle, assuming they'd be killing drug runners that no one would miss. Six doctors on a humanitarian mission witness the brutal slaughter and become prime targets.\",\n            \"popularity\": 1237.409,\n            \"poster_path\": \"/1f3qspv64L5FXrRy0MF8X92ieuw.jpg\",\n            \"release_date\": \"2020-11-19\",\n            \"title\": \"Monsters of Man\",\n            \"video\": false,\n            \"vote_average\": 7.3,\n            \"vote_count\": 111\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/wk58aoyWpMTVkKkdjw889XfWGdL.jpg\",\n            \"genre_ids\": [\n                53,\n                80,\n                9648\n            ],\n            \"id\": 646593,\n            \"original_language\": \"en\",\n            \"original_title\": \"Wander\",\n            \"overview\": \"After getting hired to probe a suspicious death in the small town of Wander, a mentally unstable private investigator becomes convinced the case is linked to the same 'conspiracy cover up' that caused the death of his daughter.\",\n            \"popularity\": 1232.834,\n            \"poster_path\": \"/2AwPvNHphpZBJDqjZKVuMAbvS0v.jpg\",\n            \"release_date\": \"2020-12-04\",\n            \"title\": \"Wander\",\n            \"video\": false,\n            \"vote_average\": 5.2,\n            \"vote_count\": 69\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/cjaOSjsjV6cl3uXdJqimktT880L.jpg\",\n            \"genre_ids\": [\n                12,\n                14,\n                10751,\n                16\n            ],\n            \"id\": 529203,\n            \"original_language\": \"en\",\n            \"original_title\": \"The Croods: A New Age\",\n            \"overview\": \"Searching for a safer habitat, the prehistoric Crood family discovers an idyllic, walled-in paradise that meets all of its needs. Unfortunately, they must also learn to live with the Bettermans -- a family that's a couple of steps above the Croods on the evolutionary ladder. As tensions between the new neighbors start to rise, a new threat soon propels both clans on an epic adventure that forces them to embrace their differences, draw strength from one another, and survive together.\",\n            \"popularity\": 1202.465,\n            \"poster_path\": \"/tK1zy5BsCt1J4OzoDicXmr0UTFH.jpg\",\n            \"release_date\": \"2020-11-25\",\n            \"title\": \"The Croods: A New Age\",\n            \"video\": false,\n            \"vote_average\": 7.8,\n            \"vote_count\": 1009\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/2M2JxEv3HSpjnZWjY9NOdGgfUd.jpg\",\n            \"genre_ids\": [\n                28,\n                53,\n                80,\n                18\n            ],\n            \"id\": 553604,\n            \"original_language\": \"en\",\n            \"original_title\": \"Honest Thief\",\n            \"overview\": \"A bank robber tries to turn himself in because he's falling in love and wants to live an honest life...but when he realizes the Feds are more corrupt than him, he must fight back to clear his name.\",\n            \"popularity\": 1199.831,\n            \"poster_path\": \"/zeD4PabP6099gpE0STWJrJrCBCs.jpg\",\n            \"release_date\": \"2020-09-03\",\n            \"title\": \"Honest Thief\",\n            \"video\": false,\n            \"vote_average\": 6.8,\n            \"vote_count\": 407\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/wzJRB4MKi3yK138bJyuL9nx47y6.jpg\",\n            \"genre_ids\": [\n                28,\n                53,\n                878\n            ],\n            \"id\": 577922,\n            \"original_language\": \"en\",\n            \"original_title\": \"Tenet\",\n            \"overview\": \"Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.\",\n            \"popularity\": 1007.113,\n            \"poster_path\": \"/k68nPLbIST6NP96JmTxmZijEvCA.jpg\",\n            \"release_date\": \"2020-08-22\",\n            \"title\": \"Tenet\",\n            \"video\": false,\n            \"vote_average\": 7.3,\n            \"vote_count\": 3718\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/lWf1aiqDZqUbhrw8DnsfV8Ql7CP.jpg\",\n            \"genre_ids\": [\n                10751,\n                16,\n                35,\n                12\n            ],\n            \"id\": 777350,\n            \"original_language\": \"en\",\n            \"original_title\": \"Dory's Reef Cam\",\n            \"overview\": \"Dive into the waters below and watch the aquatic wildlife from the world of Nemo and Dory.\",\n            \"popularity\": 907.452,\n            \"poster_path\": \"/mMWLGu9pFymqipN8yvISHsAaj72.jpg\",\n            \"release_date\": \"2020-12-18\",\n            \"title\": \"Dory's Reef Cam\",\n            \"video\": false,\n            \"vote_average\": 6,\n            \"vote_count\": 3\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/jeAQdDX9nguP6YOX6QSWKDPkbBo.jpg\",\n            \"genre_ids\": [\n                28,\n                14,\n                878\n            ],\n            \"id\": 590706,\n            \"original_language\": \"en\",\n            \"original_title\": \"Jiu Jitsu\",\n            \"overview\": \"Every six years, an ancient order of jiu-jitsu fighters joins forces to battle a vicious race of alien invaders. But when a celebrated war hero goes down in defeat, the fate of the planet and mankind hangs in the balance.\",\n            \"popularity\": 774.568,\n            \"poster_path\": \"/eLT8Cu357VOwBVTitkmlDEg32Fs.jpg\",\n            \"release_date\": \"2020-11-20\",\n            \"title\": \"Jiu Jitsu\",\n            \"video\": false,\n            \"vote_average\": 5.3,\n            \"vote_count\": 234\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/2Fk3AB8E9dYIBc2ywJkxk8BTyhc.jpg\",\n            \"genre_ids\": [\n                28,\n                53\n            ],\n            \"id\": 524047,\n            \"original_language\": \"en\",\n            \"original_title\": \"Greenland\",\n            \"overview\": \"John Garrity, his estranged wife and their young son embark on a perilous journey to find sanctuary as a planet-killing comet hurtles toward Earth. Amid terrifying accounts of cities getting levelled, the Garrity's experience the best and worst in humanity. As the countdown to the global apocalypse approaches zero, their incredible trek culminates in a desperate and last-minute flight to a possible safe haven.\",\n            \"popularity\": 760.152,\n            \"poster_path\": \"/bNo2mcvSwIvnx8K6y1euAc1TLVq.jpg\",\n            \"release_date\": \"2020-07-29\",\n            \"title\": \"Greenland\",\n            \"video\": false,\n            \"vote_average\": 7.1,\n            \"vote_count\": 1260\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/lrzAb9QCwKPOwH1iY7WpfjR6jcC.jpg\",\n            \"genre_ids\": [\n                10770,\n                53\n            ],\n            \"id\": 648371,\n            \"original_language\": \"en\",\n            \"original_title\": \"No Good Deed\",\n            \"overview\": \"Karen never planned on being a hero. A recent widow, she has her hands full with work and parenting her son Max. Then Karen saves Jeremy's life during a drug store robbery and quickly discovers that the young man is intent on paying her back at any cost. At first, life starts improving for this good Samaritan, but as Jeremy's efforts become more extreme, Karen starts to wonder if no good deed truly goes unpunished.\",\n            \"popularity\": 724.023,\n            \"poster_path\": \"/27BnREBR5rcMrUVUhV5bTXlcCym.jpg\",\n            \"release_date\": \"2020-03-13\",\n            \"title\": \"No Good Deed\",\n            \"video\": false,\n            \"vote_average\": 6.7,\n            \"vote_count\": 23\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/aQUM5qfBBdWQQk3mwKp6OLwv8mS.jpg\",\n            \"genre_ids\": [\n                16,\n                28,\n                18,\n                878\n            ],\n            \"id\": 283566,\n            \"original_language\": \"ja\",\n            \"original_title\": \"シン・エヴァンゲリオン劇場版:||\",\n            \"overview\": \"The fourth and final film in the Rebuild of Evangelion series.\",\n            \"popularity\": 628.703,\n            \"poster_path\": \"/q034rbTWteRNA8sMSc2YjegmiUx.jpg\",\n            \"release_date\": \"2021-01-23\",\n            \"title\": \"Evangelion: 3.0+1.0 Thrice Upon a Time\",\n            \"video\": false,\n            \"vote_average\": 0,\n            \"vote_count\": 0\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/mzMCO3dArUcg1OTmjxi8oZ0FQvK.jpg\",\n            \"genre_ids\": [\n                16,\n                10751\n            ],\n            \"id\": 743904,\n            \"original_language\": \"en\",\n            \"original_title\": \"Curious George: Go West, Go Wild\",\n            \"overview\": \"While farm-sitting, George accidentally lets the farm animals escape. Ted, George and wannabe cowboy Emmett must round 'em up, accounting for every animal -- and emerging with some new skills, to boot.\",\n            \"popularity\": 582.477,\n            \"poster_path\": \"/7WWOiP8F6PHjXpJrnRZfvO2XNW.jpg\",\n            \"release_date\": \"2020-09-08\",\n            \"title\": \"Curious George: Go West, Go Wild\",\n            \"video\": false,\n            \"vote_average\": 6.7,\n            \"vote_count\": 25\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/h3dqQ1uqHsNwIVDufe9AzI7KgVS.jpg\",\n            \"genre_ids\": [\n                16,\n                10751\n            ],\n            \"id\": 749618,\n            \"original_language\": \"es\",\n            \"original_title\": \"El Camino de Xico\",\n            \"overview\": \"The peace of a small town is endangered when a corporation wants to destroy the mountain that protects them. A girl named Copi and her best friend Xico, a Xoloitzcuintle dog, will go into the mountains to try to save the town.\",\n            \"popularity\": 569.102,\n            \"poster_path\": \"/ssk0Gd27ziryP2OUxprIVhAvr3e.jpg\",\n            \"release_date\": \"2020-11-12\",\n            \"title\": \"Xico's Path\",\n            \"video\": false,\n            \"vote_average\": 7.3,\n            \"vote_count\": 29\n        }\n    ],\n    \"total_pages\": 500,\n    \"total_results\": 10000\n}"
+						}
+					]
+				},
+				{
+					"name": "/movie/latest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/latest?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"latest"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						},
+						"description": "Get the most newly created movie. This is a live response and will continuously change."
+					},
+					"response": [
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/movie/latest?api_key={{api_key}}&language={{language}}",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"movie",
+										"latest"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "language",
+											"value": "{{language}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 23:10:08 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0"
+								},
+								{
+									"key": "x-memc",
+									"value": "MISS"
+								},
+								{
+									"key": "x-memc-key",
+									"value": "c2dee2bae3ae6f6df472f55c04ab8d998e33d072"
+								},
+								{
+									"key": "x-memc-age",
+									"value": "0"
+								},
+								{
+									"key": "x-memc-expires",
+									"value": "0"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "2021-01-09 23:09:46 +0000"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 8f313251b8a1f09afb3b2ae5c4dfa91b.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "U3iO8SVlYrfzvsOgK6Mcm4HqJd8oRAELpoLQv3F6ZNbEnQx9ceL8zQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"adult\": false,\n    \"backdrop_path\": null,\n    \"belongs_to_collection\": null,\n    \"budget\": 0,\n    \"genres\": [\n        {\n            \"id\": 18,\n            \"name\": \"Drama\"\n        }\n    ],\n    \"homepage\": \"\",\n    \"id\": 784553,\n    \"imdb_id\": \"tt9208668\",\n    \"original_language\": \"en\",\n    \"original_title\": \"All We Have\",\n    \"overview\": \"\",\n    \"popularity\": 0,\n    \"poster_path\": \"/xzw6h0skcglhQyCied8zWKfHz5l.jpg\",\n    \"production_companies\": [\n        {\n            \"id\": 147109,\n            \"logo_path\": null,\n            \"name\": \"Producciones ECUAEA\",\n            \"origin_country\": \"\"\n        }\n    ],\n    \"production_countries\": [\n        {\n            \"iso_3166_1\": \"US\",\n            \"name\": \"United States of America\"\n        }\n    ],\n    \"release_date\": \"2021-01-09\",\n    \"revenue\": 0,\n    \"runtime\": 100,\n    \"spoken_languages\": [\n        {\n            \"english_name\": \"English\",\n            \"iso_639_1\": \"en\",\n            \"name\": \"English\"\n        },\n        {\n            \"english_name\": \"Spanish\",\n            \"iso_639_1\": \"es\",\n            \"name\": \"Español\"\n        }\n    ],\n    \"status\": \"Released\",\n    \"tagline\": \"\",\n    \"title\": \"All We Have\",\n    \"video\": false,\n    \"vote_average\": 0,\n    \"vote_count\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "/movie/top_rated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/top_rated?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"top_rated"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								},
+								{
+									"key": "region",
+									"value": "{{region}}",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get the top rated movies on TMDb."
+					},
+					"response": []
+				},
+				{
+					"name": "\n/movie/now_playing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/now_playing?api_key={{api_key}}&region={{region}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"now_playing"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "region",
+									"value": "{{region}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get a list of movies in theatres. This is a release type query that looks for all movies that have a release type of 2 or 3 within the specified date range.\n\nYou can optionally specify a region prameter which will narrow the search to only look for theatrical release dates within the specified country."
+					},
+					"response": []
+				},
+				{
+					"name": "/movie/{movie_id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						},
+						"description": "Get the primary information about a movie."
+					},
+					"response": [
+						{
+							"name": "401 - Unauthorized - code: 7",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/movie/464052",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"movie",
+										"464052"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 22:32:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=300"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 c7b903a344ef1d9cbce9926c4b40749e.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "PlM2M7TwiPCark8AkVUhJ2Tf6Y5nrC3L__ETC7dQuRcgCBjPLx2PnA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 7,\n    \"status_message\": \"Invalid API key: You must be granted a valid key.\",\n    \"success\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "/movie/{movie_id}/images",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}/images?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}",
+								"images"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						},
+						"description": "Get the images that belong to a movie.\n\nQuerying images with a language parameter will filter the results. If you want to include a fallback language (especially useful for backdrops) you can use the include_image_language parameter. This should be a comma seperated value like so: include_image_language=en,null.\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "/movie/{movie_id}/keywords",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}}/keywords?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}}",
+								"keywords"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Get the keywords that have been added to a movie."
+					},
+					"response": []
+				},
+				{
+					"name": "/movie/{movie_id}/alternative_titles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}/alternative_titles?api_key={{api_key}}&country=Brazil",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}",
+								"alternative_titles"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "country",
+									"value": "Brazil"
+								}
+							]
+						},
+						"description": "Get all of the alternative titles for a movie."
+					},
+					"response": []
+				},
+				{
+					"name": "/movie/{movie_id}/recommendations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}/recommendations?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}",
+								"recommendations"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						},
+						"description": "Get a list of recommended movies for a movie."
+					},
+					"response": []
+				},
+				{
+					"name": "/movie/{movie_id}/release_dates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}/release_dates?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}",
+								"release_dates"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Get the release date along with the certification for a movie.\n\nRelease dates support different types:\n\nPremiere\nTheatrical (limited)\nTheatrical\nDigital\nPhysical\nTV"
+					},
+					"response": []
+				},
+				{
+					"name": "/movie/{movie_id}/external_ids",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}}}/external_ids?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}}}",
+								"external_ids"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Get the external ids for a movie. We currently support the following external sources.\n\nMedia Databases\tSocial IDs\nIMDb ID\tFacebook\nInstagram\nTwitter"
+					},
+					"response": []
+				},
+				{
+					"name": "/movie/{movie_id}/watch/providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}/watch/providers?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}",
+								"watch",
+								"providers"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Powered by our partnership with JustWatch, you can query this method to get a list of the availabilities per country by provider.\n\nThis is not going to return full deep links, but rather, it's just enough information to display what's available where.\n\nYou can link to the provided TMDb URL to help support TMDb and let your users deep link into the content."
+					},
+					"response": []
+				},
+				{
+					"name": "/movie/{movie_id}/videos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/movie/{{movie_id}}/videos?api_key={{api_key}}&language={{language}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"movie",
+								"{{movie_id}}",
+								"videos"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						},
+						"description": "Get the videos that have been added to a movie."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 5000ms\", () => {",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+							"});",
+							"",
+							"/*pm.test(\"Processes successfully\", () => {",
+							"    const result = pm.response.json();",
+							"    pm.expect(result.success).to.eq(true);",
+							"});*/"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "People",
+			"item": [
+				{
+					"name": "/person/popular",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/person/popular?api_key={{api_key}}&language={{language}}&page=1",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"person",
+								"popular"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Get the list of popular people on TMDb. This list updates daily."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "/search/movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"/*const queryValue = pm.request.url.query.get(\"query\");",
+									"if (queryValue) {",
+									"    const indexOfQuery = pm.request.url.query.indexOf(\"query\");",
+									"    const queryValueEncoded = encodeURI(queryValue);",
+									"    pm.request.url.query.idx(indexOfQuery).value = queryValueEncoded;",
+									"}*/"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/search/movie?api_key={{api_key}}&language={{language}}&page=1&region={{region}}&include_adult={{account_include_adult}}&query=vingadores",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"search",
+								"movie"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								},
+								{
+									"key": "language",
+									"value": "{{language}}"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "region",
+									"value": "{{region}}"
+								},
+								{
+									"key": "year",
+									"value": "2020",
+									"disabled": true
+								},
+								{
+									"key": "primary_release_year",
+									"value": "2020",
+									"disabled": true
+								},
+								{
+									"key": "include_adult",
+									"value": "{{account_include_adult}}"
+								},
+								{
+									"key": "query",
+									"value": "vingadores"
+								}
+							]
+						},
+						"description": "Search for movies."
+					},
+					"response": [
+						{
+							"name": "404 - Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/search/movie?api_key={{api_key}}&language={{language}}&query=mulher&page=1&include_adult=true&region=1046&year=2020&primary_release_year=2020",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"",
+										"search",
+										"movie"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "language",
+											"value": "{{language}}"
+										},
+										{
+											"key": "query",
+											"value": "mulher"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "include_adult",
+											"value": "true"
+										},
+										{
+											"key": "region",
+											"value": "1046"
+										},
+										{
+											"key": "year",
+											"value": "2020"
+										},
+										{
+											"key": "primary_release_year",
+											"value": "2020"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 21:08:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "ETag",
+									"value": "c6ae201de4710990e66f7d8f767410f7"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 597dd8a4102439ae7e56785152fb5b13.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "rorWwv2AEqC-LhahviRiEXO7F0wURYZBQjEHjZ9epSeb_MnhCWBqUQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 34,\n    \"status_message\": \"The resource you requested could not be found.\",\n    \"success\": false\n}"
+						},
+						{
+							"name": "200 - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{imdbURL}}/search/movie?api_key={{api_key}}&language={{language}}&query=Mulher%20Maravilha&page=1&include_adult=false",
+									"host": [
+										"{{imdbURL}}"
+									],
+									"path": [
+										"search",
+										"movie"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "language",
+											"value": "{{language}}"
+										},
+										{
+											"key": "query",
+											"value": "Mulher%20Maravilha"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "region",
+											"value": "1046",
+											"disabled": true
+										},
+										{
+											"key": "year",
+											"value": "2020",
+											"disabled": true
+										},
+										{
+											"key": "primary_release_year",
+											"value": "2020",
+											"disabled": true
+										},
+										{
+											"key": "include_adult",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Jan 2021 22:17:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After, Content-Length, Content-Range"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=600"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Hit from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 8f313251b8a1f09afb3b2ae5c4dfa91b.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "GRU50-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "qkWI4i6zeKX1TSnMGlSRytvsUhy7IVWrdV90bRg9LRRvh6foR7tZZA=="
+								},
+								{
+									"key": "Age",
+									"value": "71"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": 1,\n    \"results\": [\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/srYya1ZlI97Au4jUYAktDe3avyA.jpg\",\n            \"genre_ids\": [\n                14,\n                28,\n                12\n            ],\n            \"id\": 464052,\n            \"original_language\": \"en\",\n            \"original_title\": \"Wonder Woman 1984\",\n            \"overview\": \"Em 1984, Diana Prince entra em conflito com dois inimigos formidáveis, Maxwell Lord e a Mulher-Leopardo, enquanto reencontra misteriosamente com seu antigo interesse amoroso Steve Trevor.\",\n            \"popularity\": 3751.291,\n            \"poster_path\": \"/qDA95ebiy3W3m8hTRB3xZNZVVBM.jpg\",\n            \"release_date\": \"2020-12-16\",\n            \"title\": \"Mulher-Maravilha 1984\",\n            \"video\": false,\n            \"vote_average\": 7.2,\n            \"vote_count\": 2322\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/6iUNJZymJBMXXriQyFZfLAKnjO6.jpg\",\n            \"genre_ids\": [\n                28,\n                12,\n                14\n            ],\n            \"id\": 297762,\n            \"original_language\": \"en\",\n            \"original_title\": \"Wonder Woman\",\n            \"overview\": \"Treinada desde cedo para ser uma guerreira imbatível, Diana Prince (Gal Gadot) nunca saiu da paradisíaca ilha em que é reconhecida como Princesa das Amazonas. Quando o piloto Steve Trevor (Chris Pine) se acidenta e cai numa praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa de que pode parar o conflito. Lutando para acabar com todas as lutas, Diana percebe o alcance de seus poderes e sua verdadeira missão na Terra.\",\n            \"popularity\": 165.603,\n            \"poster_path\": \"/ujQthWB6c0ojlARk28NSTmqidbF.jpg\",\n            \"release_date\": \"2017-05-30\",\n            \"title\": \"Mulher-Maravilha\",\n            \"video\": false,\n            \"vote_average\": 7.3,\n            \"vote_count\": 15747\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/qMp8cqGbqje5wmb4w4cZelurKw0.jpg\",\n            \"genre_ids\": [\n                28,\n                12,\n                16,\n                14,\n                878\n            ],\n            \"id\": 15359,\n            \"original_language\": \"en\",\n            \"original_title\": \"Wonder Woman\",\n            \"overview\": \"Mulher Maravilha contará a origem da amazona na mísitca ilha grega de Temíscera e sua inevitável jornada pelo mundo dos homens, onde ela se estabelce como heroína que segue suas próprias regras. Entretanto, o conflito se estabelece quando o deus da guerra, Ares, escapa da sua prisão e jura vingança contra o mundo dos mortais e dos deuses. Cabe à Mulher-Maravilha impedi-lo.\",\n            \"popularity\": 72.312,\n            \"poster_path\": \"/u6sI0yLJXkmrbSJzVRCmmfa4nhx.jpg\",\n            \"release_date\": \"2009-03-03\",\n            \"title\": \"Mulher Maravilha\",\n            \"video\": false,\n            \"vote_average\": 7.4,\n            \"vote_count\": 352\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/6XX4Sp9bF0SulXnMnYqQ9lcjLbp.jpg\",\n            \"genre_ids\": [\n                16,\n                28,\n                14\n            ],\n            \"id\": 537055,\n            \"original_language\": \"en\",\n            \"original_title\": \"Wonder Woman: Bloodlines\",\n            \"overview\": \"Veja a origem lendária de um dos renomados membros da Liga da Justiça, Mulher Maravilha, conforme ela enfrenta o mal com sua espada e seu laço mágico. Determinada e igualmente forte no corpo e no coração, ela assume a missão de ajudar uma jovem garota problemática que foi recrutada por uma organização mortal conhecida como Corporação Vilania, cujos membros criminosos almejam invadir Themyscira, o lar paradisíaco de nossa heroína. A batalha será épica, porque se há uma coisa que as Amazonas conhecem bem, é a guerra!\",\n            \"popularity\": 56.602,\n            \"poster_path\": \"/ulPe6Zqkr4ZODmOFJ67ef9MWh9A.jpg\",\n            \"release_date\": \"2019-10-04\",\n            \"title\": \"Mulher-Maravilha - Linhagem de Sangue\",\n            \"video\": false,\n            \"vote_average\": 7.2,\n            \"vote_count\": 264\n        },\n        {\n            \"adult\": false,\n            \"backdrop_path\": \"/f9sTcBX9M0BvwBHVvlOIUfNx98r.jpg\",\n            \"genre_ids\": [\n                18,\n                10749\n            ],\n            \"id\": 420622,\n            \"original_language\": \"en\",\n            \"original_title\": \"Professor Marston and the Wonder Women\",\n            \"overview\": \"A não-convencional vida de Wiliam Marston (Luke Evans), psicólogo e inventor de Harvard que ajudou a tornar real o Detector de Mentiras e que também criou a Mulher-Maravilha, personagem dos quadrinhos, em 1941. Marston mantinha uma relação polígama envolvendo sua esposa Elizabeth Marston (Rebecca Hall), psicóloga e inventora, e Olive Byrne (Bella Heathcote), uma ex-aluna que virou acadêmica. Essa relação e os ideais feministas das duas mulheres foram essenciais para a criação da personagem.\",\n            \"popularity\": 47.358,\n            \"poster_path\": \"/kh8tO7Eq3HEfK5iUXV0fBMKK0GY.jpg\",\n            \"release_date\": \"2017-10-13\",\n            \"title\": \"Professor Marston e as Mulheres-Maravilhas\",\n            \"video\": false,\n            \"vote_average\": 7.3,\n            \"vote_count\": 568\n        }\n    ],\n    \"total_pages\": 1,\n    \"total_results\": 5\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 5000ms\", () => {",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+							"});",
+							"",
+							"pm.test(\"Processes successfully\", () => {",
+							"    const result = pm.response.json();",
+							"    pm.expect(result.success).to.eq(true);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Trending",
+			"item": [
+				{
+					"name": "/trending/{media_type}/{time_window}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{imdbURL}}/trending/{{movie_id}}/day?api_key={{api_key}}",
+							"host": [
+								"{{imdbURL}}"
+							],
+							"path": [
+								"trending",
+								"{{movie_id}}",
+								"day"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Get the daily or weekly trending items. The daily trending list tracks items over the period of a day while items have a 24 hour half life. The weekly list tracks items over a 7 day period, with a 7 day half life.\n\nValid Media Types\nMedia Type\tDescription\nall\tInclude all movies, TV shows and people in the results as a global trending list.\nmovie\tShow the trending movies in the results.\ntv\tShow the trending TV shows in the results.\nperson\tShow the trending people in the results.\nValid Time Windows\nTime Window\tDescription\nday\tView the trending list for the day.\nweek\tView the trending list for the week."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
