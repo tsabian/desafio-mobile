@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MediaCollectionViewCell" customModule="TmdbMovieware" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="290" height="394"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="290" height="394"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hai-an-tgs">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="363"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoV-NW-uVv">
+                        <rect key="frame" x="102.5" y="333" width="85" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVH-EJ-ReV">
+                                <rect key="frame" x="0.0" y="0.0" width="85" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="XVH-EJ-ReV" secondAttribute="bottom" id="4S7-JR-LG5"/>
+                            <constraint firstItem="XVH-EJ-ReV" firstAttribute="top" secondItem="JoV-NW-uVv" secondAttribute="top" id="DIa-za-BDQ"/>
+                            <constraint firstItem="XVH-EJ-ReV" firstAttribute="leading" secondItem="JoV-NW-uVv" secondAttribute="leading" id="LCD-FQ-IiR"/>
+                            <constraint firstAttribute="width" constant="85" id="R6n-kk-AZv"/>
+                            <constraint firstAttribute="height" constant="20" id="tcd-69-lB9"/>
+                            <constraint firstAttribute="trailing" secondItem="XVH-EJ-ReV" secondAttribute="trailing" id="vdU-yw-uha"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da4-zj-M23">
+                        <rect key="frame" x="5" y="368" width="280" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="IO2-0V-aVL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="da4-zj-M23" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="0z0-x4-e2L"/>
+                <constraint firstItem="da4-zj-M23" firstAttribute="top" secondItem="JoV-NW-uVv" secondAttribute="bottom" constant="15" id="CvZ-en-cZB"/>
+                <constraint firstAttribute="bottom" secondItem="da4-zj-M23" secondAttribute="bottom" constant="5" id="NiN-o9-56b"/>
+                <constraint firstItem="hai-an-tgs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Q7b-XU-xRw"/>
+                <constraint firstItem="da4-zj-M23" firstAttribute="top" secondItem="hai-an-tgs" secondAttribute="bottom" constant="5" id="hxW-wO-YEj"/>
+                <constraint firstItem="hai-an-tgs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lfc-qJ-zpx"/>
+                <constraint firstAttribute="trailing" secondItem="da4-zj-M23" secondAttribute="trailing" constant="5" id="nAd-Ux-EOU"/>
+                <constraint firstAttribute="trailing" secondItem="hai-an-tgs" secondAttribute="trailing" id="xZE-qA-XgX"/>
+                <constraint firstItem="JoV-NW-uVv" firstAttribute="centerX" secondItem="hai-an-tgs" secondAttribute="centerX" id="yEN-xm-GfD"/>
+            </constraints>
+            <size key="customSize" width="140" height="231"/>
+            <connections>
+                <outlet property="poster" destination="hai-an-tgs" id="M8I-ba-feN"/>
+                <outlet property="shortDescriptionText" destination="XVH-EJ-ReV" id="TgC-cV-Lpy"/>
+                <outlet property="shortDescriptionView" destination="JoV-NW-uVv" id="23V-LF-RUR"/>
+            </connections>
+            <point key="canvasLocation" x="55.072463768115945" y="91.741071428571431"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -11,14 +11,20 @@ class MainCoordinator: CoordinatorProtocol {
 
     var childCoordinators = [CoordinatorProtocol]()
     
-    private unowned let presenter: UINavigationController
+    unowned let presenter: UINavigationController
     
     required init(presenter: UINavigationController) {
         self.presenter = presenter
     }
     
     func start() {
-        let vcontroller = HomeViewController()
-        presenter.pushViewController(vcontroller, animated: true)
+        let homeCoordinator = HomeCoordinator(presenter: presenter)
+        homeCoordinator.delegate = self
+        childCoordinators.append(homeCoordinator)
+        homeCoordinator.start()
+    }
+    
+    func didFinishChildCoordinator(_ child: CoordinatorProtocol?) {
+        childCoordinators.removeAll(where: { $0 === child })
     }
 }
