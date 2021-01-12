@@ -11,7 +11,7 @@ class Bindable<Input, Output> {
     
     typealias BindableHandler = (Input?) -> Void
     
-    private(set) var observer: (BindableHandler)?
+    private(set) var observer: BindableHandler?
     
     var value: Input? {
         didSet {
@@ -31,6 +31,6 @@ class Bindable<Input, Output> {
     }
     
     func unbind() {
-        self.observer = nil
+        observer = nil
     }
 }

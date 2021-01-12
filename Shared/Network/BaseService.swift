@@ -12,12 +12,12 @@ class BaseService {
     typealias BaseServiceCompletion<T: ModelProtocol> = (T?, BasicStatusResponseModel?) -> Void
     
     let sessionManager: Session = {
-        return Alamofire.Session.default
+        Alamofire.Session.default
     }()
     
     let ignoreErrors = [String]()
     
-    static func cancellAllRequests() {
+    static func cancelAllRequests() {
         Alamofire.Session.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadTask, downloadTask) in
             sessionDataTask.forEach { $0.cancel() }
             uploadTask.forEach { $0.cancel() }
@@ -67,7 +67,7 @@ class BaseService {
                             error = BasicStatusResponseModel(statusCode: 502, statusMessage: parseError.localizedDescription)
                         }
                     } else {
-                        error = BasicStatusResponseModel(statusCode: 502, statusMessage: "unknow error")
+                        error = BasicStatusResponseModel(statusCode: 502, statusMessage: "unknown error")
                     }
                 }
             }

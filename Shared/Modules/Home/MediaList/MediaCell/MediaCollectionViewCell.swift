@@ -9,7 +9,7 @@ import UIKit
 
 class MediaCollectionViewCell: UICollectionViewCell {
 
-    // MARK: - Constnats
+    // MARK: - Constants
     private let cellWidth = CGFloat(290)
     private let cellHeight = CGFloat(394)
     

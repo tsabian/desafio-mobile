@@ -29,10 +29,13 @@ enum MovieRoutes: URLRequestConvertible {
     }
     
     var baseURL: String {
-        return ""
+        switch self {
+        case .getPopular, .getTopRated:
+            return ""
+        }
     }
     
     func asURLRequest() throws -> URLRequest {
-        return URLRequest(url: URL(string: "")!)
+        URLRequest(url: URL(string: "")!)
     }
 }

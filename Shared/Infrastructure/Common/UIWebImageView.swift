@@ -44,7 +44,7 @@ class UIWebImageView: UIImageView {
         didSet {
             isDefaultImage = false
             image = nil
-            guard let url = self.url else {
+            guard let url = url else {
                 image = defaultImage
                 return
             }

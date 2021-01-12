@@ -1,2 +1,6 @@
 *.xcuserstate
 .DS_Store
+.idea
+Movieware.xcodeproj/xcuserdata
+Movieware.xcworkspace/xcuserdata
+Movieware.xcodeproj/xcuserdata
