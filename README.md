@@ -45,5 +45,6 @@ Como usuário, ao selecionar um item da lista, gostaria de ver os detalhes do fi
  -- API (https://www.themoviedb.org/documentation/api)
  
 # BOA SORTE!
- 
- 
+
+# Design
+[Link Adobe XD](https://xd.adobe.com/view/59cafdea-60fd-474b-bac1-aaf56f130f4f-0c99/)
