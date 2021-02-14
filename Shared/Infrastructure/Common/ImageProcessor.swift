@@ -30,26 +30,26 @@ final class ImageProcessor {
     }
     
     func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
-        let cgimage = image.cgImage!
-        let contextImage = UIImage(cgImage: cgimage)
+        let cgImage = image.cgImage!
+        let contextImage = UIImage(cgImage: cgImage)
         let contextSize = contextImage.size
         var posX = CGFloat.zero
         var posY = CGFloat.zero
-        var cgwidth = CGFloat(width)
-        var cgheight = CGFloat(height)
+        var cgWidth = CGFloat(width)
+        var cgHeight = CGFloat(height)
         if contextSize.width > contextSize.height {
             posX = ((contextSize.width - contextSize.height) / 2)
             posY = CGFloat.zero
-            cgwidth = contextSize.height
-            cgheight = contextSize.height
+            cgWidth = contextSize.height
+            cgHeight = contextSize.height
         } else {
             posX = CGFloat.zero
             posY = ((contextSize.height - contextSize.width) / 2)
-            cgwidth = contextSize.width
-            cgheight = contextSize.width
+            cgWidth = contextSize.width
+            cgHeight = contextSize.width
         }
-        let rect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
-        let imageRef = cgimage.cropping(to: rect)!
+        let rect = CGRect(x: posX, y: posY, width: cgWidth, height: cgHeight)
+        let imageRef = cgImage.cropping(to: rect)!
         let image = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
         return image
     }

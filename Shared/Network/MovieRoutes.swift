@@ -11,7 +11,7 @@ enum MovieRoutes: URLRequestConvertible {
     case getPopular(MoviesRequestModel)
     case getTopRated(MoviesRequestModel)
     
-    var method: HTTPMethod {
+    var method: Alamofire.HTTPMethod {
         switch self {
         case .getPopular,
              .getTopRated:
@@ -31,11 +31,16 @@ enum MovieRoutes: URLRequestConvertible {
     var baseURL: String {
         switch self {
         case .getPopular, .getTopRated:
-            return ""
+            return EnvironmentKeys.hostURL.absoluteString
         }
     }
-    
+
     func asURLRequest() throws -> URLRequest {
-        URLRequest(url: URL(string: "")!)
+        guard let url = URL(string: baseURL) else {
+            throw NetworkError.invalidURL
+        }
+        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        urlRequest.httpMethod = method.rawValue
+        return urlRequest
     }
 }
