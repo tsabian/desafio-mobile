@@ -4,6 +4,7 @@ platform :ios, '12.0'
 def sharedpods
     pod 'Alamofire', '~> 5.2'
     pod 'SwiftLint'
+    pod 'TSWebImageView'
 end
 
 def debugpods
