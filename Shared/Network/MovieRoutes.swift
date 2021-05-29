@@ -11,7 +11,7 @@ enum MovieRoutes: URLRequestConvertible {
     case getPopular(MoviesRequestModel)
     case getTopRated(MoviesRequestModel)
     
-    var method: Alamofire.HTTPMethod {
+    var method: HTTPMethod {
         switch self {
         case .getPopular,
              .getTopRated:

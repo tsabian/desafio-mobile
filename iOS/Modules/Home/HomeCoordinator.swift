@@ -7,6 +7,14 @@
 
 import UIKit
 
+ // MARK: - Home coordinator delegate protocol
+
+protocol HomeCoordinatorDelegate: AnyObject {
+    func didFinishHomeCoordinator()
+}
+
+// MARK: - Home coordinator
+
 class HomeCoordinator: CoordinatorProtocol {
     
     var childCoordinators = [CoordinatorProtocol]()

@@ -7,6 +7,14 @@
 
 import Foundation
 
+// MARK: - Home viewModel Protocol
+
+protocol HomeViewModelProtocol {
+    
+}
+
+// MARK: - Home viewModel
+
 class HomeViewModel: HomeViewModelProtocol {
     
 }

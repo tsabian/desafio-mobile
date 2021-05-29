@@ -15,8 +15,6 @@ class BaseService {
         Alamofire.Session.default
     }()
     
-    let ignoreErrors = [String]()
-    
     static func cancelAllRequests() {
         Alamofire.Session.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadTask, downloadTask) in
             sessionDataTask.forEach { $0.cancel() }
