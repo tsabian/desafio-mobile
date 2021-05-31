@@ -1,40 +1,36 @@
 //
-//  MovieRoutes.swift
+//  AccountRoutes.swift
 //  TmdbMovieware
 //
-//  Created by Tiago Oliveira on 10/01/21.
+//  Created by Tiago Oliveira on 29/05/21.
 //
 
 import Alamofire
 
-enum MovieRoutes: RouteProtocol {
-    case getPopular(MoviesRequestModel)
-    case getTopRated(MoviesRequestModel)
+enum AccountRoutes: RouteProtocol {
+    case getAccount(sessionID: String)
     
     var method: HTTPMethod {
         switch self {
-        case .getPopular,
-             .getTopRated:
+        case .getAccount:
             return .get
         }
     }
     
     var path: String {
         switch self {
-        case .getPopular:
-            return "/movie/popular"
-        case .getTopRated:
-            return "/movie/top_rated"
+        case .getAccount:
+            return "/account"
         }
     }
     
     var baseURL: String {
         switch self {
-        case .getPopular, .getTopRated:
+        default:
             return EnvironmentKeys.hostURL.absoluteString
         }
     }
-
+    
     var headers: HTTPHeaders {
         switch self {
         default:

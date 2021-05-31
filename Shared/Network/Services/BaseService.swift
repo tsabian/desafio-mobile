@@ -8,7 +8,7 @@
 import Alamofire
 
 class BaseService {
-
+    
     typealias BaseServiceCompletion<T: ModelProtocol> = (T?, BasicStatusResponseModel?) -> Void
     
     let sessionManager: Session = {
@@ -23,7 +23,7 @@ class BaseService {
         }
     }
     
-    func performRequest<T: Codable>(_ route: URLRequestConvertible,
+    func performRequest<T: Codable>(_ route: RouteProtocol,
                                     _ queue: DispatchQueue,
                                     _ completionHandler: @escaping BaseServiceCompletion<T>,
                                     _ contentType: ContentType = .json) {

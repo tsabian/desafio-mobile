@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		184BB26B08A149AA9FA4E95E /* Pods_MoviewareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 540250B9153E435E221AD172 /* Pods_MoviewareTests.framework */; };
 		B692E3576FFC0FAD330F7E2A /* Pods_TmdbMovieware.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE350C0BC3610D4E86B84ADD /* Pods_TmdbMovieware.framework */; };
+		F11F540426630C1D00566EC0 /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540326630C1D00566EC0 /* UseCaseProtocol.swift */; };
+		F11F540726630D6C00566EC0 /* AccountSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540626630D6C00566EC0 /* AccountSessionModel.swift */; };
+		F11F540A26630F5B00566EC0 /* AccountRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540926630F5B00566EC0 /* AccountRoutes.swift */; };
+		F11F540E266329B700566EC0 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540D266329B700566EC0 /* AccountService.swift */; };
+		F11F5410266329D700566EC0 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540F266329D700566EC0 /* ServiceProtocol.swift */; };
+		F11F541226632D5A00566EC0 /* AccountResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F541126632D5A00566EC0 /* AccountResponseModel.swift */; };
+		F11F541526640BF500566EC0 /* RouteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F541426640BF500566EC0 /* RouteProtocol.swift */; };
 		F1200CED25AAA0BA002A5F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200CEC25AAA0BA002A5F9D /* AppDelegate.swift */; };
 		F1200CEF25AAA0BA002A5F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200CEE25AAA0BA002A5F9D /* SceneDelegate.swift */; };
 		F1200CF625AAA0BB002A5F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1200CF525AAA0BB002A5F9D /* Assets.xcassets */; };
@@ -81,6 +88,13 @@
 		93FEB315BF2513ECCCAB6FC2 /* Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware-MoviewareUITests/Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig"; sourceTree = "<group>"; };
 		AE350C0BC3610D4E86B84ADD /* Pods_TmdbMovieware.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TmdbMovieware.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DE56139C6F9DB62B2CA596 /* Pods-TmdbMovieware.prd.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware.prd.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware/Pods-TmdbMovieware.prd.xcconfig"; sourceTree = "<group>"; };
+		F11F540326630C1D00566EC0 /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
+		F11F540626630D6C00566EC0 /* AccountSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSessionModel.swift; sourceTree = "<group>"; };
+		F11F540926630F5B00566EC0 /* AccountRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRoutes.swift; sourceTree = "<group>"; };
+		F11F540D266329B700566EC0 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		F11F540F266329D700566EC0 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		F11F541126632D5A00566EC0 /* AccountResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponseModel.swift; sourceTree = "<group>"; };
+		F11F541426640BF500566EC0 /* RouteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteProtocol.swift; sourceTree = "<group>"; };
 		F1200CE925AAA0BA002A5F9D /* TmdbMovieware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TmdbMovieware.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1200CEC25AAA0BA002A5F9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1200CEE25AAA0BA002A5F9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +201,46 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F11F540526630D2200566EC0 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				F1BEA61925ABB1A1007BB167 /* MovieCollectionResponseModel.swift */,
+				F1BEA61E25ABB1B7007BB167 /* MovieResponseModel.swift */,
+				F1BEA62425ABB2E6007BB167 /* DatesResponseModel.swift */,
+				F163451225ABB560001A8411 /* MoviesRequestModel.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		F11F540826630DB200566EC0 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				F11F541126632D5A00566EC0 /* AccountResponseModel.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		F11F540B266323B100566EC0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F1DA42E425AB6A62009D5892 /* BaseService.swift */,
+				F11F540D266329B700566EC0 /* AccountService.swift */,
+				F11F540F266329D700566EC0 /* ServiceProtocol.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F11F54132663FE5500566EC0 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				F11F540926630F5B00566EC0 /* AccountRoutes.swift */,
+				F1E3B9A92662ED8100D3A9BA /* AuthhenticationRoutes.swift */,
+				F1BEA62C25ABB411007BB167 /* MovieRoutes.swift */,
+				F11F541426640BF500566EC0 /* RouteProtocol.swift */,
+			);
+			name = Routes;
+			sourceTree = "<group>";
+		};
 		F1200CE025AAA0BA002A5F9D = {
 			isa = PBXGroup;
 			children = (
@@ -255,13 +309,12 @@
 		F1462E6325AAEA34004808A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F1E3B9AF2662F1E300D3A9BA /* Authentication */,
+				F11F540626630D6C00566EC0 /* AccountSessionModel.swift */,
 				F1DA435425AB98D4009D5892 /* BasicStatusResponseModel.swift */,
 				F1DA436E25AB9A70009D5892 /* ModelProtocol.swift */,
-				F1BEA61925ABB1A1007BB167 /* MovieCollectionResponseModel.swift */,
-				F1BEA61E25ABB1B7007BB167 /* MovieResponseModel.swift */,
-				F1BEA62425ABB2E6007BB167 /* DatesResponseModel.swift */,
-				F163451225ABB560001A8411 /* MoviesRequestModel.swift */,
+				F11F540826630DB200566EC0 /* Account */,
+				F1E3B9AF2662F1E300D3A9BA /* Authentication */,
+				F11F540526630D2200566EC0 /* Movie */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,10 +383,9 @@
 		F1DA42E325AB6A4B009D5892 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				F1DA42E425AB6A62009D5892 /* BaseService.swift */,
-				F1BEA62C25ABB411007BB167 /* MovieRoutes.swift */,
-				F1E3B9A92662ED8100D3A9BA /* AuthhenticationRoutes.swift */,
 				F13AEA5825AEBE4A0091BF27 /* NetworkError.swift */,
+				F11F54132663FE5500566EC0 /* Routes */,
+				F11F540B266323B100566EC0 /* Services */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -395,6 +447,7 @@
 		F1E3B9A82662EC2000D3A9BA /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				F11F540326630C1D00566EC0 /* UseCaseProtocol.swift */,
 				F1E3B9B72662F56200D3A9BA /* AuthenticationUseCase.swift */,
 			);
 			path = UseCase;
@@ -676,10 +729,13 @@
 				F1BEA61A25ABB1A1007BB167 /* MovieCollectionResponseModel.swift in Sources */,
 				F1BEA62D25ABB411007BB167 /* MovieRoutes.swift in Sources */,
 				F13AEA5925AEBE4A0091BF27 /* NetworkError.swift in Sources */,
+				F11F540426630C1D00566EC0 /* UseCaseProtocol.swift in Sources */,
 				F1DA430825AB6ED2009D5892 /* MediaListView.swift in Sources */,
 				F1DA42E525AB6A62009D5892 /* BaseService.swift in Sources */,
 				F1E3B9AC2662F0D100D3A9BA /* ValidateLoginRequestModel.swift in Sources */,
+				F11F5410266329D700566EC0 /* ServiceProtocol.swift in Sources */,
 				F163452325ABB75D001A8411 /* Bundle.swift in Sources */,
+				F11F540E266329B700566EC0 /* AccountService.swift in Sources */,
 				F1DA436A25AB9A3F009D5892 /* DateFormatter.swift in Sources */,
 				F1F74AD525AAEFBB002D3843 /* HomeViewModel.swift in Sources */,
 				F1BEA62525ABB2E6007BB167 /* DatesResponseModel.swift in Sources */,
@@ -694,6 +750,7 @@
 				F1DA434A25AB79AD009D5892 /* Bindable.swift in Sources */,
 				F1DA433E25AB72FE009D5892 /* MediaCollectionViewCell.swift in Sources */,
 				F1462E7425AAEB59004808A7 /* MainCoordinator.swift in Sources */,
+				F11F541526640BF500566EC0 /* RouteProtocol.swift in Sources */,
 				F163451325ABB560001A8411 /* MoviesRequestModel.swift in Sources */,
 				F1E3B9B52662F4AB00D3A9BA /* DeleteSessionRequestModel.swift in Sources */,
 				F163451B25ABB722001A8411 /* Environment.swift in Sources */,
@@ -702,8 +759,11 @@
 				F1F74AE425AAF001002D3843 /* HomeViewController.swift in Sources */,
 				F1E3B9AE2662F1BE00D3A9BA /* TokenResponseModel.swift in Sources */,
 				F1DA436F25AB9A70009D5892 /* ModelProtocol.swift in Sources */,
+				F11F540A26630F5B00566EC0 /* AccountRoutes.swift in Sources */,
 				F1DA435025AB7C66009D5892 /* ContentType.swift in Sources */,
 				F1E3B9B82662F56200D3A9BA /* AuthenticationUseCase.swift in Sources */,
+				F11F541226632D5A00566EC0 /* AccountResponseModel.swift in Sources */,
+				F11F540726630D6C00566EC0 /* AccountSessionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

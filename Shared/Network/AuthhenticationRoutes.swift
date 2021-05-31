@@ -7,7 +7,7 @@
 
 import Alamofire
 
-enum AuthenticationRoutes: URLRequestConvertible {
+enum AuthenticationRoutes: RouteProtocol {
     case createGuestSession
     case createRequestToken
     case createSessionWithLogin(ValidateLoginRequestModel)
@@ -49,12 +49,17 @@ enum AuthenticationRoutes: URLRequestConvertible {
         }
     }
     
-    func asURLRequest() throws -> URLRequest {
-        guard let url = URL(string: baseURL) else {
-            throw NetworkError.invalidURL
+    var headers: HTTPHeaders {
+        switch self {
+        default:
+            return HTTPHeaders()
         }
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        urlRequest.httpMethod = method.rawValue
-        return urlRequest
+    }
+    
+    var queryParams: Parameters {
+        switch self {
+        default:
+            return Parameters(dictionaryLiteral: ("apikey", Environment.shared.get(plistKey: .apiKey)))
+        }
     }
 }
