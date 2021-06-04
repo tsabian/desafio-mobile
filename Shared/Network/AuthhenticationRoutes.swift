@@ -10,7 +10,7 @@ import Alamofire
 enum AuthenticationRoutes: RouteProtocol {
     case createGuestSession
     case createRequestToken
-    case createSessionWithLogin(ValidateLoginRequestModel)
+    case validateWithLogin(ValidateLoginRequestModel)
     case createSession(SessionRequestModel)
     case deleteSession(DeleteSessionRequestModel)
     
@@ -20,7 +20,7 @@ enum AuthenticationRoutes: RouteProtocol {
              .createRequestToken:
             return .get
         case .createSession,
-             .createSessionWithLogin:
+             .validateWithLogin:
             return .post
         case .deleteSession:
             return .delete
@@ -35,7 +35,7 @@ enum AuthenticationRoutes: RouteProtocol {
             return "/authentication/token/new"
         case .createSession:
             return "/authentication/session/new"
-        case .createSessionWithLogin:
+        case .validateWithLogin:
             return "/authentication/token/validate_with_login"
         case .deleteSession:
             return "/authentication/session"
@@ -56,7 +56,7 @@ enum AuthenticationRoutes: RouteProtocol {
         }
     }
     
-    var queryParams: Parameters {
+    var queryParams: Parameters? {
         switch self {
         default:
             return Parameters(dictionaryLiteral: ("apikey", Environment.shared.get(plistKey: .apiKey)))

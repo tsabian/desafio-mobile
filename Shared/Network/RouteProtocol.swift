@@ -12,7 +12,7 @@ protocol RouteProtocol: URLRequestConvertible {
     var baseURL: String { get }
     var method: HTTPMethod { get }
     var headers: HTTPHeaders { get }
-    var queryParams: Parameters { get }
+    var queryParams: Parameters? { get }
 }
 
 // MARK: - Route protocol extension

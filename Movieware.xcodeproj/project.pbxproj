@@ -13,7 +13,6 @@
 		F11F540726630D6C00566EC0 /* AccountSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540626630D6C00566EC0 /* AccountSessionModel.swift */; };
 		F11F540A26630F5B00566EC0 /* AccountRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540926630F5B00566EC0 /* AccountRoutes.swift */; };
 		F11F540E266329B700566EC0 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540D266329B700566EC0 /* AccountService.swift */; };
-		F11F5410266329D700566EC0 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540F266329D700566EC0 /* ServiceProtocol.swift */; };
 		F11F541226632D5A00566EC0 /* AccountResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F541126632D5A00566EC0 /* AccountResponseModel.swift */; };
 		F11F541526640BF500566EC0 /* RouteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F541426640BF500566EC0 /* RouteProtocol.swift */; };
 		F1200CED25AAA0BA002A5F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200CEC25AAA0BA002A5F9D /* AppDelegate.swift */; };
@@ -29,6 +28,8 @@
 		F163451B25ABB722001A8411 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163451A25ABB722001A8411 /* Environment.swift */; };
 		F163452325ABB75D001A8411 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163452225ABB75D001A8411 /* Bundle.swift */; };
 		F163452825ABB7EB001A8411 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163452725ABB7EB001A8411 /* EnvironmentKeys.swift */; };
+		F1AD0F9726698AC300513CCF /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD0F9626698AC300513CCF /* AuthenticationService.swift */; };
+		F1AD0F99266992CE00513CCF /* DeleteSessionResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD0F98266992CE00513CCF /* DeleteSessionResponseModel.swift */; };
 		F1BEA61A25ABB1A1007BB167 /* MovieCollectionResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BEA61925ABB1A1007BB167 /* MovieCollectionResponseModel.swift */; };
 		F1BEA61F25ABB1B7007BB167 /* MovieResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BEA61E25ABB1B7007BB167 /* MovieResponseModel.swift */; };
 		F1BEA62525ABB2E6007BB167 /* DatesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BEA62425ABB2E6007BB167 /* DatesResponseModel.swift */; };
@@ -92,7 +93,6 @@
 		F11F540626630D6C00566EC0 /* AccountSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSessionModel.swift; sourceTree = "<group>"; };
 		F11F540926630F5B00566EC0 /* AccountRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRoutes.swift; sourceTree = "<group>"; };
 		F11F540D266329B700566EC0 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
-		F11F540F266329D700566EC0 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		F11F541126632D5A00566EC0 /* AccountResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponseModel.swift; sourceTree = "<group>"; };
 		F11F541426640BF500566EC0 /* RouteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteProtocol.swift; sourceTree = "<group>"; };
 		F1200CE925AAA0BA002A5F9D /* TmdbMovieware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TmdbMovieware.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +117,8 @@
 		F198FEE825AAC21A00327990 /* TmdbMovieware-dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "TmdbMovieware-dev.xcconfig"; sourceTree = "<group>"; };
 		F198FEE925AAC22C00327990 /* TmdbMovieware-hml.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "TmdbMovieware-hml.xcconfig"; sourceTree = "<group>"; };
 		F198FEEA25AAC23C00327990 /* TmdbMovieware-prd.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "TmdbMovieware-prd.xcconfig"; sourceTree = "<group>"; };
+		F1AD0F9626698AC300513CCF /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		F1AD0F98266992CE00513CCF /* DeleteSessionResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSessionResponseModel.swift; sourceTree = "<group>"; };
 		F1BEA61925ABB1A1007BB167 /* MovieCollectionResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionResponseModel.swift; sourceTree = "<group>"; };
 		F1BEA61E25ABB1B7007BB167 /* MovieResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponseModel.swift; sourceTree = "<group>"; };
 		F1BEA62425ABB2E6007BB167 /* DatesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesResponseModel.swift; sourceTree = "<group>"; };
@@ -223,9 +225,9 @@
 		F11F540B266323B100566EC0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F1DA42E425AB6A62009D5892 /* BaseService.swift */,
 				F11F540D266329B700566EC0 /* AccountService.swift */,
-				F11F540F266329D700566EC0 /* ServiceProtocol.swift */,
+				F1AD0F9626698AC300513CCF /* AuthenticationService.swift */,
+				F1DA42E425AB6A62009D5892 /* BaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -461,6 +463,7 @@
 				F1E3B9B02662F3B200D3A9BA /* SessionRequestModel.swift */,
 				F1E3B9B22662F3E800D3A9BA /* SessionResponseModel.swift */,
 				F1E3B9B42662F4AB00D3A9BA /* DeleteSessionRequestModel.swift */,
+				F1AD0F98266992CE00513CCF /* DeleteSessionResponseModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -733,11 +736,11 @@
 				F1DA430825AB6ED2009D5892 /* MediaListView.swift in Sources */,
 				F1DA42E525AB6A62009D5892 /* BaseService.swift in Sources */,
 				F1E3B9AC2662F0D100D3A9BA /* ValidateLoginRequestModel.swift in Sources */,
-				F11F5410266329D700566EC0 /* ServiceProtocol.swift in Sources */,
 				F163452325ABB75D001A8411 /* Bundle.swift in Sources */,
 				F11F540E266329B700566EC0 /* AccountService.swift in Sources */,
 				F1DA436A25AB9A3F009D5892 /* DateFormatter.swift in Sources */,
 				F1F74AD525AAEFBB002D3843 /* HomeViewModel.swift in Sources */,
+				F1AD0F99266992CE00513CCF /* DeleteSessionResponseModel.swift in Sources */,
 				F1BEA62525ABB2E6007BB167 /* DatesResponseModel.swift in Sources */,
 				F1DA42ED25AB6A92009D5892 /* HomeCoordinator.swift in Sources */,
 				F1200CED25AAA0BA002A5F9D /* AppDelegate.swift in Sources */,
@@ -764,6 +767,7 @@
 				F1E3B9B82662F56200D3A9BA /* AuthenticationUseCase.swift in Sources */,
 				F11F541226632D5A00566EC0 /* AccountResponseModel.swift in Sources */,
 				F11F540726630D6C00566EC0 /* AccountSessionModel.swift in Sources */,
+				F1AD0F9726698AC300513CCF /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

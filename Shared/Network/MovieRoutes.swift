@@ -42,7 +42,7 @@ enum MovieRoutes: RouteProtocol {
         }
     }
     
-    var queryParams: Parameters {
+    var queryParams: Parameters? {
         switch self {
         default:
             return Parameters(dictionaryLiteral: ("apikey", Environment.shared.get(plistKey: .apiKey)))

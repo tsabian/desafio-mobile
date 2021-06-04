@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol AccountServiceProtocol: ServiceProtocol {
+protocol AccountServiceProtocol {
     func fetchAccount(completion: @escaping(AccountResponseModel) -> Void)
 }
 
 final class AccountService: BaseService, AccountServiceProtocol {
     func fetchAccount(completion: @escaping (AccountResponseModel) -> Void) {
-
+        
     }
 }
