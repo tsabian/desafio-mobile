@@ -8,5 +8,5 @@
 import Foundation
 
 protocol UseCaseProtocol {
-    
+    typealias UseCaseCompletion<T: Codable> = (T?, BasicStatusResponseModel?) -> Void
 }

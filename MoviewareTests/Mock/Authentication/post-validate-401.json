@@ -1,0 +1,6 @@
+{
+    "success": false,
+    "failure": true,
+    "status_code": 17,
+    "status_message": "Session denied."
+}

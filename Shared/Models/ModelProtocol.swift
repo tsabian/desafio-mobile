@@ -46,7 +46,7 @@ extension ModelProtocol {
     
     static func toModel<T: ModelProtocol>(from data: Data) throws -> T? {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(.iso8601FSBackend)
+        decoder.dateDecodingStrategy = .formatted(.iso8601UTC)
         do {
             let json = try decoder.decode(T.self, from: data)
             return json

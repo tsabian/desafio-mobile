@@ -8,8 +8,8 @@
 import Foundation
 
 struct TokenResponseModel: ModelProtocol {
-    let success: String
-    let expiresAt: String
+    let success: Bool
+    let expiresAt: Date
     let requestToken: String
     
     enum CodingKeys: String, CodingKey {
