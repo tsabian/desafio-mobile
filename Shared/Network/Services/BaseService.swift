@@ -7,7 +7,7 @@
 
 import Alamofire
 
-class BaseService {
+open class BaseService {
     
     typealias BaseServiceCompletion<T: ModelProtocol> = (T?, BasicStatusResponseModel?) -> Void
     

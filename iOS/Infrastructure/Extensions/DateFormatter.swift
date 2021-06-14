@@ -41,7 +41,7 @@ public extension DateFormatter {
     static let iso8601UTC: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "pt_BR")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
         formatter.calendar = Calendar(identifier: .iso8601)
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter

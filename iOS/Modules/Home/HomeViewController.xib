@@ -11,8 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="TmdbMovieware" customModuleProvider="target">
             <connections>
-                <outlet property="mediaCollection" destination="E3t-3M-PNo" id="TUW-FW-j53"/>
-                <outlet property="mediaSelection" destination="Q5q-gf-VfH" id="dpl-BJ-alp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,34 +18,9 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q5q-gf-VfH">
-                    <rect key="frame" x="124.5" y="64" width="165" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="31" id="Dzo-gb-LVQ"/>
-                        <constraint firstAttribute="width" constant="165" id="NMw-fT-ffV"/>
-                    </constraints>
-                    <segments>
-                        <segment title="Upcoming"/>
-                        <segment title="Popular"/>
-                    </segments>
-                </segmentedControl>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3t-3M-PNo" customClass="MediaListView" customModule="TmdbMovieware" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="115" width="414" height="781"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
-            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="E3t-3M-PNo" secondAttribute="trailing" id="9gw-kB-tvS"/>
-                <constraint firstItem="Q5q-gf-VfH" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="QtP-Ie-5nt"/>
-                <constraint firstItem="E3t-3M-PNo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b47-ns-AJM"/>
-                <constraint firstItem="Q5q-gf-VfH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="jST-r6-K1j"/>
-                <constraint firstItem="E3t-3M-PNo" firstAttribute="top" secondItem="Q5q-gf-VfH" secondAttribute="bottom" constant="20" id="tJF-Qg-VnH"/>
-                <constraint firstAttribute="bottom" secondItem="E3t-3M-PNo" secondAttribute="bottom" id="u0T-mv-TA5"/>
-            </constraints>
-            <point key="canvasLocation" x="-57" y="129"/>
+            <point key="canvasLocation" x="-214" y="106"/>
         </view>
     </objects>
     <resources>

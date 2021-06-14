@@ -11,16 +11,17 @@ import XCTest
 final class StringExtensionsTest: XCTestCase {
 
     func testConvertToDateShouldBySuccess() {
-        var expectedDate = DateComponents()
-        let calendar = Calendar(identifier: .gregorian)
-        expectedDate.calendar = calendar
-        expectedDate.day = 09
-        expectedDate.year = 2021
-        expectedDate.month = 01
-        expectedDate.hour = 20
-        expectedDate.minute = 01
-        expectedDate.second = 05
         
+        guard let timeZone = TimeZone(abbreviation: "UTC") else {
+            XCTFail("Time zone UTC should cannot by null")
+            return
+        }
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        
+        let expectedDate = DateComponents(calendar: calendar, timeZone: timeZone, year: 2021, month: 1,
+                                          day: 9, hour: 20, minute: 1, second: 5)
+                
         var date = "2021-01-09".toDate(withFormat: "yyyy-MM-dd")
         XCTAssertNotNil(date)
         if let date = date {
@@ -29,7 +30,7 @@ final class StringExtensionsTest: XCTestCase {
             XCTAssertEqual(expectedDate.day, calendar.component(.day, from: date))
         }
 
-        date = "2021-01-09 20:01:05".toDate(withFormat: "yyyy-MM-dd HH:mm:ss")
+        date = "2021-01-09 20:01:05".toDate(in: "UTC", withFormat: "yyyy-MM-dd HH:mm:ss")
         XCTAssertNotNil(date)
         if let date = date {
             XCTAssertEqual(expectedDate.year, calendar.component(.year, from: date))
@@ -40,7 +41,7 @@ final class StringExtensionsTest: XCTestCase {
             XCTAssertEqual(expectedDate.second, calendar.component(.second, from: date))
         }
 
-        date = "2021-01-09T20:01:05".toDate(withFormat: "yyyy-MM-dd'T'HH:mm:ss")
+        date = "2021-01-09T20:01:05".toDate(in: "UTC", withFormat: "yyyy-MM-dd'T'HH:mm:ss")
         XCTAssertNotNil(date)
         if let date = date {
             XCTAssertEqual(expectedDate.year, calendar.component(.year, from: date))
@@ -51,7 +52,7 @@ final class StringExtensionsTest: XCTestCase {
             XCTAssertEqual(expectedDate.second, calendar.component(.second, from: date))
         }
 
-        date = "2021-01-09 20:01:05 UTC".toDate(withFormat: "yyyy-MM-dd HH:mm:ss ZZZ", timezone: TimeZone(identifier: "UTC")!)
+        date = "2021-01-09 20:01:05 UTC".toDate(in: "UTC", withFormat: "yyyy-MM-dd HH:mm:ss zzz")
         XCTAssertNotNil(date)
         if let date = date {
             XCTAssertEqual(expectedDate.year, calendar.component(.year, from: date))
@@ -69,7 +70,7 @@ final class StringExtensionsTest: XCTestCase {
             XCTAssertEqual(expectedDate.minute, calendar.component(.minute, from: date))
             XCTAssertEqual(expectedDate.second, calendar.component(.second, from: date))
         }
-        date = "20:01:05".toDate(withFormat: "HH:mm:ss")
+        date = "20:01:05".toDate(in: "UTC", withFormat: "HH:mm:ss")
         XCTAssertNotNil(date)
         if let date = date {
             XCTAssertEqual(expectedDate.hour, calendar.component(.hour, from: date))

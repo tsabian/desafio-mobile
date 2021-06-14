@@ -7,6 +7,11 @@ def sharedpods
     pod 'TSWebImageView'
 end
 
+def firebasepods
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics'
+end
+
 def debugpods
   pod 'atlantis-proxyman', '~> 1.4.3'
   pod 'FLEX', :configurations => ['dev', 'hml']
@@ -18,6 +23,7 @@ target 'TmdbMovieware' do
   use_frameworks!
   # Pods for Movieware
   sharedpods
+  firebasepods
   debugpods
 
   target 'MoviewareTests' do

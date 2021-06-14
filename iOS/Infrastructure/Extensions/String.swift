@@ -8,13 +8,14 @@
 import Foundation
 
 extension String {
-    func toDate(withFormat format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-                locale: Locale = Locale(identifier: "pt_BR"),
-                timezone: TimeZone = TimeZone.current) -> Date? {
+
+    func toDate(in timeZone: String = TimeZone.current.identifier,
+                withFormat format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ") -> Date? {
         let formatter = DateFormatter()
-        formatter.locale = locale
-        formatter.timeZone = timezone
         formatter.dateFormat = format
+        formatter.locale = Locale(identifier: "pt_BT")
+        formatter.timeZone = TimeZone(identifier: timeZone)
         return formatter.date(from: self)
     }
+
 }

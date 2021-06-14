@@ -28,8 +28,8 @@ class HomeCoordinator: CoordinatorProtocol {
     }
 
     func start() {
-        let vController = HomeViewController()
-        vController.viewModel = HomeViewModel()
+        let viewModel = HomeViewModel()
+        let vController = HomeViewController(viewModel: viewModel)
         presenter.pushViewController(vController, animated: true)
     }
 }

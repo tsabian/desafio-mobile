@@ -28,3 +28,11 @@ class MainCoordinator: CoordinatorProtocol {
         childCoordinators.removeAll(where: { $0 === child })
     }
 }
+
+// MARK: - HomeCoordinatorDelegate
+extension MainCoordinator: HomeCoordinatorDelegate {
+    func didFinishHomeCoordinator() {
+        presenter.popViewController(animated: true)
+        childCoordinators.removeLast()
+    }
+}
