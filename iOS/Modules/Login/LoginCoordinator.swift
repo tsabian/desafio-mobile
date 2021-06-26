@@ -7,19 +7,15 @@
 
 import UIKit
 
-protocol LoginCoordinatorProtocol {
-    
-}
-
-protocol LoginCoordinatorDelegateProtocol: AnyObject {
-    
+protocol LoginCoordinatorDelegate: AnyObject {
+    func didFinisH(coordinator login: LoginCoordinator)
 }
 
 class LoginCoordinator: CoordinatorProtocol {
     
     var childCoordinators = [CoordinatorProtocol]()
     
-    weak var delegate: LoginCoordinatorDelegateProtocol?
+    weak var delegate: LoginCoordinatorDelegate?
     
     unowned let presenter: UINavigationController
     

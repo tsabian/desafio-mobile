@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Bindable<Input, Output> {
+class Bindable<Input> {
     
     typealias BindableHandler = (Input?) -> Void
     

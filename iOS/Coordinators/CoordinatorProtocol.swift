@@ -16,7 +16,8 @@ protocol CoordinatorProtocol: AnyObject {
     init(presenter: UINavigationController)
 
     func start()
-
+    
+    func removeChild(coordinator: CoordinatorProtocol)
 }
 
 extension CoordinatorProtocol {
@@ -45,11 +46,8 @@ extension CoordinatorProtocol {
     var identifier: String {
         return String(describing: Self.self)
     }
-}
-
-// MARK: - Equatable
-extension CoordinatorProtocol where Self: Equatable {
-    static func==(lhs: CoordinatorProtocol, rhs: CoordinatorProtocol) -> Bool {
-        return lhs.identifier == rhs.identifier
+    
+    func removeChild(coordinator: CoordinatorProtocol) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
     }
 }

@@ -20,6 +20,7 @@
 		F1200CF625AAA0BB002A5F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1200CF525AAA0BB002A5F9D /* Assets.xcassets */; };
 		F1200CF925AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1200CF725AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard */; };
 		F1200D0F25AAA0BC002A5F9D /* MoviewareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1200D0E25AAA0BC002A5F9D /* MoviewareUITests.swift */; };
+		F12F3B072686F99C00B8F131 /* LocalizableKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F3B062686F99C00B8F131 /* LocalizableKeys.swift */; };
 		F1369EDC266B9C2400BCEE90 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369EDB266B9C2400BCEE90 /* DefaultsManager.swift */; };
 		F1369EDF266BA23600BCEE90 /* AuthenticationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369EDE266BA23600BCEE90 /* AuthenticationUseCaseTests.swift */; };
 		F1369EE3266BA34100BCEE90 /* get-token-200.json in Resources */ = {isa = PBXBuildFile; fileRef = F1369EE2266BA34100BCEE90 /* get-token-200.json */; };
@@ -129,6 +130,7 @@
 		F1200D0A25AAA0BC002A5F9D /* MoviewareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviewareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1200D0E25AAA0BC002A5F9D /* MoviewareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewareUITests.swift; sourceTree = "<group>"; };
 		F1200D1025AAA0BC002A5F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F12F3B062686F99C00B8F131 /* LocalizableKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableKeys.swift; sourceTree = "<group>"; };
 		F1369EDB266B9C2400BCEE90 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		F1369EDE266BA23600BCEE90 /* AuthenticationUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCaseTests.swift; sourceTree = "<group>"; };
 		F1369EE2266BA34100BCEE90 /* get-token-200.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "get-token-200.json"; sourceTree = "<group>"; };
@@ -348,6 +350,15 @@
 			path = MoviewareUITests;
 			sourceTree = "<group>";
 		};
+		F12F3B052686EF8800B8F131 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F163451A25ABB722001A8411 /* Environment.swift */,
+				F163452725ABB7EB001A8411 /* EnvironmentKeys.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		F1369EDD266BA21500BCEE90 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				F1DA434E25AB7C54009D5892 /* Enums */,
+				F12F3B052686EF8800B8F131 /* Infrastructure */,
 				F1462E6325AAEA34004808A7 /* Models */,
 				F1DA42E325AB6A4B009D5892 /* Network */,
 				F13DE8A826759A9A00F76298 /* Resources */,
@@ -501,6 +513,7 @@
 			children = (
 				F1200CFA25AAA0BB002A5F9D /* Info.plist */,
 				F1DA434325AB7557009D5892 /* Default.strings */,
+				F12F3B062686F99C00B8F131 /* LocalizableKeys.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -571,7 +584,6 @@
 			children = (
 				F13DE89926747F3400F76298 /* BaseViewController.swift */,
 				F1369EDB266B9C2400BCEE90 /* DefaultsManager.swift */,
-				F163452725ABB7EB001A8411 /* EnvironmentKeys.swift */,
 				F1DA438625AB9B84009D5892 /* Common */,
 				F1DA436025AB99BD009D5892 /* Extensions */,
 			);
@@ -600,7 +612,6 @@
 			isa = PBXGroup;
 			children = (
 				F1DA434925AB79AD009D5892 /* Bindable.swift */,
-				F163451A25ABB722001A8411 /* Environment.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -916,6 +927,7 @@
 				F163452325ABB75D001A8411 /* Bundle.swift in Sources */,
 				F11F540E266329B700566EC0 /* AccountService.swift in Sources */,
 				F1DA436A25AB9A3F009D5892 /* DateFormatter.swift in Sources */,
+				F12F3B072686F99C00B8F131 /* LocalizableKeys.swift in Sources */,
 				F1F74AD525AAEFBB002D3843 /* HomeViewModel.swift in Sources */,
 				F1AD0F99266992CE00513CCF /* DeleteSessionResponseModel.swift in Sources */,
 				F1BEA62525ABB2E6007BB167 /* DatesResponseModel.swift in Sources */,

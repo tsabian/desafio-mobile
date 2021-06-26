@@ -1,4 +1,4 @@
-/* 
+/*
   Default.strings
   Movieware
 
@@ -6,4 +6,10 @@
   
 */
 
-"Home" = "home";
+"enterEmail" = "Digite seu e-mail";
+"enterPassword" = "Digite sua senha";
+"rememberPassword" = "Esqueceu a senha?";
+"login" = "Login";
+"registerAccount" = "Não tem uma conta?";
+"register" = "Registrar";
+

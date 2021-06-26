@@ -1,12 +1,15 @@
 disabled_rules:
-- trailing_whitespace
+ - trailing_whitespace
+
 opt_in_rules:
-- empty_count
-- empty_string
+ - empty_count
+ - empty_string
+
 excluded:
-- Pods
-- SwiftLint/Common/3rdPartyLib
-- CI
+ - Pods
+ - SwiftLint/Common/3rdPartyLib
+ - CI
+
 line_length:
     warning: 150
     error: 200

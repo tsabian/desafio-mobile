@@ -10,7 +10,7 @@ import UIKit
  // MARK: - Home coordinator delegate protocol
 
 protocol HomeCoordinatorDelegate: AnyObject {
-    func didFinishHomeCoordinator()
+    func didFinish(coordinator home: HomeCoordinator)
 }
 
 // MARK: - Home coordinator

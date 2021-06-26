@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## Alamofire
 
-Copyright (c) 2014-2020 Alamofire Software Foundation (http://alamofire.org/)
+Copyright (c) 2014-2021 Alamofire Software Foundation (http://alamofire.org/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -42,6 +42,9 @@ are permitted provided that the following conditions are met:
 * Neither the name of Flipboard nor the names of its
   contributors may be used to endorse or promote products derived from
   this software without specific prior written permission.
+
+* You must NOT include this project in an application to be submitted
+  to the App Store™, as this project uses too many private APIs.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED

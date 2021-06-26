@@ -16,23 +16,42 @@ class MainCoordinator: CoordinatorProtocol {
     required init(presenter: UINavigationController) {
         self.presenter = presenter
     }
-    
+
     func start() {
+        if DefaultsManagerKeys.sessionIDKey.get() == nil {
+            startHome()
+        } else {
+            startLogin()
+        }
+    }
+    
+    fileprivate func startHome() {
         let homeCoordinator = HomeCoordinator(presenter: presenter)
         homeCoordinator.delegate = self
         childCoordinators.append(homeCoordinator)
         homeCoordinator.start()
     }
     
-    func didFinishChildCoordinator(_ child: CoordinatorProtocol?) {
-        childCoordinators.removeAll(where: { $0 === child })
+    fileprivate func startLogin() {
+        let loginCoordinator = LoginCoordinator(presenter: presenter)
+        loginCoordinator.delegate = self
+        childCoordinators.append(loginCoordinator)
+        loginCoordinator.start()
     }
 }
 
 // MARK: - HomeCoordinatorDelegate
 extension MainCoordinator: HomeCoordinatorDelegate {
-    func didFinishHomeCoordinator() {
+    func didFinish(coordinator home: HomeCoordinator) {
         presenter.popViewController(animated: true)
-        childCoordinators.removeLast()
+        removeChild(coordinator: home)
+    }
+}
+
+// MARK: - LoginCoordinatorDelegate
+extension MainCoordinator: LoginCoordinatorDelegate {
+    func didFinisH(coordinator login: LoginCoordinator) {
+        presenter.popViewController(animated: true)
+        removeChild(coordinator: login)
     }
 }

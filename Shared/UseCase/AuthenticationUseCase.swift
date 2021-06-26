@@ -7,14 +7,23 @@
 
 import Foundation
 
+// MARK: - AuthenticationUseCaseStatus
+enum AuthenticationUseCaseStatus<Success: Codable> {
+    case success(model: Success)
+    case failure(responseError: BasicStatusResponseModel?)
+}
+
 // MARK: - Authentication use case protocol
 protocol AuthenticationUseCaseProtocol: UseCaseProtocol {
     
     init(authenticationService: AuthenticationServiceProtocol)
     
-    func getSession(completion: @escaping UseCaseCompletion<TokenResponseModel>)
-    func validate(session model: ValidateLoginRequestModel, completion: @escaping UseCaseCompletion<TokenResponseModel>)
-    func create(session model: SessionRequestModel, completion: @escaping UseCaseCompletion<SessionResponseModel>)
+    func getSession(completion: @escaping UseCaseCompletion<AuthenticationUseCaseStatus<TokenResponseModel>>)
+    
+    func validate(session model: ValidateLoginRequestModel,
+                  completion: @escaping UseCaseCompletion<AuthenticationUseCaseStatus<TokenResponseModel>>)
+    
+    func create(session model: SessionRequestModel, completion: @escaping UseCaseCompletion<AuthenticationUseCaseStatus<SessionResponseModel>>)
 }
 
 // MARK: - Authentication use case
@@ -26,24 +35,25 @@ final class AuthenticationUseCase: AuthenticationUseCaseProtocol {
         self.authenticationService = authenticationService
     }
      
-    func getSession(completion: @escaping UseCaseCompletion<TokenResponseModel>) {
+    func getSession(completion: @escaping UseCaseCompletion<AuthenticationUseCaseStatus<TokenResponseModel>>) {
         authenticationService.getSession { (tokenResponseModel, basicStatusResponseModel) in
             guard let token = tokenResponseModel else {
-                completion(nil, basicStatusResponseModel)
+                completion(.failure(responseError: basicStatusResponseModel))
                 return
             }
             if token.success {
                 DefaultsManagerKeys.tokenKey.set(value: token.requestToken)
                 DefaultsManagerKeys.tokenExpireKey.set(value: token.expiresAt)
             }
-            completion(tokenResponseModel, nil)
+            completion(.success(model: token))
         }
     }
     
-    func validate(session model: ValidateLoginRequestModel, completion: @escaping UseCaseCompletion<TokenResponseModel>) {
+    func validate(session model: ValidateLoginRequestModel,
+                  completion: @escaping UseCaseCompletion<AuthenticationUseCaseStatus<TokenResponseModel>>) {
         authenticationService.validate(with: model) { (tokenResponseModel, basicStatusResponseModel) in
             guard let token = tokenResponseModel else {
-                completion(nil, basicStatusResponseModel)
+                completion(.failure(responseError: basicStatusResponseModel))
                 return
             }
             if token.success {
@@ -53,20 +63,20 @@ final class AuthenticationUseCase: AuthenticationUseCaseProtocol {
                 DefaultsManagerKeys.tokenKey.remove()
                 DefaultsManagerKeys.tokenExpireKey.remove()
             }
-            completion(tokenResponseModel, nil)
+            completion(.success(model: token))
         }
     }
     
-    func create(session model: SessionRequestModel, completion: @escaping UseCaseCompletion<SessionResponseModel>) {
+    func create(session model: SessionRequestModel, completion: @escaping UseCaseCompletion<AuthenticationUseCaseStatus<SessionResponseModel>>) {
         authenticationService.createSession(with: model) { (sessionResponse, basicStatusResponseModel) in
             guard let session = sessionResponse else {
-                completion(nil, basicStatusResponseModel)
+                completion(.failure(responseError: basicStatusResponseModel))
                 return
             }
             if session.success {
                 DefaultsManagerKeys.sessionIDKey.set(value: session.sessionID)
             }
-            completion(session, nil)
+            completion(.success(model: session))
         }
     }
 }
