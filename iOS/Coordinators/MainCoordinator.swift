@@ -19,9 +19,9 @@ class MainCoordinator: CoordinatorProtocol {
 
     func start() {
         if DefaultsManagerKeys.sessionIDKey.get() == nil {
-            startHome()
-        } else {
             startLogin()
+        } else {
+            startHome()
         }
     }
     

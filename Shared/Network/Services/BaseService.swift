@@ -54,7 +54,8 @@ open class BaseService {
                         do {
                             result = try T.toModel(from: data)
                         } catch let parseError {
-                            error = BasicStatusResponseModel(statusCode: 502, statusMessage: parseError.localizedDescription)
+                            error = BasicStatusResponseModel(statusCode: 502,
+                                    statusMessage: parseError.localizedDescription)
                         }
                     }
                 default:
@@ -62,7 +63,8 @@ open class BaseService {
                         do {
                             error = try BasicStatusResponseModel.toModel(from: data)
                         } catch let parseError {
-                            error = BasicStatusResponseModel(statusCode: 502, statusMessage: parseError.localizedDescription)
+                            error = BasicStatusResponseModel(statusCode: 502,
+                                    statusMessage: parseError.localizedDescription)
                         }
                     } else {
                         error = BasicStatusResponseModel(statusCode: 502, statusMessage: "unknown error")

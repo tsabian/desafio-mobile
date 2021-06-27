@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		184BB26B08A149AA9FA4E95E /* Pods_MoviewareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 540250B9153E435E221AD172 /* Pods_MoviewareTests.framework */; };
 		B692E3576FFC0FAD330F7E2A /* Pods_TmdbMovieware.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE350C0BC3610D4E86B84ADD /* Pods_TmdbMovieware.framework */; };
+		F117AB172688DA140015FEC3 /* LocalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F117AB162688DA140015FEC3 /* LocalButton.swift */; };
 		F11F540426630C1D00566EC0 /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540326630C1D00566EC0 /* UseCaseProtocol.swift */; };
 		F11F540726630D6C00566EC0 /* AccountSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540626630D6C00566EC0 /* AccountSessionModel.swift */; };
 		F11F540A26630F5B00566EC0 /* AccountRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F540926630F5B00566EC0 /* AccountRoutes.swift */; };
@@ -36,6 +37,12 @@
 		F1369EF8266C20B500BCEE90 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369EF7266C20B500BCEE90 /* String.swift */; };
 		F1369EFC266C23A900BCEE90 /* StringExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1369EFB266C23A900BCEE90 /* StringExtensionsTest.swift */; };
 		F13AEA5925AEBE4A0091BF27 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13AEA5825AEBE4A0091BF27 /* NetworkError.swift */; };
+		F13BFA482687D25E004085B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F13DE89D2675101800F76298 /* GoogleService-Info.plist */; };
+		F13BFA492687D262004085B8 /* TmdbMovieware-dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F198FEE825AAC21A00327990 /* TmdbMovieware-dev.xcconfig */; };
+		F13BFA4A2687D266004085B8 /* TmdbMovieware-hml.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F198FEE925AAC22C00327990 /* TmdbMovieware-hml.xcconfig */; };
+		F13BFA4B2687D269004085B8 /* TmdbMovieware-prd.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F198FEEA25AAC23C00327990 /* TmdbMovieware-prd.xcconfig */; };
+		F13BFA4E2688C3E9004085B8 /* LocalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13BFA4D2688C3E9004085B8 /* LocalTextField.swift */; };
+		F13BFA502688CF6C004085B8 /* KeyboardConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13BFA4F2688CF6C004085B8 /* KeyboardConstraint.swift */; };
 		F13DE89326747DF600F76298 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DE89126747DF600F76298 /* LoginViewController.swift */; };
 		F13DE89426747DF600F76298 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13DE89226747DF600F76298 /* LoginViewController.xib */; };
 		F13DE89626747E1D00F76298 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DE89526747E1D00F76298 /* LoginViewModel.swift */; };
@@ -113,6 +120,7 @@
 		93FEB315BF2513ECCCAB6FC2 /* Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware-MoviewareUITests/Pods-TmdbMovieware-MoviewareUITests.prd.xcconfig"; sourceTree = "<group>"; };
 		AE350C0BC3610D4E86B84ADD /* Pods_TmdbMovieware.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TmdbMovieware.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DE56139C6F9DB62B2CA596 /* Pods-TmdbMovieware.prd.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TmdbMovieware.prd.xcconfig"; path = "Target Support Files/Pods-TmdbMovieware/Pods-TmdbMovieware.prd.xcconfig"; sourceTree = "<group>"; };
+		F117AB162688DA140015FEC3 /* LocalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalButton.swift; sourceTree = "<group>"; };
 		F11F540326630C1D00566EC0 /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
 		F11F540626630D6C00566EC0 /* AccountSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSessionModel.swift; sourceTree = "<group>"; };
 		F11F540926630F5B00566EC0 /* AccountRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRoutes.swift; sourceTree = "<group>"; };
@@ -146,6 +154,8 @@
 		F1369EF7266C20B500BCEE90 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F1369EFB266C23A900BCEE90 /* StringExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTest.swift; sourceTree = "<group>"; };
 		F13AEA5825AEBE4A0091BF27 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F13BFA4D2688C3E9004085B8 /* LocalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTextField.swift; sourceTree = "<group>"; };
+		F13BFA4F2688CF6C004085B8 /* KeyboardConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConstraint.swift; sourceTree = "<group>"; };
 		F13DE89126747DF600F76298 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F13DE89226747DF600F76298 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		F13DE89526747E1D00F76298 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -321,6 +331,7 @@
 			children = (
 				F1200CEC25AAA0BA002A5F9D /* AppDelegate.swift */,
 				F1200CEE25AAA0BA002A5F9D /* SceneDelegate.swift */,
+				F13BFA4C2688C338004085B8 /* Common */,
 				F1462E6225AAEA21004808A7 /* Coordinators */,
 				F1DA434825AB78F9009D5892 /* Infrastructure */,
 				F198FEE625AAC1E100327990 /* Modules */,
@@ -413,6 +424,16 @@
 				F1369EFB266C23A900BCEE90 /* StringExtensionsTest.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F13BFA4C2688C338004085B8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F13BFA4D2688C3E9004085B8 /* LocalTextField.swift */,
+				F13BFA4F2688CF6C004085B8 /* KeyboardConstraint.swift */,
+				F117AB162688DA140015FEC3 /* LocalButton.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		F13DE89026747DB900F76298 /* Login */ = {
@@ -752,14 +773,18 @@
 				F13DE8AF2675CAE900F76298 /* HomeViewController.xib in Resources */,
 				F13DE8AB26759DD700F76298 /* Colors.xcassets in Resources */,
 				F1DA430925AB6ED2009D5892 /* MediaListView.xib in Resources */,
+				F13BFA4B2687D269004085B8 /* TmdbMovieware-prd.xcconfig in Resources */,
 				F1DA433F25AB72FE009D5892 /* MediaCollectionViewCell.xib in Resources */,
+				F13BFA492687D262004085B8 /* TmdbMovieware-dev.xcconfig in Resources */,
 				F1200CF925AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard in Resources */,
 				F1200CF625AAA0BB002A5F9D /* Assets.xcassets in Resources */,
 				F13DE89426747DF600F76298 /* LoginViewController.xib in Resources */,
 				F13DE8A72675999900F76298 /* Exo2-Medium.ttf in Resources */,
 				F13DE8A42675999900F76298 /* Exo2-Regular.ttf in Resources */,
 				F13DE8A52675999900F76298 /* Exo2-Bold.ttf in Resources */,
+				F13BFA4A2687D266004085B8 /* TmdbMovieware-hml.xcconfig in Resources */,
 				F13DE8A62675999900F76298 /* Exo2-Light.ttf in Resources */,
+				F13BFA482687D25E004085B8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,6 +946,8 @@
 				F13DE8AE2675CAE900F76298 /* HomeViewController.swift in Sources */,
 				F13DE89A26747F3400F76298 /* BaseViewController.swift in Sources */,
 				F11F540426630C1D00566EC0 /* UseCaseProtocol.swift in Sources */,
+				F117AB172688DA140015FEC3 /* LocalButton.swift in Sources */,
+				F13BFA4E2688C3E9004085B8 /* LocalTextField.swift in Sources */,
 				F1DA430825AB6ED2009D5892 /* MediaListView.swift in Sources */,
 				F1DA42E525AB6A62009D5892 /* BaseService.swift in Sources */,
 				F1E3B9AC2662F0D100D3A9BA /* ValidateLoginRequestModel.swift in Sources */,
@@ -937,6 +964,7 @@
 				F163452825ABB7EB001A8411 /* EnvironmentKeys.swift in Sources */,
 				F1E3B9B12662F3B200D3A9BA /* SessionRequestModel.swift in Sources */,
 				F13DE89626747E1D00F76298 /* LoginViewModel.swift in Sources */,
+				F13BFA502688CF6C004085B8 /* KeyboardConstraint.swift in Sources */,
 				F1BEA61F25ABB1B7007BB167 /* MovieResponseModel.swift in Sources */,
 				F1462E6525AAEA5C004808A7 /* CoordinatorProtocol.swift in Sources */,
 				F1DA434A25AB79AD009D5892 /* Bindable.swift in Sources */,

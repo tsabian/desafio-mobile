@@ -10,19 +10,18 @@ import UIKit
 class HomeViewController: BaseViewController {
 
     var viewModel: HomeViewModelProtocol?
-    
-    // MARK: - Construtor
+
+    // MARK: - Life Cycle
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        self.viewModel = nil
+        viewModel = nil
         super.init(coder: coder)
     }
-    
-    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

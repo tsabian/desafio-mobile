@@ -44,7 +44,7 @@ extension CoordinatorProtocol {
     }
 
     var identifier: String {
-        return String(describing: Self.self)
+        String(describing: Self.self)
     }
     
     func removeChild(coordinator: CoordinatorProtocol) {

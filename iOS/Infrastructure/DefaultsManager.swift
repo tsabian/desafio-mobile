@@ -17,20 +17,20 @@ private final class DefaultsManager {
     
     static var shared = DefaultsManager()
     
-    private let standart = UserDefaults.standard
+    private let standard = UserDefaults.standard
     
     private init() {}
     
     func save<T>(key: DefaultsManagerKeys, value: T) {
-        standart.setValue(value, forKey: key.rawValue)
+        standard.setValue(value, forKey: key.rawValue)
     }
     
     func get<T>(key: DefaultsManagerKeys) -> T? {
-        return standart.object(forKey: key.rawValue) as? T
+        standard.object(forKey: key.rawValue) as? T
     }
     
     func delete(key: DefaultsManagerKeys) {
-        standart.removeObject(forKey: key.rawValue)
+        standard.removeObject(forKey: key.rawValue)
     }
 }
 
@@ -40,7 +40,7 @@ extension DefaultsManagerKeys {
     }
     
     func get<T>() -> T? {
-        return DefaultsManager.shared.get(key: self)
+        DefaultsManager.shared.get(key: self)
     }
     
     func remove() {

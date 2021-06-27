@@ -18,10 +18,9 @@ class MediaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var shortDescriptionView: UIView!
     @IBOutlet weak var shortDescriptionText: UILabel!
     
-    // MARK: - Lifecycle
+    // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
 }

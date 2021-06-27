@@ -11,7 +11,7 @@ class Bindable<Input> {
     
     typealias BindableHandler = (Input?) -> Void
     
-    private(set) var observer: BindableHandler?
+    private var observer: BindableHandler?
     
     var value: Input? {
         didSet {

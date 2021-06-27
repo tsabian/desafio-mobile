@@ -67,7 +67,8 @@ final class AuthenticationUseCase: AuthenticationUseCaseProtocol {
         }
     }
     
-    func create(session model: SessionRequestModel, completion: @escaping UseCaseCompletion<AuthenticationUseCaseStatus<SessionResponseModel>>) {
+    func create(session model: SessionRequestModel,
+                completion: @escaping UseCaseCompletion<AuthenticationUseCaseStatus<SessionResponseModel>>) {
         authenticationService.createSession(with: model) { (sessionResponse, basicStatusResponseModel) in
             guard let session = sessionResponse else {
                 completion(.failure(responseError: basicStatusResponseModel))

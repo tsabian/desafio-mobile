@@ -47,4 +47,5 @@ Como usuário, ao selecionar um item da lista, gostaria de ver os detalhes do fi
 # BOA SORTE!
 
 # Design
-[Link Adobe XD](https://xd.adobe.com/view/59cafdea-60fd-474b-bac1-aaf56f130f4f-0c99/)
+[Link Adobe XD [Light]](https://xd.adobe.com/view/b84b6b26-cb41-46a5-acaf-e1653b4c5fd1-ed18/)
+[Link Adobe XD [Dark]](https://xd.adobe.com/view/a76038c2-6ff8-4d7e-88cc-3511a73d4a9c-f233/)

@@ -1,7 +1,27 @@
 {
   "images" : [
     {
-      "filename" : "img-logo.pdf",
+      "filename" : "img-logo-1.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "img-logo-light.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "img-logo-2.pdf",
       "idiom" : "universal"
     }
   ],

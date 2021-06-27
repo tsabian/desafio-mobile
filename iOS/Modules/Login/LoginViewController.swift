@@ -22,20 +22,99 @@ class LoginViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var backgroundImage: UIImageView! {
         didSet {
+            backgroundImage.contentMode = .scaleAspectFill
             backgroundImage.image = UIImage(named: "img-background") ?? UIImage()
         }
     }
-    @IBOutlet weak var loginEmailText: UITextField! {
+    
+    @IBOutlet weak var backgroundGradientTopView: UIView! {
         didSet {
-            loginEmailText.placeholder = LocalizableKeys.LoginLocalizable.emailTextPlaceHolder.localized
-        }
-    }
-    @IBOutlet weak var loginPasswordText: UITextField! {
-        didSet {
-            loginPasswordText.placeholder = LocalizableKeys.LoginLocalizable.passwordTextPlaceHolder.localized
+            backgroundGradientTopView.backgroundColor = UIColor.clear
+            let gradient = CAGradientLayer()
+            gradient.frame = backgroundGradientTopView.bounds
+            gradient.colors = [UIColor.white.cgColor,
+                               UIColor.white.withAlphaComponent(0).cgColor]
+            backgroundGradientTopView.layer.insertSublayer(gradient, at: 0)
         }
     }
     
+    @IBOutlet weak var backgroundGradientBottomView: UIView! {
+        didSet {
+            backgroundGradientBottomView.backgroundColor = UIColor.clear
+            let gradient = CAGradientLayer()
+            gradient.frame = backgroundGradientBottomView.bounds
+            gradient.colors = [UIColor.white.withAlphaComponent(0.0).cgColor,
+                               UIColor.white.cgColor]
+            backgroundGradientBottomView.layer.insertSublayer(gradient, at: 0)
+        }
+    }
+
+    @IBOutlet weak var logoImage: UIImageView! {
+        didSet {
+            logoImage.image = UIImage(named: "img-logo")
+        }
+    }
+    
+    @IBOutlet weak var emailLabel: UILabel! {
+        didSet {
+            emailLabel.text = LocalizableKeys.Login.emailLabelTitle.localized
+        }
+    }
+    
+    @IBOutlet weak var loginEmailText: LocalTextField! {
+        didSet {
+            loginEmailText.placeholder = LocalizableKeys.Login.emailTextPlaceHolder.localized
+        }
+    }
+    
+    @IBOutlet weak var passwordLabel: UILabel! {
+        didSet {
+            passwordLabel.text = LocalizableKeys.Login.passwordLabelTitle.localized
+        }
+    }
+
+    @IBOutlet weak var loginPasswordView: UIView! {
+        didSet {
+            loginPasswordView.backgroundColor = UIColor.clear
+        }
+    }
+    
+    @IBOutlet weak var loginPasswordText: LocalTextField! {
+        didSet {
+            loginPasswordText.placeholder = LocalizableKeys.Login.passwordTextPlaceHolder.localized
+        }
+    }
+    
+    @IBOutlet weak var forgotPasswordButton: UIButton! {
+        didSet {
+            forgotPasswordButton.setTitle(LocalizableKeys.Login.rememberPasswordLabelTitle.localized, for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var signInButton: LocalButton! {
+        didSet {
+            signInButton.setTitle(LocalizableKeys.Login.loginButtonTitle.localized, for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var signInSocialView: UIView! {
+        didSet {
+            signInSocialView.isHidden = true
+        }
+    }
+    
+    @IBOutlet weak var accountInfoLabel: UILabel! {
+        didSet {
+            accountInfoLabel.textAlignment = .center
+            accountInfoLabel.text = LocalizableKeys.Login.registerInfoLabelTitle.localized
+        }
+    }
+    
+    @IBOutlet weak var registerButton: UIButton! {
+        didSet {
+            registerButton.setTitle(LocalizableKeys.Login.registerButtonTitle.localized, for: .normal)
+        }
+    }
 
     // MARK: - Life Cycle
     convenience init() {
@@ -48,12 +127,13 @@ class LoginViewController: BaseViewController {
     }
 
     required init?(coder: NSCoder) {
-        self.viewModel = LoginViewModel()
+        viewModel = LoginViewModel()
         super.init(coder: coder)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
     }
 
     // MARK: - Listener
