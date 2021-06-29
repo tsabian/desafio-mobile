@@ -61,6 +61,8 @@
 		F1435AC0268AD4F8009302AB /* FontManager+TmdbMovieware.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1435ABF268AD4F8009302AB /* FontManager+TmdbMovieware.swift */; };
 		F1462E6525AAEA5C004808A7 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1462E6425AAEA5C004808A7 /* CoordinatorProtocol.swift */; };
 		F1462E7425AAEB59004808A7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1462E7325AAEB59004808A7 /* MainCoordinator.swift */; };
+		F14BB24E268B4020002D420F /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BB24D268B4020002D420F /* ColorManager.swift */; };
+		F14BB250268B4061002D420F /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BB24F268B4061002D420F /* UIColor+HexString.swift */; };
 		F163451325ABB560001A8411 /* MoviesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163451225ABB560001A8411 /* MoviesRequestModel.swift */; };
 		F163451B25ABB722001A8411 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163451A25ABB722001A8411 /* Environment.swift */; };
 		F163452325ABB75D001A8411 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163452225ABB75D001A8411 /* Bundle.swift */; };
@@ -178,6 +180,8 @@
 		F1435ABF268AD4F8009302AB /* FontManager+TmdbMovieware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FontManager+TmdbMovieware.swift"; sourceTree = "<group>"; };
 		F1462E6425AAEA5C004808A7 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		F1462E7325AAEB59004808A7 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F14BB24D268B4020002D420F /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		F14BB24F268B4061002D420F /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
 		F163451225ABB560001A8411 /* MoviesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRequestModel.swift; sourceTree = "<group>"; };
 		F163451A25ABB722001A8411 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		F163452225ABB75D001A8411 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -500,6 +504,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F14BB251268B4438002D420F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F1435ABD268AD2D1009302AB /* FontManager.swift */,
+				F14BB24D268B4020002D420F /* ColorManager.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F17807C02662E2C2003C5A52 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +616,7 @@
 				F1369EDB266B9C2400BCEE90 /* DefaultsManager.swift */,
 				F1DA438625AB9B84009D5892 /* Common */,
 				F1DA436025AB99BD009D5892 /* Extensions */,
+				F14BB251268B4438002D420F /* Resources */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -622,6 +636,7 @@
 				F1369EF7266C20B500BCEE90 /* String.swift */,
 				F1DA436925AB9A3F009D5892 /* DateFormatter.swift */,
 				F1435ABB268AD164009302AB /* UIViewController+dismissKeyboard.swift */,
+				F14BB24F268B4061002D420F /* UIColor+HexString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -633,7 +648,6 @@
 				F13BFA4F2688CF6C004085B8 /* KeyboardConstraint.swift */,
 				F117AB162688DA140015FEC3 /* LocalButton.swift */,
 				F13BFA4D2688C3E9004085B8 /* LocalTextField.swift */,
-				F1435ABD268AD2D1009302AB /* FontManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -944,6 +958,7 @@
 				F1DA435525AB98D4009D5892 /* BasicStatusResponseModel.swift in Sources */,
 				F1BEA61A25ABB1A1007BB167 /* MovieCollectionResponseModel.swift in Sources */,
 				F1BEA62D25ABB411007BB167 /* MovieRoutes.swift in Sources */,
+				F14BB24E268B4020002D420F /* ColorManager.swift in Sources */,
 				F13AEA5925AEBE4A0091BF27 /* NetworkError.swift in Sources */,
 				F13DE8AE2675CAE900F76298 /* HomeViewController.swift in Sources */,
 				F13DE89A26747F3400F76298 /* BaseViewController.swift in Sources */,
@@ -974,6 +989,7 @@
 				F1DA434A25AB79AD009D5892 /* Bindable.swift in Sources */,
 				F1DA433E25AB72FE009D5892 /* MediaCollectionViewCell.swift in Sources */,
 				F1462E7425AAEB59004808A7 /* MainCoordinator.swift in Sources */,
+				F14BB250268B4061002D420F /* UIColor+HexString.swift in Sources */,
 				F13DE89826747E5300F76298 /* LoginCoordinator.swift in Sources */,
 				F11F541526640BF500566EC0 /* RouteProtocol.swift in Sources */,
 				F1369EDC266B9C2400BCEE90 /* DefaultsManager.swift in Sources */,
