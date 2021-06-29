@@ -8,9 +8,9 @@
 
 "enterEmail" = "Digite seu e-mail";
 "enterPassword" = "Digite sua senha";
-"rememberPassword" = "Esqueci?";
-"login" = "Login";
+"rememberPassword" = "ESQUECI?";
+"login" = "LOGIN";
 "registerAccount" = "Não tem uma conta?";
-"register" = "Registrar";
-"email" = "email";
-"password" = "password";
+"register" = "REGISTRAR";
+"email" = "EMAIL";
+"password" = "PASSWORD";

@@ -33,7 +33,9 @@ class LoginViewController: BaseViewController {
             let gradient = CAGradientLayer()
             gradient.frame = backgroundGradientTopView.bounds
             gradient.colors = [UIColor.white.cgColor,
+                               UIColor.white.cgColor,
                                UIColor.white.withAlphaComponent(0).cgColor]
+            gradient.locations = [0, 0.2, 1]
             backgroundGradientTopView.layer.insertSublayer(gradient, at: 0)
         }
     }
@@ -44,55 +46,83 @@ class LoginViewController: BaseViewController {
             let gradient = CAGradientLayer()
             gradient.frame = backgroundGradientBottomView.bounds
             gradient.colors = [UIColor.white.withAlphaComponent(0.0).cgColor,
+                               UIColor.white.cgColor,
                                UIColor.white.cgColor]
+            gradient.locations = [0, 0.9, 1]
             backgroundGradientBottomView.layer.insertSublayer(gradient, at: 0)
         }
     }
 
+    @IBOutlet weak var formScrollView: UIScrollView! {
+        didSet {
+            formScrollView.backgroundColor = UIColor.clear
+        }
+    }
+    
+    @IBOutlet weak var formContentView: UIView! {
+        didSet {
+            formContentView.backgroundColor = UIColor.clear
+        }
+    }
+    
     @IBOutlet weak var logoImage: UIImageView! {
         didSet {
+            logoImage.clipsToBounds = true
             logoImage.image = UIImage(named: "img-logo")
+            logoImage.contentMode = .center
         }
     }
     
     @IBOutlet weak var emailLabel: UILabel! {
         didSet {
             emailLabel.text = LocalizableKeys.Login.emailLabelTitle.localized
+            emailLabel.font = FontManager.shared.bold(size: 12)
         }
     }
     
     @IBOutlet weak var loginEmailText: LocalTextField! {
         didSet {
             loginEmailText.placeholder = LocalizableKeys.Login.emailTextPlaceHolder.localized
+            loginEmailText.delegate = self
+            loginEmailText.font = FontManager.shared.regular(size: 17)
         }
     }
     
     @IBOutlet weak var passwordLabel: UILabel! {
         didSet {
             passwordLabel.text = LocalizableKeys.Login.passwordLabelTitle.localized
+            passwordLabel.font = FontManager.shared.bold(size: 12)
         }
     }
 
     @IBOutlet weak var loginPasswordView: UIView! {
         didSet {
+            loginPasswordView.clipsToBounds = true
             loginPasswordView.backgroundColor = UIColor.clear
         }
     }
     
     @IBOutlet weak var loginPasswordText: LocalTextField! {
         didSet {
-            loginPasswordText.placeholder = LocalizableKeys.Login.passwordTextPlaceHolder.localized
+            let attributes = [NSAttributedString.Key.font: FontManager.shared.regular(size: 17)]
+            loginPasswordText.attributedPlaceholder = NSAttributedString(string: LocalizableKeys.Login.passwordTextPlaceHolder.localized,
+                                                                         attributes: attributes)
+            loginPasswordText.delegate = self
+            loginPasswordText.font = FontManager.shared.regular(size: 17)
         }
     }
     
     @IBOutlet weak var forgotPasswordButton: UIButton! {
         didSet {
             forgotPasswordButton.setTitle(LocalizableKeys.Login.rememberPasswordLabelTitle.localized, for: .normal)
+            forgotPasswordButton.titleLabel?.font = FontManager.shared.bold(size: 11)
+            forgotPasswordButton.setTitleColor(UIColor.black, for: .normal)
         }
     }
     
     @IBOutlet weak var signInButton: LocalButton! {
         didSet {
+            signInButton.buttonStyle = .fillStyle
             signInButton.setTitle(LocalizableKeys.Login.loginButtonTitle.localized, for: .normal)
         }
     }
@@ -107,6 +137,8 @@ class LoginViewController: BaseViewController {
         didSet {
             accountInfoLabel.textAlignment = .center
             accountInfoLabel.text = LocalizableKeys.Login.registerInfoLabelTitle.localized
+            accountInfoLabel.font = FontManager.shared.regular(size: 14)
+            accountInfoLabel.textColor = UIColor(named: "#6F6F6FA3")
         }
     }
     
@@ -134,6 +166,7 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        hiddeKeyboardOnTapGesture()
     }
 
     // MARK: - Listener
@@ -164,5 +197,13 @@ class LoginViewController: BaseViewController {
     
     private func signIn() {
         viewModel.signInWithCredentials(email: loginEmailText.text, andSecurityPassword: loginEmailText.text)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
