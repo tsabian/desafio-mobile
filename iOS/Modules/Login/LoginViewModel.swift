@@ -36,7 +36,7 @@ class LoginViewModel: LoginViewModelProtocol {
     
     func signInWithCredentials(email: String?, andSecurityPassword password: String?) {
         guard let email = email, let password = password,
-              !email.isEmpty, password.isEmpty else {
+              !email.isEmpty, !password.isEmpty else {
             viewStatus.value = .credentialsCannotBeNull
             return
         }

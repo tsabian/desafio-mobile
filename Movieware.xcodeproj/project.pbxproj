@@ -49,10 +49,6 @@
 		F13DE89826747E5300F76298 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DE89726747E5300F76298 /* LoginCoordinator.swift */; };
 		F13DE89A26747F3400F76298 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DE89926747F3400F76298 /* BaseViewController.swift */; };
 		F13DE89C2675100700F76298 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = F13DE89B2675100700F76298 /* GoogleService-Info-dev.plist */; };
-		F13DE8A42675999900F76298 /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8A02675999800F76298 /* Exo2-Regular.ttf */; };
-		F13DE8A52675999900F76298 /* Exo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8A12675999900F76298 /* Exo2-Bold.ttf */; };
-		F13DE8A62675999900F76298 /* Exo2-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8A22675999900F76298 /* Exo2-Light.ttf */; };
-		F13DE8A72675999900F76298 /* Exo2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8A32675999900F76298 /* Exo2-Medium.ttf */; };
 		F13DE8AB26759DD700F76298 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8AA26759DD700F76298 /* Colors.xcassets */; };
 		F13DE8AE2675CAE900F76298 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13DE8AC2675CAE900F76298 /* HomeViewController.swift */; };
 		F13DE8AF2675CAE900F76298 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8AD2675CAE900F76298 /* HomeViewController.xib */; };
@@ -67,6 +63,10 @@
 		F163451B25ABB722001A8411 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163451A25ABB722001A8411 /* Environment.swift */; };
 		F163452325ABB75D001A8411 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163452225ABB75D001A8411 /* Bundle.swift */; };
 		F163452825ABB7EB001A8411 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163452725ABB7EB001A8411 /* EnvironmentKeys.swift */; };
+		F19BE643268EB58600BA3585 /* Exo2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8A32675999900F76298 /* Exo2-Medium.ttf */; };
+		F19BE644268EB58600BA3585 /* Exo2-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8A22675999900F76298 /* Exo2-Light.ttf */; };
+		F19BE645268EB58600BA3585 /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8A02675999800F76298 /* Exo2-Regular.ttf */; };
+		F19BE646268EB58600BA3585 /* Exo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13DE8A12675999900F76298 /* Exo2-Bold.ttf */; };
 		F1AD0F9726698AC300513CCF /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD0F9626698AC300513CCF /* AuthenticationService.swift */; };
 		F1AD0F99266992CE00513CCF /* DeleteSessionResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD0F98266992CE00513CCF /* DeleteSessionResponseModel.swift */; };
 		F1BEA61A25ABB1A1007BB167 /* MovieCollectionResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BEA61925ABB1A1007BB167 /* MovieCollectionResponseModel.swift */; };
@@ -788,17 +788,17 @@
 				F13DE8AF2675CAE900F76298 /* HomeViewController.xib in Resources */,
 				F13DE8AB26759DD700F76298 /* Colors.xcassets in Resources */,
 				F1DA430925AB6ED2009D5892 /* MediaListView.xib in Resources */,
+				F19BE643268EB58600BA3585 /* Exo2-Medium.ttf in Resources */,
 				F13BFA4B2687D269004085B8 /* TmdbMovieware-prd.xcconfig in Resources */,
+				F19BE646268EB58600BA3585 /* Exo2-Bold.ttf in Resources */,
 				F1DA433F25AB72FE009D5892 /* MediaCollectionViewCell.xib in Resources */,
+				F19BE644268EB58600BA3585 /* Exo2-Light.ttf in Resources */,
+				F19BE645268EB58600BA3585 /* Exo2-Regular.ttf in Resources */,
 				F13BFA492687D262004085B8 /* TmdbMovieware-dev.xcconfig in Resources */,
 				F1200CF925AAA0BB002A5F9D /* TmdbMoviewareLaunchScreen.storyboard in Resources */,
 				F1200CF625AAA0BB002A5F9D /* Assets.xcassets in Resources */,
 				F13DE89426747DF600F76298 /* LoginViewController.xib in Resources */,
-				F13DE8A72675999900F76298 /* Exo2-Medium.ttf in Resources */,
-				F13DE8A42675999900F76298 /* Exo2-Regular.ttf in Resources */,
-				F13DE8A52675999900F76298 /* Exo2-Bold.ttf in Resources */,
 				F13BFA4A2687D266004085B8 /* TmdbMovieware-hml.xcconfig in Resources */,
-				F13DE8A62675999900F76298 /* Exo2-Light.ttf in Resources */,
 				F13BFA482687D25E004085B8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

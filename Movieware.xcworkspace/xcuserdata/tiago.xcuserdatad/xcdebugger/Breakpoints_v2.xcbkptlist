@@ -20,5 +20,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4043A409-8660-4E72-8F82-D16E48DB1CBC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS/Modules/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "signInWithCredentials(email:andSecurityPassword:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4043A409-8660-4E72-8F82-D16E48DB1CBC - 5f2463a8bb1af940"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TmdbMovieware.LoginViewModel.signInWithCredentials(email: Swift.Optional&lt;Swift.String&gt;, andSecurityPassword: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "TmdbMovieware"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tiago/Projetos/Github/desafio-mobile/iOS/Modules/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "506">
+               </Location>
+               <Location
+                  uuid = "4043A409-8660-4E72-8F82-D16E48DB1CBC - 4add5987962748b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;TmdbMovieware.AuthenticationUseCaseStatus&lt;TmdbMovieware.TokenResponseModel&gt;&gt;) -&gt; () in TmdbMovieware.LoginViewModel.signInWithCredentials(email: Swift.Optional&lt;Swift.String&gt;, andSecurityPassword: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "TmdbMovieware"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tiago/Projetos/Github/desafio-mobile/iOS/Modules/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "385">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CB78F77-AD1A-4F28-B514-E823F7898685"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS/Modules/Login/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "signInDidTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -77,14 +77,19 @@ class LoginViewController: BaseViewController {
         didSet {
             emailLabel.text = LocalizableKeys.Login.emailLabelTitle.localized
             emailLabel.font = FontManager.shared.bold(size: 12)
+            emailLabel.textColor = UIColor(named: "#5A5A5A")
         }
     }
     
     @IBOutlet weak var loginEmailText: LocalTextField! {
         didSet {
-            loginEmailText.placeholder = LocalizableKeys.Login.emailTextPlaceHolder.localized
+            let attributes = [NSAttributedString.Key.font: FontManager.shared.regular(size: 17)]
+            loginEmailText.attributedPlaceholder = NSAttributedString(string: LocalizableKeys.Login.emailTextPlaceHolder.localized,
+                                                                      attributes: attributes)
             loginEmailText.delegate = self
             loginEmailText.font = FontManager.shared.regular(size: 17)
+            loginEmailText.keyboardType = .emailAddress
+            loginEmailText.textContentType = .emailAddress
         }
     }
     
@@ -92,6 +97,7 @@ class LoginViewController: BaseViewController {
         didSet {
             passwordLabel.text = LocalizableKeys.Login.passwordLabelTitle.localized
             passwordLabel.font = FontManager.shared.bold(size: 12)
+            passwordLabel.textColor = UIColor(named: "#5A5A5A")
         }
     }
 
@@ -109,6 +115,8 @@ class LoginViewController: BaseViewController {
                                                                          attributes: attributes)
             loginPasswordText.delegate = self
             loginPasswordText.font = FontManager.shared.regular(size: 17)
+            loginPasswordText.isSecureTextEntry = true
+            loginPasswordText.textContentType = .password
         }
     }
     
@@ -116,7 +124,7 @@ class LoginViewController: BaseViewController {
         didSet {
             forgotPasswordButton.setTitle(LocalizableKeys.Login.rememberPasswordLabelTitle.localized, for: .normal)
             forgotPasswordButton.titleLabel?.font = FontManager.shared.bold(size: 11)
-            forgotPasswordButton.setTitleColor(UIColor.black, for: .normal)
+            forgotPasswordButton.setTitleColor(UIColor(named: "#5A5A5A"), for: .normal)
         }
     }
     
@@ -145,6 +153,8 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var registerButton: UIButton! {
         didSet {
             registerButton.setTitle(LocalizableKeys.Login.registerButtonTitle.localized, for: .normal)
+            registerButton.titleLabel?.font = FontManager.shared.bold(size: 14)
+            registerButton.setTitleColor(UIColor(named: "#5A5A5A"), for: .normal)
         }
     }
 
@@ -192,11 +202,12 @@ class LoginViewController: BaseViewController {
     }
 
     @IBAction func signInDidTap(_ sender: UIButton) {
-        
+        signIn()
     }
     
     private func signIn() {
-        viewModel.signInWithCredentials(email: loginEmailText.text, andSecurityPassword: loginEmailText.text)
+        viewModel.signInWithCredentials(email: loginEmailText.text,
+                                        andSecurityPassword: loginPasswordText.text)
     }
 }
 
